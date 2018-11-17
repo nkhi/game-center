@@ -1,5 +1,8 @@
 # Android Studio gitignore files taken from https://github.com/github/gitignore/blob/master/Android.gitignore
 
+# Mac indexing files
+.DS_Store
+
 # Built application files
 *.apk
 *.ap_
