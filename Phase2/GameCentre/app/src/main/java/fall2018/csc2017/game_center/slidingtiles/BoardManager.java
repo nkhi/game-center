@@ -166,7 +166,7 @@ class BoardManager implements Serializable {
     }
 
     /**
-     * Manage a new shuffled board.
+     * Manage a new shuffled board that is solvable.
      *
      * @param numRowCol number of rows and columns for board
      */
@@ -179,6 +179,10 @@ class BoardManager implements Serializable {
         tiles.add(new Tile(numTiles, R.drawable.tile_25));
 
         Collections.shuffle(tiles);
+        while (!isSolvable(tiles)){
+            Collections.shuffle(tiles);
+        }
+
         this.board = new Board(tiles, numRowCol);
         undoQueue = new ArrayDeque<>();
         this.numUndo = numUndo;
@@ -186,14 +190,14 @@ class BoardManager implements Serializable {
     }
 
     /**
-     * Manage a new shuffled board with default rows and columns
+     * Manage a new shuffled board that is solvable with default rows and columns
      */
     BoardManager(int numRowCol) {
         this(Board.DEFAULT_ROW_COL, INFINITY_UNDO);
     }
 
     /**
-     * Manage a new shuffled board with default rows and columns
+     * Manage a new shuffled board that is solvable with default rows and columns
      */
     BoardManager() {
         this(Board.DEFAULT_ROW_COL);
@@ -234,6 +238,54 @@ class BoardManager implements Serializable {
                 || (above != null && above.getId() == blankId)
                 || (left != null && left.getId() == blankId)
                 || (right != null && right.getId() == blankId);
+    }
+
+    /**
+     * Check to see if a board is solvable.
+     * @param tiles
+     * @return if the board is solvable or not.
+     * @see <a href="https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html">Solvability of the Tiles Game</a>
+     */
+    private boolean isSolvable(List<Tile> tiles) {
+        boolean solvable = false;
+
+        if (board.getNumRowCol() % 2 == 1) {
+            if (getInversion(tiles) % 2 == 0)
+                solvable = true;
+        }
+        else{
+            if ((getBlankRow(tiles) % 2 == 0) && (getInversion(tiles) % 2 == 0))
+                solvable = true;
+            else if ((getBlankRow(tiles) % 2 == 1) && (getInversion(tiles) % 2 == 1))
+                solvable = true;
+        }
+
+        return solvable;
+    }
+
+    private int getInversion(List<Tile> tiles){
+        int i = 0;
+        int inversion_i;
+        int inversion_t = 0;
+
+        while (i != tiles.size()){
+            inversion_i = tiles.get(i).getId() - 1;
+
+            for (int a = 0; a < i; a++){
+                if (tiles.get(a).getId() < tiles.get(i).getId())
+                    inversion_i--;
+            }
+            inversion_t += inversion_i;
+        }
+        return inversion_t;
+    }
+
+    private int getBlankRow(List<Tile> tiles){
+        for (int i = 0; i < tiles.size(); i++){
+            if (tiles.get(i).getId() == board.numTiles())
+                return i/board.getNumRowCol();
+        }
+        return board.numTiles()/board.numTiles();
     }
 
     /**
