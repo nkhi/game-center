@@ -69,14 +69,16 @@ public class GameActivity extends TileSaveManager implements Observer {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        time = 0;
+        time = 1;
 
         boardManager = getTemp();
 
         if (autosave == -1) {
-            if (boardManager.getAutosave() == 0)
+            autosave = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 0);
+            if (autosave == 0) {
                 Toast.makeText(this, "Autosave has been reverted to 3 moves", Toast.LENGTH_SHORT).show();
-            autosave = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 3);
+                autosave = 3;
+            }
             boardManager.setAutosave(autosave);
         }
         else

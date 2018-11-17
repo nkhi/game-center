@@ -21,7 +21,7 @@ public class AskPreference extends TileSaveManager {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask_preference);
         textview = findViewById(R.id.pref_type);
-        autosave = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 3);
+        autosave = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 0);
 
         addYesButtonListener();
         addNoButtonListener();
