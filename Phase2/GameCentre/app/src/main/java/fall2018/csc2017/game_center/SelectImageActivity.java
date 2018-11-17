@@ -24,7 +24,7 @@ import java.util.List;
 
 import fall2018.csc2017.game_center.R;
 
-
+@Deprecated
 public class SelectImageActivity extends AppCompatActivity {
     // Flag to indicate the request of the next task to be performed
     private static final int REQUEST_TAKE_PHOTO = 0;

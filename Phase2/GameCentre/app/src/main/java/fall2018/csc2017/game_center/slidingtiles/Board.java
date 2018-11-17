@@ -140,7 +140,7 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
      *
      * @return number of rows/columns
      */
-    public int getNumRowCol() {
+    int getNumRowCol() {
         return numRowCol;
     }
 }

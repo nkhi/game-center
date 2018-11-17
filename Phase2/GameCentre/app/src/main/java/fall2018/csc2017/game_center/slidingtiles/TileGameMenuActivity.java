@@ -17,6 +17,8 @@ import fall2018.csc2017.game_center.R;
  */
 public class TileGameMenuActivity extends TileSaveManager {
 
+    public static final String TILE_GAME_ID = "_tile_game";
+
     private int size;
     private int autosave;
     private int undo;
@@ -36,6 +38,7 @@ public class TileGameMenuActivity extends TileSaveManager {
         addSaveButtonListener();
         addLoadButtonListener();
         addSettingsButtonListener();
+        addScoreboardButtonListener();
     }
 
     /**
@@ -53,6 +56,15 @@ public class TileGameMenuActivity extends TileSaveManager {
         });
     }
 
+    private void addScoreboardButtonListener() {
+        Button scoreboardButton = findViewById(R.id.ScoreboardButton);
+        scoreboardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToScoreboard();
+            }
+        });
+    }
 
     /**
      * Activate the load button.
@@ -105,10 +117,9 @@ public class TileGameMenuActivity extends TileSaveManager {
      * Switch to the AskPreference to ask the user if they want to change the background.
      */
     private void switchToGame() {
-        Intent tmp = new Intent(this, AskPreference.class);
+        Intent tmp = new Intent(this, GameActivity.class);
+        tmp.putExtra(LoginActivity.CURRENT_USER, username);
         tmp.putExtra(SettingsActivity.AUTOSAVE_CONSTANT, autosave);
-        tmp.putExtra(SettingsActivity.SIZE_CONSTANT, size);
-        tmp.putExtra(SettingsActivity.UNDO_CONSTANT, undo);
         startActivity(tmp);
     }
 
@@ -129,6 +140,11 @@ public class TileGameMenuActivity extends TileSaveManager {
     private void switchToSettingMenu() {
         Intent tmp = new Intent(this, SettingsActivity.class);
         tmp.putExtra(LoginActivity.CURRENT_USER, username);
+        startActivity(tmp);
+    }
+
+    private void switchToScoreboard() {
+        Intent tmp = new Intent(this, TileScoreboard.class);
         startActivity(tmp);
     }
 

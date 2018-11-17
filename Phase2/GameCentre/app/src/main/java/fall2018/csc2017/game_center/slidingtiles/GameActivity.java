@@ -1,21 +1,17 @@
 package fall2018.csc2017.game_center.slidingtiles;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.GestureDetectorCompat;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import fall2018.csc2017.game_center.R;
-import fall2018.csc2017.game_center.StartingActivity;
+import fall2018.csc2017.game_center.Score;
 
 /**
  * The game activity.
@@ -45,15 +41,16 @@ public class GameActivity extends TileSaveManager implements Observer {
     private static int columnWidth, columnHeight;
 
     /**
-     * The time counter
+     * The counter for autosaving purposes
      */
-    static int time = 0;
+    private int autosaveIndex;
+
+    private int autosaveInterval;
 
     /**
      * Set up the background image for each button based on the master list
      * of positions, and then call the adapter to set the view.
      */
-    // Display
     public void display() {
         updateTileButtons();
         gridView.setAdapter(new CustomAdapter(tileButtons, columnWidth, columnHeight));
@@ -64,6 +61,8 @@ public class GameActivity extends TileSaveManager implements Observer {
         super.onCreate(savedInstanceState);
 
         boardManager = getTemp();
+        autosaveIndex = 0;
+        autosaveInterval = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 0);
 
         createTileButtons(this);
         setContentView(R.layout.activity_main);
@@ -136,13 +135,21 @@ public class GameActivity extends TileSaveManager implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         display();
-        if (time == 3) {
-            time = 0;
+        if (autosaveIndex == autosaveInterval) {
+            autosaveIndex = 0;
             loadIntoTemp(boardManager);
             autoSave();
+            writeFile();
             System.out.println("File saved");
+        } else {
+            autosaveIndex++;
         }
-        time++;
+        if (boardManager.puzzleSolved()) {
+            Intent tmp = new Intent(this, TileScoreboard.class);
+            tmp.putExtra(TileScoreboard.SCORE_EXTRA, new Score(username, boardManager));
+            startActivity(tmp);
+            finish();
+        }
     }
 
 }

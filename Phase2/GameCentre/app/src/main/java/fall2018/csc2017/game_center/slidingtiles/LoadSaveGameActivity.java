@@ -47,7 +47,7 @@ public class LoadSaveGameActivity extends TileSaveManager {
                 new BoardManager[getSaveFile().size() + 1]);
         times = getSaveFile().getTimes().toArray(new String[saves.length]);
 
-        setContentView(R.layout.activity_load_game);
+        setContentView(R.layout.activity_load_save_game);
 
         ListView savedGamesView = findViewById(R.id.SavedGamesList);
         savedGamesView.setAdapter(new LoadSaveGameAdapter());
@@ -88,12 +88,12 @@ public class LoadSaveGameActivity extends TileSaveManager {
             View.OnClickListener listener = getListener(position);
             LayoutInflater inflater = getLayoutInflater();
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.saved_game_row, parent, false);
+                convertView = inflater.inflate(R.layout.listview_entry, parent, false);
             }
             convertView.setClickable(true);
             convertView.setOnClickListener(listener);
-            TextView name = convertView.findViewById(R.id.SavedGameName);
-            TextView time = convertView.findViewById(R.id.SavedGameTime);
+            TextView name = convertView.findViewById(R.id.ListViewPrimary);
+            TextView time = convertView.findViewById(R.id.ListViewSecondary);
 
             time.setText(times[position]);
             if (position == 0) {

@@ -8,21 +8,25 @@ import java.util.Deque;
 import java.util.List;
 
 import fall2018.csc2017.game_center.R;
+import fall2018.csc2017.game_center.Scoreable;
 
 /**
  * Manage a board, including swapping tiles, checking for a win, and managing taps.
  */
-class BoardManager implements Serializable {
+class BoardManager implements Serializable, Scoreable {
 
     /**
      * Constant for infinity undo moves allowed
      */
-    public static final int INFINITY_UNDO = -1;
+    static final int INFINITY_UNDO = -1;
 
     /**
      * Serial number for serialization use.
      */
     private static final long serialVersionUID = 3L;
+
+    private static final int MAX_SCORE = 50;
+    private static final int MIN_SCORE = 10;
 
     /**
      * Stores the row and col of a tile & the neighboring blank tile that may or may not exist,
@@ -136,6 +140,10 @@ class BoardManager implements Serializable {
      */
     private Deque<TilePosition> undoQueue;
 
+    private int numMoves;
+
+    private final int numRowCol;
+
     /**
      * Return the current board.
      */
@@ -147,6 +155,7 @@ class BoardManager implements Serializable {
      * Manage a new shuffled board.
      *
      * @param numRowCol number of rows and columns for board
+     * @param numUndo number of undo moves allowed
      */
     BoardManager(int numRowCol, int numUndo) {
         List<Tile> tiles = new ArrayList<>();
@@ -160,14 +169,18 @@ class BoardManager implements Serializable {
         this.board = new Board(tiles, numRowCol);
         undoQueue = new ArrayDeque<>();
         this.numUndo = numUndo;
+        this.numRowCol = numRowCol;
         blankId = numTiles;
+        numMoves = 0;
     }
 
     /**
-     * Manage a new shuffled board with default rows and columns
+     * Manage a new shuffled board with manually rows and columns
+     *
+     * @param numRowCol number of rows and columns for board
      */
     BoardManager(int numRowCol) {
-        this(Board.DEFAULT_ROW_COL, INFINITY_UNDO);
+        this(numRowCol, INFINITY_UNDO);
     }
 
     /**
@@ -223,6 +236,7 @@ class BoardManager implements Serializable {
         if (isValidTap(position)) {
             TilePosition tile = new TilePosition(position);
             addUndoPosition(tile);
+            numMoves++;
             board.swapTiles(tile.getRow(), tile.getCol(), tile.getSwapRow(), tile.getSwapCol());
         }
     }
@@ -256,6 +270,15 @@ class BoardManager implements Serializable {
      */
     boolean hasUndo() {
         return undoQueue.size() > 0;
+    }
+
+    @Override
+    public int getScore() {
+        if (puzzleSolved()) {
+            return ((MAX_SCORE * numRowCol) - numMoves) > 0 ? ((MAX_SCORE * numRowCol) - numMoves)
+                    : MIN_SCORE;
+        }
+        return 0;
     }
 
 }

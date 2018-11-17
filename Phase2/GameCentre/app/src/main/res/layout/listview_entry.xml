@@ -10,23 +10,23 @@
     android:paddingBottom="15dp">
 
     <TextView
-        android:id="@+id/SavedGameName"
+        android:id="@+id/ListViewPrimary"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:padding="10dp"
-        android:text="TextView"
+        android:text="@string/placeholder"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/SavedGameTime"
+        android:id="@+id/ListViewSecondary"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:padding="0dp"
-        android:text="TextView"
+        android:text="@string/placeholder"
         android:textAlignment="viewEnd" />
 
 </LinearLayout>

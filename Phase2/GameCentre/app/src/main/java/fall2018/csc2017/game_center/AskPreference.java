@@ -10,15 +10,13 @@ import fall2018.csc2017.game_center.slidingtiles.GameActivity;
 import fall2018.csc2017.game_center.slidingtiles.SettingsActivity;
 import fall2018.csc2017.game_center.slidingtiles.TileSaveManager;
 
+@Deprecated
 public class AskPreference extends TileSaveManager {
-
-    TextView textview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask_preference);
-        textview = findViewById(R.id.pref_type);
 //        textview.setText(SettingsActivity.typeg);
         addYesButtonListener();
         addNoButtonListener();

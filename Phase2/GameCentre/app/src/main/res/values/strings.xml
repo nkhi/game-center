@@ -27,5 +27,12 @@
     <string name="b4">4 X 4</string>
     <string name="b5">5 X 5</string>
     <string name="type_apply">Apply</string>
-    <string name="type_p"></string>
+    <string name="autosave_interval">Choose Autosave Interval\n(Per Number of Moves)</string>
+    <string name="leaderboards">Leaderboards</string>
+    <string name="undo_limit">Choose Undo Limit (-1 for unlimited undo)</string>
+    <string name="default_val_1">1</string>
+    <string name="default_val_neg_1">-1</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="scoreboard_user">User:&#160;</string>
+    <string name="scoreboard_score">. Score:&#160;</string>
 </resources>
