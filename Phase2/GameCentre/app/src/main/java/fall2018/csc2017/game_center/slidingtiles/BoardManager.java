@@ -242,7 +242,7 @@ class BoardManager implements Serializable {
 
     /**
      * Check to see if a board is solvable.
-     * @param tiles
+     * @param tiles the list of the tiles.
      * @return if the board is solvable or not.
      * @see <a href="https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html">Solvability of the Tiles Game</a>
      */
@@ -276,6 +276,7 @@ class BoardManager implements Serializable {
                     inversion_i--;
             }
             inversion_t += inversion_i;
+            i++;
         }
         return inversion_t;
     }
