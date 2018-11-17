@@ -2,6 +2,7 @@ package fall2018.csc2017.game_center.slidingtiles;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.view.GestureDetectorCompat;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -21,6 +22,11 @@ import fall2018.csc2017.game_center.StartingActivity;
  * The game activity.
  */
 public class GameActivity extends TileSaveManager implements Observer {
+
+    /**
+     * The autosave amount
+     */
+    private int autosave = -1;
 
     /**
      * The board manager.
@@ -47,7 +53,7 @@ public class GameActivity extends TileSaveManager implements Observer {
     /**
      * The time counter
      */
-    static int time = 0;
+    static int time;
 
     /**
      * Set up the background image for each button based on the master list
@@ -63,7 +69,18 @@ public class GameActivity extends TileSaveManager implements Observer {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        time = 0;
+
         boardManager = getTemp();
+
+        if (autosave == -1) {
+            if (boardManager.getAutosave() == 0)
+                Toast.makeText(this, "Autosave has been reverted to 3 moves", Toast.LENGTH_SHORT).show();
+            autosave = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 3);
+            boardManager.setAutosave(autosave);
+        }
+        else
+            autosave = boardManager.getAutosave();
 
         createTileButtons(this);
         setContentView(R.layout.activity_main);
@@ -129,14 +146,15 @@ public class GameActivity extends TileSaveManager implements Observer {
     @Override
     protected void onPause() {
         super.onPause();
-        loadIntoTemp(boardManager);
-        writeFile();
+       // loadIntoTemp(boardManager);
+        //writeFile();
     }
 
     @Override
     public void update(Observable o, Object arg) {
         display();
-        if (time == 3) {
+        if (time == autosave) {
+            System.out.println(autosave);
             time = 0;
             loadIntoTemp(boardManager);
             autoSave();

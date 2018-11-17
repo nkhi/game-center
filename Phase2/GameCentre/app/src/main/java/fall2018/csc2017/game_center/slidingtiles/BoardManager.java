@@ -132,6 +132,28 @@ class BoardManager implements Serializable {
     private int numUndo;
 
     /**
+     * Number of autosaves chosen
+     */
+    private int autosave;
+
+    /**
+     * Returns the autosave of this boardmanager
+     * @return the autosave in this boardmananger
+     */
+    public int getAutosave(){
+        return this.autosave;
+    }
+
+    /**
+     * Sets the autosave to save after a specific number of moves specified
+     * @param auto - the autosave value
+     */
+    public void setAutosave(int auto){
+        this.autosave = auto;
+    }
+
+
+    /**
      * Double ended queue of the positions of undo moves stored
      */
     private Deque<TilePosition> undoQueue;

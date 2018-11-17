@@ -14,12 +14,15 @@ public class AskPreference extends TileSaveManager {
 
     TextView textview;
 
+    private int autosave;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask_preference);
         textview = findViewById(R.id.pref_type);
-//        textview.setText(SettingsActivity.typeg);
+        autosave = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 3);
+
         addYesButtonListener();
         addNoButtonListener();
     }
@@ -65,6 +68,7 @@ public class AskPreference extends TileSaveManager {
     private void switchToGame() {
         Intent tmp = new Intent(this, GameActivity.class);
         tmp.putExtra(LoginActivity.CURRENT_USER, username);
+        tmp.putExtra(SettingsActivity.AUTOSAVE_CONSTANT, autosave);
         startActivity(tmp);
         finish();
     }
