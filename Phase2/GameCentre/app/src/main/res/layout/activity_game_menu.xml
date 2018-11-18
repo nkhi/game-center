@@ -7,14 +7,14 @@
     tools:context="fall2018.csc2017.game_center.slidingtiles.TileGameMenuActivity">
 
     <TextView
-        android:id="@+id/TileWelcome"
+        android:id="@+id/GameMenuTitle"
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/silding_tiles_welcome"
+        android:text="@string/placeholder"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp"

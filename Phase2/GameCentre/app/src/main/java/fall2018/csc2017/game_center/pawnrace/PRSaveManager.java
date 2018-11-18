@@ -1,4 +1,4 @@
-package fall2018.csc2017.game_center.slidingtiles;
+package fall2018.csc2017.game_center.pawnrace;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,17 +6,12 @@ import android.support.annotation.Nullable;
 import fall2018.csc2017.game_center.SaveManager;
 import fall2018.csc2017.game_center.SavedGameState;
 
-/**
- * Abstract class used to provide save and load functionality activities within the scope of
- * sliding tiles.
- */
-public abstract class TileSaveManager extends SaveManager<TileBoardManager> {
+public abstract class PRSaveManager extends SaveManager<PRPlayer> {
 
     /**
-     * Constant suffix for the sliding tile save file (unique per user)
+     * Constant suffix for the pawn race save file (unique per user)
      */
-    public static final String TILE_SAVE_FILE = "_tile_saves.ser";
-
+    public static final String TILE_SAVE_FILE = "_pawn_race_saves.ser";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,7 +20,7 @@ public abstract class TileSaveManager extends SaveManager<TileBoardManager> {
 
         readFile();
         if (getSaveFile() == null) {
-            setSaveFile(new SavedGameState<TileBoardManager>());
+            setSaveFile(new SavedGameState<PRPlayer>());
             writeFile();
         }
     }

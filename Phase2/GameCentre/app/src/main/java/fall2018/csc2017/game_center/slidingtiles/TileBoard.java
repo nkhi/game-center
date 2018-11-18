@@ -2,18 +2,17 @@ package fall2018.csc2017.game_center.slidingtiles;
 
 import android.support.annotation.NonNull;
 
-import java.util.NoSuchElementException;
-import java.util.Observable;
-
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Observable;
 
 /**
  * The sliding tiles board.
  */
-public class Board extends Observable implements Serializable, Iterable<Tile> {
+public class TileBoard extends Observable implements Serializable, Iterable<Tile> {
     /**
      * Default number of rows and columns
      */
@@ -33,10 +32,10 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
      * A new board of tiles in row-major order.
      * Precondition: len(tiles) == numRowCol * numCols
      *
-     * @param tiles the tiles for the board
+     * @param tiles     the tiles for the board
      * @param numRowCol number of rows and columns for the board
      */
-    Board(List<Tile> tiles, int numRowCol) {
+    TileBoard(List<Tile> tiles, int numRowCol) {
         this.numRowCol = numRowCol;
         this.tiles = new Tile[numRowCol][numRowCol];
         Iterator<Tile> iter = tiles.iterator();
@@ -87,7 +86,7 @@ public class Board extends Observable implements Serializable, Iterable<Tile> {
 
     @Override
     public String toString() {
-        return "Board{" +
+        return "TileBoard{" +
                 "tiles=" + Arrays.toString(tiles) +
                 '}';
     }

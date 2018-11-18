@@ -20,15 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".slidingtiles.GameActivity" />
+        <activity android:name=".slidingtiles.TileGameActivity" />
+        <activity android:name=".pawnrace.PRGameActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AskPreference" />
-        <activity android:name=".SelectImageActivity" />
         <activity android:name=".slidingtiles.TileGameMenuActivity" />
-        <activity android:name=".slidingtiles.SettingsActivity" />
-        <activity android:name=".slidingtiles.LoadSaveGameActivity" />
-        <activity android:name=".slidingtiles.TileScoreboard"></activity>
+        <activity android:name=".slidingtiles.TileSettingsActivity" />
+        <activity android:name=".slidingtiles.TileLoadSaveGameActivity" />
+        <activity android:name=".slidingtiles.TileScoreboard" />
+        <activity android:name=".pawnrace.PRGameMenuActivity" />
+        <activity android:name=".GameSelectionActivity" />
+        <activity android:name=".pawnrace.PRScoreboard"></activity>
     </application>
 
 </manifest>

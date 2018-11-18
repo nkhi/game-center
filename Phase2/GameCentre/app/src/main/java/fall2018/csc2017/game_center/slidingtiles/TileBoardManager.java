@@ -13,7 +13,7 @@ import fall2018.csc2017.game_center.Scoreable;
 /**
  * Manage a board, including swapping tiles, checking for a win, and managing taps.
  */
-class BoardManager implements Serializable, Scoreable {
+class TileBoardManager implements Serializable, Scoreable {
 
     /**
      * Constant for infinity undo moves allowed
@@ -27,108 +27,15 @@ class BoardManager implements Serializable, Scoreable {
 
     private static final int MAX_SCORE = 50;
     private static final int MIN_SCORE = 10;
-
-    /**
-     * Stores the row and col of a tile & the neighboring blank tile that may or may not exist,
-     * reduces code duplication.
-     */
-    private final class TilePosition implements Serializable {
-
-        private final int row;
-        private final int col;
-        private final int swapRow;
-        private final int swapCol;
-
-        /**
-         * Store a tile position
-         *
-         * @param position the tile position to store
-         */
-        TilePosition(int position) {
-            row = position / board.getNumRowCol();
-            col = position % board.getNumRowCol();
-            swapRow = setSwapRow();
-            swapCol = setSwapCol();
-        }
-
-        /**
-         * Return the row of the tile to be swapped.
-         * Precondition: tile tapped neighbors the blank tile
-         *
-         * @return the row of the blank tile
-         */
-        private int setSwapRow() {
-            if (row > 0 && board.getTile(row - 1, col).getId() == blankId) {
-                return row - 1;
-            } else if (row < board.getNumRowCol() - 1 &&
-                    board.getTile(row + 1, col).getId() == blankId) {
-                return row + 1;
-            }
-            return row;
-        }
-
-        /**
-         * Return the column of the tile to be swapped.
-         * Precondition: tile tapped neighbors the blank tile
-         *
-         * @return the column of the blank tile
-         */
-        private int setSwapCol() {
-            if (col < board.getNumRowCol() - 1 && board.getTile(row, col + 1).getId() == blankId) {
-                return col + 1;
-            } else if (col > 0 && board.getTile(row, col - 1).getId() == blankId) {
-                return col - 1;
-            }
-            return col;
-        }
-
-        /**
-         * Return row of tile position
-         *
-         * @return row of tile position
-         */
-        int getRow() {
-            return row;
-        }
-
-        /**
-         * Return column of tile position
-         *
-         * @return column of tile position
-         */
-        int getCol() {
-            return col;
-        }
-
-        /**
-         * Return row of tile's swap position
-         *
-         * @return row of tile's swap position
-         */
-        int getSwapRow() {
-            return swapRow;
-        }
-
-        /**
-         * Return column of tile's swap position
-         *
-         * @return column of tile's swap position
-         */
-        int getSwapCol() {
-            return swapCol;
-        }
-
-    }
-
     /**
      * ID of the blank tile.
      */
     private final int blankId;
-
+    private final int numRowCol;
     /**
      * The board being managed.
      */
-    private Board board;
+    private TileBoard board;
 
     /**
      * Number of undo moves allowed
@@ -142,31 +49,22 @@ class BoardManager implements Serializable, Scoreable {
 
     private int numMoves;
 
-    private final int numRowCol;
-
-    /**
-     * Return the current board.
-     */
-    Board getBoard() {
-        return board;
-    }
-
     /**
      * Manage a new shuffled board.
      *
      * @param numRowCol number of rows and columns for board
-     * @param numUndo number of undo moves allowed
+     * @param numUndo   number of undo moves allowed
      */
-    BoardManager(int numRowCol, int numUndo) {
+    TileBoardManager(int numRowCol, int numUndo) {
         List<Tile> tiles = new ArrayList<>();
         final int numTiles = numRowCol * numRowCol;
-        for (int tileNum = 0; tileNum != numTiles-1; tileNum++) {
+        for (int tileNum = 0; tileNum != numTiles - 1; tileNum++) {
             tiles.add(new Tile(tileNum));
         }
         tiles.add(new Tile(numTiles, R.drawable.tile_25));
 
         Collections.shuffle(tiles);
-        this.board = new Board(tiles, numRowCol);
+        this.board = new TileBoard(tiles, numRowCol);
         undoQueue = new ArrayDeque<>();
         this.numUndo = numUndo;
         this.numRowCol = numRowCol;
@@ -179,15 +77,22 @@ class BoardManager implements Serializable, Scoreable {
      *
      * @param numRowCol number of rows and columns for board
      */
-    BoardManager(int numRowCol) {
+    TileBoardManager(int numRowCol) {
         this(numRowCol, INFINITY_UNDO);
     }
 
     /**
      * Manage a new shuffled board with default rows and columns
      */
-    BoardManager() {
-        this(Board.DEFAULT_ROW_COL);
+    TileBoardManager() {
+        this(TileBoard.DEFAULT_ROW_COL);
+    }
+
+    /**
+     * Return the current board.
+     */
+    TileBoard getBoard() {
+        return board;
     }
 
     /**
@@ -279,6 +184,98 @@ class BoardManager implements Serializable, Scoreable {
                     : MIN_SCORE;
         }
         return 0;
+    }
+
+    /**
+     * Stores the row and col of a tile & the neighboring blank tile that may or may not exist,
+     * reduces code duplication.
+     */
+    private final class TilePosition implements Serializable {
+
+        private final int row;
+        private final int col;
+        private final int swapRow;
+        private final int swapCol;
+
+        /**
+         * Store a tile position
+         *
+         * @param position the tile position to store
+         */
+        TilePosition(int position) {
+            row = position / board.getNumRowCol();
+            col = position % board.getNumRowCol();
+            swapRow = setSwapRow();
+            swapCol = setSwapCol();
+        }
+
+        /**
+         * Return the row of the tile to be swapped.
+         * Precondition: tile tapped neighbors the blank tile
+         *
+         * @return the row of the blank tile
+         */
+        private int setSwapRow() {
+            if (row > 0 && board.getTile(row - 1, col).getId() == blankId) {
+                return row - 1;
+            } else if (row < board.getNumRowCol() - 1 &&
+                    board.getTile(row + 1, col).getId() == blankId) {
+                return row + 1;
+            }
+            return row;
+        }
+
+        /**
+         * Return the column of the tile to be swapped.
+         * Precondition: tile tapped neighbors the blank tile
+         *
+         * @return the column of the blank tile
+         */
+        private int setSwapCol() {
+            if (col < board.getNumRowCol() - 1 && board.getTile(row, col + 1).getId() == blankId) {
+                return col + 1;
+            } else if (col > 0 && board.getTile(row, col - 1).getId() == blankId) {
+                return col - 1;
+            }
+            return col;
+        }
+
+        /**
+         * Return row of tile position
+         *
+         * @return row of tile position
+         */
+        int getRow() {
+            return row;
+        }
+
+        /**
+         * Return column of tile position
+         *
+         * @return column of tile position
+         */
+        int getCol() {
+            return col;
+        }
+
+        /**
+         * Return row of tile's swap position
+         *
+         * @return row of tile's swap position
+         */
+        int getSwapRow() {
+            return swapRow;
+        }
+
+        /**
+         * Return column of tile's swap position
+         *
+         * @return column of tile's swap position
+         */
+        int getSwapCol() {
+            return swapCol;
+        }
+
     }
 
 }

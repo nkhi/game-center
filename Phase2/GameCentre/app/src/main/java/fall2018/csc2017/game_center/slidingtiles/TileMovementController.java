@@ -4,22 +4,24 @@ import android.content.Context;
 import android.widget.Toast;
 
 /**
- * Allows for the display of Toast text when interactions are processed in the game activity
+ * Processes tile swaps and toast text when interactions are detected in the game activity
  */
-class MovementController {
+class TileMovementController {
 
-    private BoardManager boardManager;
+    private TileBoardManager boardManager;
 
     /**
      * Sets the board manager
+     *
      * @param boardManager board manager to be set
      */
-    void setBoardManager(BoardManager boardManager) {
+    void setBoardManager(TileBoardManager boardManager) {
         this.boardManager = boardManager;
     }
 
     /**
-     * Displays text based on whether a move is allowed following a tap on a tile
+     * Processes tap on the board manager and displays relevant text
+     *
      * @param context context to display text on
      */
     void processTapMovement(Context context, int position) {
@@ -35,11 +37,13 @@ class MovementController {
 
     /**
      * Displays text based on whether an undo is allowed following an undo swipe
+     *
      * @param context context to display text on
      */
     void processSwipe(Context context) {
         if (boardManager.hasUndo()) {
-            Toast.makeText(context, "Undo'd Last Move", Toast.LENGTH_SHORT).show();
+            boardManager.undo();
+            Toast.makeText(context, "Undo'd Last PRMove", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, "Undo Not Allowed", Toast.LENGTH_SHORT).show();
         }

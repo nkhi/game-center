@@ -1,8 +1,8 @@
 package fall2018.csc2017.game_center.slidingtiles;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -12,8 +12,11 @@ import android.widget.TextView;
 import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
 
-public class SettingsActivity extends AppCompatActivity {
+public class TileSettingsActivity extends AppCompatActivity {
 
+    /**
+     * Constants for referencing extras when settings are passed
+     */
     public static final String SIZE_CONSTANT = "SIZE_CONSTANT";
     public static final String UNDO_CONSTANT = "UNDO_CONSTANT";
     public static final String AUTOSAVE_CONSTANT = "AUTOSAVE_CONSTANT";
@@ -24,11 +27,18 @@ public class SettingsActivity extends AppCompatActivity {
     public RadioButton radioButton;
     RadioGroup radioGroup;
 
+    /**
+     * Undo limit field
+     */
     TextView undo;
+
+    /**
+     * Autosave interval field
+     */
     TextView autosave;
 
     @Override
-    protected void onCreate (Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_tile_settings);
@@ -39,12 +49,15 @@ public class SettingsActivity extends AppCompatActivity {
     /**
      * Activate the Type Button
      */
-    private void initialize(){
+    private void initialize() {
         radioGroup = findViewById(R.id.ButtonSize);
         undo = findViewById(R.id.UndoLimitEdit);
         autosave = findViewById(R.id.SaveIntervalLimitEdit);
     }
 
+    /**
+     * Saves the settings when apply is pressed
+     */
     private void addApplyListener() {
         Button buttonSize = findViewById(R.id.button_apply);
         buttonSize.setOnClickListener(new View.OnClickListener() {
@@ -52,8 +65,8 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int radioID = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioID);
-                int size = Board.DEFAULT_ROW_COL;
-                switch (radioButton.getId()){
+                int size = TileBoard.DEFAULT_ROW_COL;
+                switch (radioButton.getId()) {
                     case R.id.Button3:
                         size = 3;
                         break;
@@ -65,7 +78,7 @@ public class SettingsActivity extends AppCompatActivity {
                         break;
                 }
 
-                Intent tmp = new Intent(SettingsActivity.this,
+                Intent tmp = new Intent(TileSettingsActivity.this,
                         TileGameMenuActivity.class);
                 tmp.putExtra(SIZE_CONSTANT, size);
                 tmp.putExtra(UNDO_CONSTANT, Integer.parseInt(undo.getText().toString()));
@@ -78,7 +91,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
 }

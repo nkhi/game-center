@@ -1,12 +1,7 @@
-package fall2018.csc2017.game_center.slidingtiles;
+package fall2018.csc2017.game_center.pawnrace;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,15 +12,16 @@ import fall2018.csc2017.game_center.R;
 import fall2018.csc2017.game_center.Score;
 import fall2018.csc2017.game_center.ScoreboardAdapter;
 
-public class TileScoreboard extends FileProcessor<List<Score>> {
+public class PRScoreboard extends FileProcessor<List<Score>> {
 
-    public static final String TILE_SCORE_FILE = "tile_scores.ser";
+    public static final String PR_SCORE_FILE = "pawn_race_scores.ser";
     public static final String SCORE_EXTRA = "SCORE_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setFilePath(TILE_SCORE_FILE);
+
+        setFilePath(PR_SCORE_FILE);
         Score score = (Score) getIntent().getSerializableExtra(SCORE_EXTRA);
 
         readFile();
@@ -49,7 +45,7 @@ public class TileScoreboard extends FileProcessor<List<Score>> {
             usernames[i] = getSaveFile().get(i).getUsername();
         }
 
-        setContentView(R.layout.activity_tile_scoreboard);
+        setContentView(R.layout.activity_pawn_race_scoreboard);
 
         ListView scoreboardView = findViewById(R.id.ScoreboardList);
         scoreboardView.setAdapter(new ScoreboardAdapter(this, scores, usernames));

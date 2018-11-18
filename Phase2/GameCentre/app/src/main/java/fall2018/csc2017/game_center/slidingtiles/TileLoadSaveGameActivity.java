@@ -15,7 +15,7 @@ import fall2018.csc2017.game_center.R;
 /**
  * The Load Game and Save Game screen for the sliding tiles game.
  */
-public class LoadSaveGameActivity extends TileSaveManager {
+public class TileLoadSaveGameActivity extends TileSaveManager {
 
     /**
      * Constant for storing the boolean extra determining whether to load or save.
@@ -26,7 +26,7 @@ public class LoadSaveGameActivity extends TileSaveManager {
      * Array of saved board managers with the first item being the auto save and subsequent ones
      * being manually saved boards.
      */
-    private BoardManager[] saves;
+    private TileBoardManager[] saves;
 
     /**
      * Array of times as Strings to match the array above.
@@ -44,7 +44,7 @@ public class LoadSaveGameActivity extends TileSaveManager {
         super.onCreate(savedInstanceState);
 
         saves = getSaveFile().getSaves().toArray(
-                new BoardManager[getSaveFile().size() + 1]);
+                new TileBoardManager[getSaveFile().size() + 1]);
         times = getSaveFile().getTimes().toArray(new String[saves.length]);
 
         setContentView(R.layout.activity_load_save_game);
@@ -123,8 +123,8 @@ public class LoadSaveGameActivity extends TileSaveManager {
                     public void onClick(View v) {
                         loadIntoTemp(saves[position]);
                         writeFile();
-                        Intent tmp = new Intent(LoadSaveGameActivity.this,
-                                GameActivity.class);
+                        Intent tmp = new Intent(TileLoadSaveGameActivity.this,
+                                TileGameActivity.class);
                         tmp.putExtra(LoginActivity.CURRENT_USER, username);
                         startActivity(tmp);
                         finish();
@@ -134,7 +134,7 @@ public class LoadSaveGameActivity extends TileSaveManager {
                 listener = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        BoardManager temp = getTemp();
+                        TileBoardManager temp = getTemp();
                         if (position == 0) {
                             getSaveFile().saveGame(temp);
 

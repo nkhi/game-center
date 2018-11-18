@@ -13,6 +13,7 @@ import java.io.ObjectOutputStream;
  * Abstract file processor used to read and write objects to files. This class provides
  * encapsulation so that the file path is only accessible by this Object and will not be changed
  * after its creation.
+ *
  * @param <T> The type of the Object to be written
  */
 public abstract class FileProcessor<T> extends AppCompatActivity {
@@ -29,6 +30,7 @@ public abstract class FileProcessor<T> extends AppCompatActivity {
 
     /**
      * Return the saved file
+     *
      * @return The saved file
      */
     public T getSaveFile() {
@@ -37,6 +39,7 @@ public abstract class FileProcessor<T> extends AppCompatActivity {
 
     /**
      * Set the saved file
+     *
      * @param saveFile the Object to be saved
      */
     public void setSaveFile(T saveFile) {
@@ -45,6 +48,7 @@ public abstract class FileProcessor<T> extends AppCompatActivity {
 
     /**
      * Sets the file path
+     *
      * @param filePath the file path of the Object to be saved
      */
     public void setFilePath(String filePath) {

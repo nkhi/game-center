@@ -15,12 +15,11 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.GridView;
-import android.widget.Toast;
 
 /**
  * Custom GridView modified for gesture detection - taken from A2 source code
  */
-public class GestureDetectGridView extends GridView {
+public class TileGestureDetectGridView extends GridView {
 
     /**
      * Minimum swipe distance for swipe to be detected
@@ -33,41 +32,40 @@ public class GestureDetectGridView extends GridView {
     public static final int SWIPE_THRESHOLD_VELOCITY = 100;
 
     private GestureDetector gDetector;
-    private MovementController mController;
+    private TileMovementController mController;
     private boolean mFlingConfirmed = false;
     private float mTouchX;
     private float mTouchY;
-    private BoardManager boardManager;
 
-    public GestureDetectGridView(Context context) {
+    public TileGestureDetectGridView(Context context) {
         super(context);
         init(context);
     }
 
-    public GestureDetectGridView(Context context, AttributeSet attrs) {
+    public TileGestureDetectGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public GestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TileGestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP) // API 21
-    public GestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr,
-                                 int defStyleRes) {
+    public TileGestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr,
+                                     int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }
 
     private void init(final Context context) {
-        mController = new MovementController();
+        mController = new TileMovementController();
         gDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
 
             @Override
             public boolean onSingleTapConfirmed(MotionEvent event) {
-                int position = GestureDetectGridView.this.pointToPosition
+                int position = TileGestureDetectGridView.this.pointToPosition
                         (Math.round(event.getX()), Math.round(event.getY()));
 
                 mController.processTapMovement(context, position);
@@ -80,12 +78,9 @@ public class GestureDetectGridView extends GridView {
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                                    float velocityY) {
-                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE &&
+                if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE &&
                         Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                     mController.processSwipe(context);
-                    if (boardManager.hasUndo()) {
-                        boardManager.undo();
-                    }
                     return true;
                 }
                 return false;
@@ -130,6 +125,7 @@ public class GestureDetectGridView extends GridView {
     /**
      * Calls the gesture detection when the user interacts with the grid view
      * Suppresses accessibility warning as accessibility services are not supported at this time
+     *
      * @param ev gesture event to process
      * @return whether the gesture or click was processed
      */
@@ -141,10 +137,10 @@ public class GestureDetectGridView extends GridView {
 
     /**
      * Sets the board manager and controller
+     *
      * @param boardManager board manager to be stored
      */
-    public void setBoardManager(BoardManager boardManager) {
-        this.boardManager = boardManager;
+    public void setBoardManager(TileBoardManager boardManager) {
         mController.setBoardManager(boardManager);
     }
 }

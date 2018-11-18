@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fall2018.csc2017.game_center.slidingtiles.TileScoreboard">
+    tools:context="fall2018.csc2017.game_center.pawnrace.PRScoreboard">
 
     <ListView
         android:id="@+id/ScoreboardList"
@@ -25,7 +25,7 @@
     </ListView>
 
     <TextView
-        android:id="@+id/LeaderboardsText"
+        android:id="@+id/leaderboardsText"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"

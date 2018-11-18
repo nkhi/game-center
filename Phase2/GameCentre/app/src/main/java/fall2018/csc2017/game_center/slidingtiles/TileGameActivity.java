@@ -16,12 +16,17 @@ import fall2018.csc2017.game_center.Score;
 /**
  * The game activity.
  */
-public class GameActivity extends TileSaveManager implements Observer {
+public class TileGameActivity extends TileSaveManager implements Observer {
+
+    /**
+     * Column width and heights for each gridView entry
+     */
+    private static int columnWidth, columnHeight;
 
     /**
      * The board manager.
      */
-    private BoardManager boardManager;
+    private TileBoardManager boardManager;
 
     /**
      * The buttons to display.
@@ -29,22 +34,18 @@ public class GameActivity extends TileSaveManager implements Observer {
     private ArrayList<Button> tileButtons;
 
     /**
-     * Constants for swiping directions. Should be an enum, probably.
+     * Grid View and calculated column height and width based on device size
      */
-    public static final int UP = 1;
-    public static final int DOWN = 2;
-    public static final int LEFT = 3;
-    public static final int RIGHT = 4;
-
-    // Grid View and calculated column height and width based on device size
-    private GestureDetectGridView gridView;
-    private static int columnWidth, columnHeight;
+    private TileGestureDetectGridView gridView;
 
     /**
      * The counter for autosaving purposes
      */
     private int autosaveIndex;
 
+    /**
+     * Interval to autosave
+     */
     private int autosaveInterval;
 
     /**
@@ -53,7 +54,7 @@ public class GameActivity extends TileSaveManager implements Observer {
      */
     public void display() {
         updateTileButtons();
-        gridView.setAdapter(new CustomAdapter(tileButtons, columnWidth, columnHeight));
+        gridView.setAdapter(new TileCustomAdapter(tileButtons, columnWidth, columnHeight));
     }
 
     @Override
@@ -62,13 +63,13 @@ public class GameActivity extends TileSaveManager implements Observer {
 
         boardManager = getTemp();
         autosaveIndex = 0;
-        autosaveInterval = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 0);
+        autosaveInterval = getIntent().getIntExtra(TileSettingsActivity.AUTOSAVE_CONSTANT, 0);
 
         createTileButtons(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tile_main);
 
         // Add View to activity
-        gridView = findViewById(R.id.grid);
+        gridView = findViewById(R.id.tile_grid);
         gridView.setNumColumns(boardManager.getBoard().getNumRowCol());
         gridView.setBoardManager(boardManager);
         boardManager.getBoard().addObserver(this);
@@ -97,7 +98,7 @@ public class GameActivity extends TileSaveManager implements Observer {
      * @param context the context
      */
     private void createTileButtons(Context context) {
-        Board board = boardManager.getBoard();
+        TileBoard board = boardManager.getBoard();
         tileButtons = new ArrayList<>();
         for (int row = 0; row != boardManager.getBoard().getNumRowCol(); row++) {
             for (int col = 0; col != boardManager.getBoard().getNumRowCol(); col++) {
@@ -112,7 +113,7 @@ public class GameActivity extends TileSaveManager implements Observer {
      * Update the backgrounds on the buttons to match the tiles.
      */
     private void updateTileButtons() {
-        Board board = boardManager.getBoard();
+        TileBoard board = boardManager.getBoard();
         int nextPos = 0;
         for (Button b : tileButtons) {
             int row = nextPos / boardManager.getBoard().getNumRowCol();
