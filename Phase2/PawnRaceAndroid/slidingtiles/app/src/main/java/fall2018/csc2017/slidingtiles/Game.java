@@ -4,26 +4,56 @@ import java.io.Serializable;
 
 class Game implements Serializable {
 
-    private static final int MAX_MOVES = 1000;
+    /**
+     * White player's starting rank
+     */
+    static final int WHITE_STARTING_RANK = 1;
+
+    /**
+     * Black player's starting rank
+     */
+    static final int BLACK_STARTING_RANK = 6;
+
+    /**
+     * Maximum number of moves
+     */
+    private static final int MAX_MOVES = 300;
 
     /**
      * The board being managed.
      */
     private Board board;
 
+    /**
+     * An array of all the moves made
+     */
     private Move[] moves;
+
+    /**
+     * The number of moves made
+     */
     private int index;
+
+    /**
+     * The color of the current player to move on the board
+     */
     private Color currentPlayer;
 
+    /**
+     * Initializes a game and board with the white and black gaps
+     *
+     * @param whiteGap file of the white gap
+     * @param blackGap file of the black gap
+     */
     Game(int whiteGap, int blackGap) {
-        Square[][] board = new Square[8][8];
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+        Square[][] board = new Square[Board.NUM_ROW_COL][Board.NUM_ROW_COL];
+        for (int i = 0; i < Board.NUM_ROW_COL; i++) {
+            for (int j = 0; j < Board.NUM_ROW_COL; j++) {
                 board[i][j] = new Square(i, j);
                 board[i][j].setOccupier(Color.NONE);
-                if (j == 1 && i != whiteGap) {
+                if (j == WHITE_STARTING_RANK && i != whiteGap) {
                     board[i][j].setOccupier(Color.WHITE);
-                } else if (j == 6 && i != blackGap) {
+                } else if (j == BLACK_STARTING_RANK && i != blackGap) {
                     board[i][j].setOccupier(Color.BLACK);
                 }
             }
@@ -34,25 +64,43 @@ class Game implements Serializable {
         currentPlayer = Color.WHITE;
     }
 
+    /**
+     * Return the color of the current player
+     *
+     * @return the color of the current player
+     */
     Color getCurrentPlayer() {
         return currentPlayer;
     }
 
     /**
-     * Return the current board.
+     * Return the current board
+     *
+     * @return the current board
      */
     Board getBoard() {
         return board;
     }
 
+    /**
+     * Return whether a player has won (does not account for stalemates)
+     *
+     * @return whether a player has won
+     */
     boolean isFinished() {
         return (lastLine(Color.WHITE) || lastLine(Color.BLACK) || noColor(Color.BLACK) ||
                 noColor(Color.WHITE));
     }
 
+    /**
+     * Return whether a player has at least one pawn
+     *
+     * @param c color of player to check
+     * @return if a player has at least one pawn
+     */
     private boolean noColor(Color c) {
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 7; j++) {
+        for (int i = 0; i < Board.NUM_ROW_COL; i++) {
+            for (int j = 0; j < Board.NUM_ROW_COL; j++) {
                 if (board.getSquare(i, j).occupiedBy() == c) {
                     return false;
                 }
@@ -61,9 +109,15 @@ class Game implements Serializable {
         return true;
     }
 
+    /**
+     * Return whether a player has a pawn on the last rank
+     *
+     * @param c color of player to check
+     * @return if a player has a pawn on the last rank
+     */
     private boolean lastLine(Color c) {
-        int a = c == Color.WHITE ? 7 : 0;
-        for (int i = 0; i < 8; i++) {
+        int a = c == Color.WHITE ? (Board.NUM_ROW_COL - 1) : 0;
+        for (int i = 0; i < Board.NUM_ROW_COL; i++) {
             if (board.getSquare(i, a).occupiedBy() == c) {
                 return true;
             }
@@ -71,6 +125,11 @@ class Game implements Serializable {
         return false;
     }
 
+    /**
+     * Return the last move made
+     *
+     * @return the last move made (null if no moves have been made)
+     */
     Move getLastMove() {
         if (index == 0) {
             return null;
@@ -79,6 +138,12 @@ class Game implements Serializable {
         }
     }
 
+    /**
+     * Indexes the move in the moves list, makes the move, and changes current player
+     * Precondition: move must be valid
+     *
+     * @param move move to be made
+     */
     void applyMove(Move move) {
         if (currentPlayer == Color.WHITE) {
             currentPlayer = Color.BLACK;
@@ -90,6 +155,9 @@ class Game implements Serializable {
         board.applyMove(move);
     }
 
+    /**
+     * Un-indexes the last move, switches the players, and undo's the last move made
+     */
     void unapplyMove() {
         Move move = getLastMove();
         if (currentPlayer == Color.WHITE) {
@@ -102,49 +170,20 @@ class Game implements Serializable {
         board.unapplyMove(move);
     }
 
+    /**
+     * Return the result of the game
+     * Precondition: game has ended
+     *
+     * @return color of winning player (returns none if stalemate)
+     */
     Color getGameResult() {
         if (noColor(Color.WHITE) || lastLine(Color.WHITE)) {
             return Color.WHITE;
-        }
-        else if (noColor(Color.BLACK) || lastLine(Color.BLACK)) {
+        } else if (noColor(Color.BLACK) || lastLine(Color.BLACK)) {
             return Color.BLACK;
-        }
-        else {
+        } else {
             return Color.NONE;
         }
     }
-
-//    /**
-//     * Return whether any of the four surrounding tiles is the blank tile.
-//     *
-//     * @param position the tile to check
-//     * @return whether the tile at position is surrounded by a blank tile
-//     */
-//    boolean isValidTap(int position) {
-//
-//        int row = position / Board.NUM_COLS;
-//        int col = position % Board.NUM_COLS;
-//        // Are any of the 4 the blank tile?
-//        Square above = row == 0 ? null : board.getTile(row - 1, col);
-//        Square below = row == Board.NUM_ROWS - 1 ? null : board.getTile(row + 1, col);
-//        Square left = col == 0 ? null : board.getTile(row, col - 1);
-//        Square right = col == Board.NUM_COLS - 1 ? null : board.getTile(row, col + 1);
-//        return (below != null && below.getId() == blankId)
-//                || (above != null && above.getId() == blankId)
-//                || (left != null && left.getId() == blankId)
-//                || (right != null && right.getId() == blankId);
-//    }
-//
-//    /**
-//     * Process a touch at position in the board, swapping tiles as appropriate.
-//     *
-//     * @param position the position
-//     */
-//    void touchMove(int position) {
-//        if (isValidTap(position)) {
-//            TilePosition tile = new TilePosition(position);
-//            board.swapTiles(tile.getRow(), tile.getCol(), getSwapRow(tile), getSwapCol(tile));
-//        }
-//    }
 
 }

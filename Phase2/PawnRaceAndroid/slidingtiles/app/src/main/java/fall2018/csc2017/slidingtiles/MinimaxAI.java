@@ -2,215 +2,265 @@ package fall2018.csc2017.slidingtiles;
 
 import java.io.Serializable;
 
-public class MinimaxAI implements Serializable {
+/**
+ * AI to calculate the best available move for the computer - implemented with a minimax algorithm
+ * This is my own implementation that I (Robert Tan) created in winter 2017 for a pawn race AI
+ * challenge at Imperial College London, which placed third out of ~30 entries
+ */
+class MinimaxAI implements Serializable {
 
+    /**
+     * Maximum search depth for a dynamically determined depth
+     */
     private static final int MAX_DYNAMIC_DEPTH = 10;
+
+    /**
+     * Minimum index of moves to begin dynamic depth calculation
+     */
     private static final int MIN_INDEX_DYNAMIC_DEPTH = 2;
 
-  private class MinimaxKeyVal implements Serializable {
-    private int key;
-    private Move val;
+    /**
+     * Dynamic depth incrementer
+     */
+    private static final int DYNAMIC_DEPTH_INCREMENTER = 2;
 
-    MinimaxKeyVal(int key, Move val) {
-      this.key = key;
-      this.val = val;
+    /**
+     * Num pawn score
+     */
+    private static final int NUM_PAWN_SCORE = 10000;
+
+    /**
+     * Protected pawn score
+     */
+    private static final int PROTECTED_PAWN_SCORE = 8000;
+
+    /**
+     * Forwardness & semi-open file score
+     */
+    private static final int FORWARDNESS_SEMI_OPEN_SCORE = 10;
+
+    /**
+     * Passed pawn score
+     */
+    private static final int PASSED_PAWN_SCORE = 100000;
+
+    /**
+     * Player of the computer player to calculate moves
+     */
+    private Player player;
+
+    /**
+     * Starting calculation depth
+     */
+    private int depth;
+
+    /**
+     * Moves index to determine dynamic depth calculation
+     */
+    private int index;
+
+    /**
+     * Initializes a minimax AI with a player and depth
+     *
+     * @param player player to calculate for
+     * @param depth initial depth of calculation
+     */
+    MinimaxAI(Player player, int depth) {
+        this.player = player;
+        this.depth = depth;
+        index = 0;
     }
 
-    int getKey() {
-      return key;
-    }
-
-    Move getValue() {
-      return val;
-    }
-  }
-
-  private Player player;
-  private int depth;
-  private int index;
-
-  public MinimaxAI(Player player, int depth) {
-    this.player = player;
-    this.depth = depth;
-    index = 0;
-  }
-
-  public Move minimaxBestMove(int depth) {
-    return minimax(depth, player.getColor(), Integer.MIN_VALUE, Integer.MAX_VALUE).getValue();
-  }
-
-  public Move minimaxBestMove() {
-      Move move = minimaxBestMove(depth);
-      if (depth < MAX_DYNAMIC_DEPTH && index > MIN_INDEX_DYNAMIC_DEPTH) {
-          depth++;
-      }
-    return move;
-  }
-
-//  public Move randomBestOrSecondBest(int depth, double probBest) {
-//    if (random.nextDouble() > probBest && player.getAllValidMoves()[0] != null) {
-//      return secondBestMove(depth);
-//    }
-//    else {
-//      return minimaxBestMove(depth);
-//    }
-//  }
-//
-//  public Move secondBestMove(int depth) {
-//    Move[] validMoves = player.getAllValidMoves();
-//    Move secondBestMove = validMoves[1];
-//    int bestScore = Integer.MIN_VALUE;
-//    int secondBestScore = Integer.MIN_VALUE;
-//    for(Move nextMove : validMoves) {
-//      if (nextMove != null) {
-//        int score;
-//        player.getGame().applyMove(nextMove);
-//        score = minimax(depth - 1, player.getColor(), Integer.MIN_VALUE, Integer.MAX_VALUE)
-//            .getKey();
-//        if (score > bestScore)
-//          bestScore = score;
-//        if (bestScore >= score && score >= secondBestScore) {
-//          secondBestScore = score;
-//          secondBestMove = nextMove;
-//        }
-//        player.getGame().unapplyMove();
-//      }
-//    }
-//    return secondBestMove;
-//  }
-
-  private MinimaxKeyVal minimax(int depth, Color c, int alpha, int beta) {
-    int score;
-    int bestScore;
-    Color opColor = (c == Color.WHITE) ? Color.BLACK : Color.WHITE;
-    Player currentPlayer;
-    if (player.getColor() == c) {
-      currentPlayer = player;
-    } else {
-      currentPlayer = player.getOpponent();
-    }
-    Move[] validMoves = currentPlayer.getAllValidMoves();
-    Move bestMove = validMoves[0];
-    if (depth == 0 || player.getGame().isFinished()) {
-      bestScore = evaluateBoard();
-    } else {
-      for (Move move : validMoves) {
-        if (move != null) {
-          player.getGame().applyMove(move);
-          score = minimax(depth - 1, opColor, alpha, beta).getKey();
-          if (player.getColor() == c) {
-            if (score > alpha) {
-              alpha = score;
-              bestMove = move;
-            }
-          } else {
-            if (score < beta) {
-              beta = score;
-              bestMove = move;
-            }
-          }
-          player.getGame().unapplyMove();
-          if (alpha >= beta) {
-            break;
-          }
+    /**
+     * Return the best move as calculated by the dynamic depth minimax AI
+     *
+     * @return the best move as calculated by the dynamic depth minimax AI
+     */
+    Move minimaxBestMove() {
+        Move move = minimaxBestMove(depth);
+        if (depth < MAX_DYNAMIC_DEPTH && index > MIN_INDEX_DYNAMIC_DEPTH) {
+            depth += DYNAMIC_DEPTH_INCREMENTER;
         }
-      }
-      bestScore = (c == player.getColor()) ? alpha : beta;
+        return move;
     }
-    return new MinimaxKeyVal(bestScore, bestMove);
-  }
 
-  private MinimaxKeyVal minimax(int depth, Color c) {
-    Move bestMove = null;
-    int bestScore = (c == Color.WHITE) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
-    int currentScore;
-    Color opColor = (c == Color.WHITE) ? Color.BLACK : Color.WHITE;
-    Player currentPlayer;
-    if (player.getColor() == c) {
-      currentPlayer = player;
-    } else {
-      currentPlayer = player.getOpponent();
+    /**
+     * Return the best move calculated by the depth given
+     *
+     * @param depth depth of calculation (in moves)
+     * @return the best move calculated by the depth given
+     */
+    private Move minimaxBestMove(int depth) {
+        return minimax(depth, player.getColor(), Integer.MIN_VALUE, Integer.MAX_VALUE).getValue();
     }
-    Move[] validMoves = currentPlayer.getAllValidMoves();
-    if (depth == 0 || player.getGame().isFinished() || validMoves[0] == null) {
-      bestScore = evaluateBoard();
-    } else {
-      for (Move move : validMoves) {
-        if (move != null) {
-          player.getGame().applyMove(move);
-          currentScore = minimax(depth - 1, opColor).getKey();
-          if (c == Color.WHITE) {
-            if (currentScore > bestScore) {
-              bestScore = currentScore;
-              bestMove = move;
-            }
-          } else {
-            if (currentScore < bestScore) {
-              bestScore = currentScore;
-              bestMove = move;
-            }
-          }
-          player.getGame().unapplyMove();
-        }
-      }
-    }
-    return new MinimaxKeyVal(bestScore, bestMove);
-  }
 
-  public int evaluateBoard() {
-    // TODO: Add pawn chain, !!controls opponents spaces!!, zugzwang, blocking move formulas
-    int score = 0;
-    if (player.isFinished() && player.getGame().getGameResult() == player.getColor()) {
-      return Integer.MAX_VALUE;
-    }
-    if (player.isFinished() && player.getGame().getGameResult() == player.getOpponent()
-        .getColor()) {
-      return Integer.MIN_VALUE;
-    }
-    if (player.isFinished() && player.getGame().getGameResult() == Color.NONE) {
-      return 0;
-    }
-    score += 10000 * player.getNumAllPawns() - 10000 * player.getOpponent().getNumAllPawns();
-    score += 10000 * player.numProtectedPawns() - 10000 * player.getOpponent().numProtectedPawns();
-    score += 10 * player.forwardness() - 10 * player.getOpponent().forwardness();
-//  score += -10 * player.numPawnsCanBeCaptured() + 10 * player.getOpponent().numPawnsCanBeCaptured();
-    score += 10 * player.numSemiOpenFiles() - 10 * player.getOpponent().numSemiOpenFiles();
-    if (player.hasPassedPawn()) {
-      score += 70000;
-    }
-    if (player.getOpponent().hasPassedPawn()) {
-      score -= 70000;
-    }
-    if (player.hasPassedPawn() && player.getOpponent().hasPassedPawn()) {
-      Square passedPawn = player.getPassedPawn();
-      Square opPassedPawn = player.getOpponent().getPassedPawn();
-      if (player.getColor() == Color.BLACK) {
-        if (passedPawn.getY() < 7 - opPassedPawn.getY()) {
-          score += 70000;
-        } else if (passedPawn.getY() > 7 - opPassedPawn.getY()) {
-          score -= 70000;
+    /**
+     * Recursive minimax algorithm with alpha-beta pruning that loops through all possible moves
+     *
+     * @param depth depth of moves still to be calculated
+     * @param c color of currently moving player
+     * @param alpha alpha-beta pruning alpha score
+     * @param beta alpha-beta pruning beta score
+     * @return the best move and its value for this particular calculation step
+     */
+    private MinimaxKeyVal minimax(int depth, Color c, int alpha, int beta) {
+        int score;
+        int bestScore;
+        Color opColor = (c == Color.WHITE) ? Color.BLACK : Color.WHITE;
+        Player currentPlayer;
+        if (player.getColor() == c) {
+            currentPlayer = player;
         } else {
-          if (player.getGame().getCurrentPlayer() == Color.BLACK) {
-            score += 70000;
-          } else {
-            score -= 70000;
-          }
+            currentPlayer = player.getOpponent();
         }
-      } else if (player.getColor() == Color.WHITE) {
-        if (7 - passedPawn.getY() < opPassedPawn.getY()) {
-          score += 70000;
-        } else if (7 - passedPawn.getY() > opPassedPawn.getY()) {
-          score -= 70000;
+        Move[] validMoves = currentPlayer.getAllValidMoves();
+        Move bestMove = validMoves[0];
+        if (depth == 0 || player.getGame().isFinished()) {
+            bestScore = evaluateBoard();
         } else {
-          if (player.getGame().getCurrentPlayer() == Color.WHITE) {
-            score += 70000;
-          } else {
-            score -= 70000;
-          }
+            for (Move move : validMoves) {
+                if (move != null) {
+                    player.getGame().applyMove(move);
+                    score = minimax(depth - 1, opColor, alpha, beta).getKey();
+                    if (player.getColor() == c) {
+                        if (score > alpha) {
+                            alpha = score;
+                            bestMove = move;
+                        }
+                    } else {
+                        if (score < beta) {
+                            beta = score;
+                            bestMove = move;
+                        }
+                    }
+                    player.getGame().unapplyMove();
+                    if (alpha >= beta) {
+                        break;
+                    }
+                }
+            }
+            bestScore = (c == player.getColor()) ? alpha : beta;
         }
-      }
+        return new MinimaxKeyVal(bestScore, bestMove);
     }
-    return score;
-  }
+
+    /**
+     * Evaluation function for the minimax algorithm to determine the best possible move.
+     * Takes into account whether:
+     *  - Game is finished
+     *  - Number of pawns each player possesses
+     *  - Number of protected pawns each player possesses
+     *  - Number of semi-open files each player possesses
+     *  - Forwardness of player's pawns
+     *  - Whether a player has a passed pawn and how likely that pawn is to get to the end of the
+     *  board
+     *
+     * @return an integer score of the board's current state
+     */
+    private int evaluateBoard() {
+        // TODO: Add pawn chain, !!controls opponents spaces!!, zugzwang, blocking move formulas
+        int score = 0;
+
+        if (player.isFinished() && player.getGame().getGameResult() == player.getColor()) {
+            return Integer.MAX_VALUE;
+        }
+        if (player.isFinished() && player.getGame().getGameResult() == player.getOpponent()
+                .getColor()) {
+            return Integer.MIN_VALUE;
+        }
+        if (player.isFinished() && player.getGame().getGameResult() == Color.NONE) {
+            return 0;
+        }
+
+        score += NUM_PAWN_SCORE * player.getNumAllPawns() -
+                NUM_PAWN_SCORE * player.getOpponent().getNumAllPawns();
+        score += PROTECTED_PAWN_SCORE * player.numProtectedPawns() -
+                PROTECTED_PAWN_SCORE * player.getOpponent().numProtectedPawns();
+        score += FORWARDNESS_SEMI_OPEN_SCORE * player.forwardness() -
+                FORWARDNESS_SEMI_OPEN_SCORE * player.getOpponent().forwardness();
+        score += FORWARDNESS_SEMI_OPEN_SCORE * player.numSemiOpenFiles() -
+                FORWARDNESS_SEMI_OPEN_SCORE * player.getOpponent().numSemiOpenFiles();
+
+        if (player.hasPassedPawn()) {
+            score += PASSED_PAWN_SCORE;
+        }
+        if (player.getOpponent().hasPassedPawn()) {
+            score -= PASSED_PAWN_SCORE;
+        }
+        if (player.hasPassedPawn() && player.getOpponent().hasPassedPawn()) {
+            Square passedPawn = player.getPassedPawn();
+            Square opPassedPawn = player.getOpponent().getPassedPawn();
+            if (player.getColor() == Color.BLACK) {
+                if (passedPawn.getY() < (Board.NUM_ROW_COL - 1) - opPassedPawn.getY()) {
+                    score += PASSED_PAWN_SCORE;
+                } else if (passedPawn.getY() > (Board.NUM_ROW_COL - 1) - opPassedPawn.getY()) {
+                    score -= PASSED_PAWN_SCORE;
+                } else {
+                    if (player.getGame().getCurrentPlayer() == Color.BLACK) {
+                        score += PASSED_PAWN_SCORE;
+                    } else {
+                        score -= PASSED_PAWN_SCORE;
+                    }
+                }
+            } else if (player.getColor() == Color.WHITE) {
+                if ((Board.NUM_ROW_COL - 1) - passedPawn.getY() < opPassedPawn.getY()) {
+                    score += PASSED_PAWN_SCORE;
+                } else if ((Board.NUM_ROW_COL - 1) - passedPawn.getY() > opPassedPawn.getY()) {
+                    score -= PASSED_PAWN_SCORE;
+                } else {
+                    if (player.getGame().getCurrentPlayer() == Color.WHITE) {
+                        score += PASSED_PAWN_SCORE;
+                    } else {
+                        score -= PASSED_PAWN_SCORE;
+                    }
+                }
+            }
+        }
+        return score;
+    }
+
+    /**
+     * Private class for storing the move and its minimax score
+     */
+    private class MinimaxKeyVal implements Serializable {
+
+        /**
+         * Score of move
+         */
+        private int key;
+
+        /**
+         * Move calculated
+         */
+        private Move val;
+
+        /**
+         * Initializes a move with a minimax value
+         * @param key score of move
+         * @param val move calculated
+         */
+        MinimaxKeyVal(int key, Move val) {
+            this.key = key;
+            this.val = val;
+        }
+
+        /**
+         * Return the score of the move
+         *
+         * @return the score of the move
+         */
+        int getKey() {
+            return key;
+        }
+
+        /**
+         * Return the move stored
+         *
+         * @return the move stored
+         */
+        Move getValue() {
+            return val;
+        }
+    }
 
 }

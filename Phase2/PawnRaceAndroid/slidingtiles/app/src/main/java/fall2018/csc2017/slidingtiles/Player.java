@@ -2,408 +2,554 @@ package fall2018.csc2017.slidingtiles;
 
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.Random;
 
+/**
+ * Stores a player and its relevant functions to make board evaluations...etc.
+ */
 public class Player implements Serializable {
 
-  private Game game;
-  private Board board;
-  private Color color;
-  private Player opponent;
-  private int startingRank;
-  private int direction;
+    /**
+     * Max possible moves
+     */
+    private static final int MAX_POSSIBLE_MOVES = 28;
 
-  private Square initialTap;
-  private MinimaxAI ai;
+    /**
+     * Direction in which white moves
+     */
+    private static final int WHITE_DIRECTION = 1;
 
-    public Player(Game game, Board board, Color color) {
+    /**
+     * Direction in which black moves
+     */
+    private static final int BLACK_DIRECTION = -1;
+
+    /**
+     * Forwardness modifier constant
+     */
+    private static final int FORWARDNESS_MODIFIER = 10;
+
+    /**
+     * No adjacent pawn and protected modifier constant
+     */
+    private static final int NO_ADJACENT_PAWN_MODIFIER_PROTECTED = 5;
+
+    /**
+     * No adjacent pawn modifier constant
+     */
+    private static final int NO_ADJACENT_PAWN_MODIFIER = 3;
+
+    /**
+     * Guarding pawn modifier constant
+     */
+    private static final int GUARDING_MODIFIER = 3;
+
+    /**
+     * Protected modifier constant
+     */
+    private static final int PROTECTED_MODIFIER = 2;
+    /**
+     * Game currently being played
+     */
+    private Game game;
+    /**
+     * Board currently being played
+     */
+    private Board board;
+    /**
+     * Player's color
+     */
+    private Color color;
+    /**
+     * Player's opponent
+     */
+    private Player opponent;
+    /**
+     * Starting rank of player
+     */
+    private int startingRank;
+    /**
+     * Direction of player to advance in
+     */
+    private int direction;
+    /**
+     * Android two-step tap processing
+     */
+    private Square initialTap;
+    /**
+     * AI (if player is a computer player)
+     */
+    private MinimaxAI ai;
+
+    /**
+     * Initializes the player with relevant parameters
+     *
+     * @param game game to be played
+     * @param board board of the game to be played
+     * @param color color of the player
+     * @param isComputerPlayer whether the player is played by the computer
+     * @param difficulty difficulty of computer AI
+     */
+    Player(Game game, Board board, Color color, boolean isComputerPlayer, int difficulty) {
         this.game = game;
         this.board = board;
         this.color = color;
         if (color == Color.WHITE) {
-            startingRank = 1;
-            direction = 1;
+            startingRank = Game.WHITE_STARTING_RANK;
+            direction = WHITE_DIRECTION;
+        } else {
+            startingRank = Game.BLACK_STARTING_RANK;
+            direction = BLACK_DIRECTION;
         }
-        else {
-            startingRank = 6;
-            direction = -1;
+        if (isComputerPlayer) {
+            ai = new MinimaxAI(this, difficulty);
         }
     }
 
-    public void setAI(MinimaxAI ai) {
-        this.ai = ai;
+    /**
+     * Return the player's opponent
+     *
+     * @return player's opponent
+     */
+    Player getOpponent() {
+        return opponent;
     }
 
-  public void setOpponent(Player opponent) {
-    this.opponent = opponent;
-  }
-
-  public Player getOpponent() {
-    return opponent;
-  }
-
-  public Game getGame() {
-    return game;
-  }
-
-  public Board getBoard() {
-    return board;
-  }
-
-  public Color getColor() {
-    return color;
-  }
-
-  public boolean isFinished() {
-    if (game.isFinished() || isStuck()) {
-      return true;
+    /**
+     * Sets the opponent
+     *
+     * @param opponent opponent of player
+     */
+    void setOpponent(Player opponent) {
+        this.opponent = opponent;
     }
-    return false;
-  }
 
-  private boolean isStuck() {
-    if (getAllValidMoves()[0] == null) {
-      return true;
+    /**
+     * Return the game
+     *
+     * @return the game
+     */
+    Game getGame() {
+        return game;
     }
-    return false;
-  }
 
-  public Square[] getAllPawns() {
-    Square[] allPawns = new Square[7];
-    int num = 0;
-    for (int i = 0; i < 8; i++) {
-      for (int j = 0; j < 8; j++) {
-        if (board.getSquare(i, j).occupiedBy() == color) {
-          allPawns[num] = board.getSquare(i, j);
-          num++;
-        }
-      }
+    /**
+     * Return the board
+     *
+     * @return the board
+     */
+    Board getBoard() {
+        return board;
     }
-    return allPawns;
-  }
 
-  public int getNumAllPawns() {
-    int num = 0;
-    for (int i = 0; i < 8; i++) {
-      for (int j = 0; j < 8; j++) {
-        if (board.getSquare(i, j).occupiedBy() == color) {
-          num++;
-        }
-      }
+    /**
+     * Return the color of the player
+     *
+     * @return the player's color
+     */
+    public Color getColor() {
+        return color;
     }
-    return num;
-  }
 
-  public Move[] getAllValidMoves() {
-    Move[] moves = new Move[28];
-    Square[] allPawns = getAllPawns();
-    int index = 0;
-    Color c = color == Color.WHITE ? Color.BLACK : Color.WHITE;
-    int a = color == Color.WHITE ? 1 : -1;
-    int startRow = color == Color.WHITE ? 1 : 6;
-    for (int i = 0; i < 7 && allPawns[i] != null; i++) {
-      Square pawn = allPawns[i];
-      int x = pawn.getX();
-      int y = pawn.getY();
-      if (y == startRow && board.getSquare(x, y + 2 * a).occupiedBy() == Color.NONE &&
-          board.getSquare(x, y + a).occupiedBy() == Color.NONE) {
-        moves[index] = new Move(pawn, board.getSquare(x, y + 2 * a), false, false);
-        index++;
-      }
-      if (y != 7 && y != 0 && board.getSquare(x, y + a).occupiedBy() == Color.NONE) {
-        moves[index] = new Move(pawn, board.getSquare(x, y + a), false, false);
-        index++;
-      }
-      if (x != 7 && y != 7 && y != 0 && board.getSquare(x + 1, y + a).occupiedBy() == c) {
-        moves[index] = new Move(pawn, board.getSquare(x + 1, y + a), true, false);
-        index++;
-      }
-      if (x != 0 && y != 7 && y != 0 && board.getSquare(x - 1, y + a).occupiedBy() == c) {
-        moves[index] = new Move(pawn, board.getSquare(x - 1, y + a), true, false);
-        index++;
-      }
-      if (game.getLastMove() != null) {
-        Square opFrom = game.getLastMove().getFrom();
-        Square opTo = game.getLastMove().getTo();
-        int b = color == Color.WHITE ? 6 : 1;
-        if (opFrom.getY() == b && y == b - 2 * a && y == opTo.getY()) {
-          if (opFrom.getX() == x - 1) {
-            moves[index] = new Move(pawn, board.getSquare(x - 1, y + a), true, true);
-            index++;
-          } else if (opFrom.getX() == x + 1) {
-            moves[index] = new Move(pawn, board.getSquare(x + 1, y + a), true, true);
-            index++;
-          }
-        }
-      }
+    /**
+     * Return whether the game is finished when it is the player's move
+     * (takes into account stalemates)
+     *
+     * @return whether the game is finished when it is the player's turn
+     */
+    boolean isFinished() {
+        return game.isFinished() || isStuck();
     }
-//    for (int i = 0; i < index; i++) {
-//      System.out.println(moves[i].getSAN());
-//    }
-    return moves;
-  }
 
-  public boolean isPassed(Square square) {
-    int x = square.getX();
-    int y = square.getY();
-    if (square.occupiedBy() == Color.WHITE) {
-      for (int j = y; j < 8; j++) {
-        if (board.getSquare(x, j).occupiedBy() == Color.BLACK) {
-          return false;
-        }
-        if (x != 0 && board.getSquare(x - 1, j).occupiedBy() == Color.BLACK) {
-          return false;
-        }
-        if (x != 7 && board.getSquare(x + 1, j).occupiedBy() == Color.BLACK) {
-          return false;
-        }
-      }
-    } else {
-      for (int j = y; j >= 0; j--) {
-        if (board.getSquare(x, j).occupiedBy() == Color.WHITE) {
-          return false;
-        }
-      }
-      if (x != 0) {
-        for (int j = y; j >= 0; j--) {
-          if (board.getSquare(x - 1, j).occupiedBy() == Color.WHITE) {
-            return false;
-          }
-        }
-      }
-      if (x != 7) {
-        for (int j = y; j >= 0; j--) {
-          if (board.getSquare(x + 1, j).occupiedBy() == Color.WHITE) {
-            return false;
-          }
-        }
-      }
+    /**
+     * Return whether the player has no moves
+     *
+     * @return whether the player has no moves
+     */
+    private boolean isStuck() {
+        return getAllValidMoves()[0] == null;
     }
-    return true;
-  }
 
-  public boolean hasOpenFile(Square square) {
-    int x = square.getX();
-    int y = square.getY();
-    int count = 3;
-    if (square.occupiedBy() == Color.WHITE) {
-      for (int j = y; j < 8; j++) {
-        if (board.getSquare(x, j).occupiedBy() == Color.BLACK) {
-          count--;
+    /**
+     * Get all the pawns that the player has
+     *
+     * @return all the pawns that the player has
+     */
+    private Square[] getAllPawns() {
+        Square[] allPawns = new Square[Board.NUM_ROW_COL - 1];
+        int num = 0;
+        for (int i = 0; i < Board.NUM_ROW_COL; i++) {
+            for (int j = 0; j < Board.NUM_ROW_COL; j++) {
+                if (board.getSquare(i, j).occupiedBy() == color) {
+                    allPawns[num] = board.getSquare(i, j);
+                    num++;
+                }
+            }
         }
-        if (x != 0 && board.getSquare(x - 1, j).occupiedBy() == Color.BLACK) {
-          count--;
-        }
-        if (x != 7 && board.getSquare(x + 1, j).occupiedBy() == Color.BLACK) {
-          count--;
-        }
-      }
-    } else {
-      for (int j = y; j >= 0; j--) {
-        if (board.getSquare(x, j).occupiedBy() == Color.WHITE) {
-          count--;
-        }
-      }
-      if (x != 0) {
-        for (int j = y; j >= 0; j--) {
-          if (board.getSquare(x - 1, j).occupiedBy() == Color.WHITE) {
-            count--;
-          }
-        }
-      }
-      if (x != 7) {
-        for (int j = y; j >= 0; j--) {
-          if (board.getSquare(x + 1, j).occupiedBy() == Color.WHITE) {
-            count--;
-          }
-        }
-      }
+        return allPawns;
     }
-    return !(count == 0);
-  }
 
-  public int numProtectedPawns() {
-    int count = 0;
-    for (Square pawn : getAllPawns()) {
-      if (pawn != null && isProtected(pawn)) {
-        count++;
-      }
+    /**
+     * Counts all of the player's pawns
+     *
+     * @return the number of pawns the player has
+     */
+    int getNumAllPawns() {
+        int num = 0;
+        for (int i = 0; i < Board.NUM_ROW_COL; i++) {
+            for (int j = 0; j < Board.NUM_ROW_COL; j++) {
+                if (board.getSquare(i, j).occupiedBy() == color) {
+                    num++;
+                }
+            }
+        }
+        return num;
     }
-    return count;
-  }
 
-  private boolean isProtected(Square pawn) {
-    int a = (pawn.occupiedBy() == Color.WHITE) ? 1 : -1;
-    if (pawn.getX() != 7) {
-      if (board.getSquare(pawn.getY() - a, pawn.getX() + 1).occupiedBy() == color) return true;
-    }
-    if (pawn.getX() != 0) {
-      if (board.getSquare(pawn.getY() - a, pawn.getX() - 1).occupiedBy() == color) return true;
-    }
-    return false;
-  }
+    /**
+     * Return an array of all valid moves that the player can make
+     *
+     * @return an array of all valid moves that the player can make
+     */
+    Move[] getAllValidMoves() {
+        Move[] moves = new Move[MAX_POSSIBLE_MOVES];
+        Square[] allPawns = getAllPawns();
+        int index = 0;
+        Color c = color == Color.WHITE ? Color.BLACK : Color.WHITE;
+        int moveDirection = color == Color.WHITE ? WHITE_DIRECTION : BLACK_DIRECTION;
+        int startRow = color == Color.WHITE ? Game.WHITE_STARTING_RANK : Game.BLACK_STARTING_RANK;
 
-  public boolean guarding(Square pawn) {
-    if (pawn.getX() != 7) {
-      if (board.getSquare(pawn.getX() + 1,pawn.getY() + direction).occupiedBy() == opponent.getColor()) {
+        for (int i = 0; i < (Board.NUM_ROW_COL - 1) && allPawns[i] != null; i++) {
+            Square pawn = allPawns[i];
+            int x = pawn.getX();
+            int y = pawn.getY();
+            if (y == startRow && board.getSquare(x, y + 2 * moveDirection).occupiedBy()
+                    == Color.NONE && board.getSquare(x, y + moveDirection).occupiedBy()
+                    == Color.NONE) {
+                moves[index] = new Move(pawn, board.getSquare(x, y + 2 * moveDirection),
+                        false, false);
+                index++;
+            }
+            if (y != (Board.NUM_ROW_COL - 1) && y != 0 &&
+                    board.getSquare(x, y + moveDirection).occupiedBy() == Color.NONE) {
+                moves[index] = new Move(pawn, board.getSquare(x, y + moveDirection),
+                        false, false);
+                index++;
+            }
+            if (x != (Board.NUM_ROW_COL - 1) && y != (Board.NUM_ROW_COL - 1) && y != 0 &&
+                    board.getSquare(x + 1, y + moveDirection).occupiedBy() == c) {
+                moves[index] = new Move(pawn, board.getSquare(x + 1, y + moveDirection),
+                        true, false);
+                index++;
+            }
+            if (x != 0 && y != (Board.NUM_ROW_COL - 1) && y != 0 &&
+                    board.getSquare(x - 1, y + moveDirection).occupiedBy() == c) {
+                moves[index] = new Move(pawn, board.getSquare(x - 1, y + moveDirection),
+                        true, false);
+                index++;
+            }
+            if (game.getLastMove() != null) {
+                Square opFrom = game.getLastMove().getFrom();
+                Square opTo = game.getLastMove().getTo();
+                int opStartingRank = color == Color.WHITE ?
+                        Game.BLACK_STARTING_RANK : Game.WHITE_STARTING_RANK;
+                if (opFrom.getY() == opStartingRank && y == opStartingRank - 2 * moveDirection
+                        && y == opTo.getY()) {
+                    if (opFrom.getX() == x - 1) {
+                        moves[index] = new Move(pawn, board.getSquare(x - 1, y + moveDirection),
+                                true, true);
+                        index++;
+                    } else if (opFrom.getX() == x + 1) {
+                        moves[index] = new Move(pawn, board.getSquare(x + 1, y + moveDirection),
+                                true, true);
+                        index++;
+                    }
+                }
+            }
+        }
+
+        return moves;
+    }
+
+    /**
+     * Return whether the pawn on the square is a passed pawn
+     * Precondition: the square must be populated by a player's pawn
+     *
+     * @param square square of the pawn to check
+     * @return whether the pawn on the square is a passed pawn
+     */
+    private boolean isPassed(Square square) {
+        int x = square.getX();
+        int y = square.getY();
+        if (square.occupiedBy() == Color.WHITE) {
+            for (int j = y; j < Board.NUM_ROW_COL; j++) {
+                if (board.getSquare(x, j).occupiedBy() == Color.BLACK) {
+                    return false;
+                }
+                if (x != 0 && board.getSquare(x - 1, j).occupiedBy() == Color.BLACK) {
+                    return false;
+                }
+                if (x != (Board.NUM_ROW_COL - 1) && board.getSquare(x + 1, j).occupiedBy()
+                        == Color.BLACK) {
+                    return false;
+                }
+            }
+        } else {
+            for (int j = y; j >= 0; j--) {
+                if (board.getSquare(x, j).occupiedBy() == Color.WHITE) {
+                    return false;
+                }
+            }
+            if (x != 0) {
+                for (int j = y; j >= 0; j--) {
+                    if (board.getSquare(x - 1, j).occupiedBy() == Color.WHITE) {
+                        return false;
+                    }
+                }
+            }
+            if (x != (Board.NUM_ROW_COL - 1)) {
+                for (int j = y; j >= 0; j--) {
+                    if (board.getSquare(x + 1, j).occupiedBy() == Color.WHITE) {
+                        return false;
+                    }
+                }
+            }
+        }
         return true;
-      }
     }
-    if (pawn.getX() != 0) {
-      if (board.getSquare(pawn.getX() - 1,pawn.getY() + direction).occupiedBy() == opponent.getColor()) {
-        return true;
-      }
-    }
-    return false;
-  }
 
-  public boolean noAdjacentPawn(Square pawn) {
-    int count = 0;
-    for (int i = 0; i < 8; i++) {
-      if (pawn.getX() != 7) {
-        if (board.getSquare(pawn.getX() + 1, i).occupiedBy() == color) count++;
-      }
-      if (pawn.getX() != 0) {
-        if (board.getSquare(pawn.getX() - 1, i).occupiedBy() == color) count++;
-      }
-    }
-    if (count >= 2) return true;
-    return false;
-  }
-
-  public int forwardness() {
-    int forwardness = 0;
-    for (Square pawn : getAllPawns()) {
-      if (pawn != null) {
-        forwardness += forwardnessOfPawn(pawn);
-      }
-    }
-    return forwardness;
-  }
-
-  public int forwardnessOfPawn(Square pawn) {
-    int forwardness = 0;
-    forwardness += 10 * (direction * (pawn.getY() - startingRank));
-    if (isPassed(pawn)) {
-      forwardness *= 10;
-    }
-    if (noAdjacentPawn(pawn) && isProtected(pawn)) {
-      forwardness *= 5;
-    }
-    else if (noAdjacentPawn(pawn)) {
-      forwardness *= 3;
-    }
-    if (guarding(pawn)) {
-      forwardness *= 3;
-    }
-//    if (hasOpenFile(pawn)) {
-//      forwardness *= 2;
-//    }
-    if (isProtected(pawn)) {
-      forwardness *= 2;
-    }
-    if (canBeCaptured(pawn) && !isProtected(pawn)) {
-      forwardness = 0;
-    }
-    else if (canBeCaptured(pawn) && isProtected(pawn)) {
-      forwardness /= 2;
-    }
-    return forwardness;
-  }
-
-  public int numSemiOpenFiles() {
-    int count = 0;
-    for (Square pawn : getAllPawns()) {
-      if (pawn != null && semiOpenFile(pawn)) count++;
-    }
-    return count;
-  }
-
-  public boolean semiOpenFile(Square pawn) {
-    if (color == Color.WHITE) {
-      for (int i = pawn.getY(); i < 8; i++) {
-        if (board.getSquare(pawn.getX(), i).occupiedBy() != Color.NONE) return false;
-      }
-      return true;
-    }
-    else {
-      for (int i = pawn.getY(); i >= 0; i--) {
-        if (board.getSquare(pawn.getX(), i).occupiedBy() != Color.NONE) return false;
-      }
-      return true;
-    }
-  }
-
-  public int numPawnsCanBeCaptured() {
-    int count = 0;
-    for (Square pawn : getAllPawns()) {
-      if (pawn != null && canBeCaptured(pawn)) {
-        count++;
-      }
-    }
-    return count;
-  }
-
-  public boolean canBeCaptured(Square pawn) {
-    int a = (pawn.occupiedBy() == Color.WHITE) ? 1 : -1;
-    if (pawn.getX() != 7) {
-      if (board.getSquare(pawn.getY() + a, pawn.getX() + 1).occupiedBy() == opponent.getColor()) return true;
-    }
-    if (pawn.getX() != 0) {
-      if (board.getSquare(pawn.getY() + a, pawn.getX() - 1).occupiedBy() == opponent.getColor()) return true;
-    }
-    return false;
-  }
-
-  public boolean hasPassedPawn() {
-    Square[] pawns = getAllPawns();
-    for (int i = 0; i < getNumAllPawns(); i++) {
-      if (isPassed(pawns[i])) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  public Square getPassedPawn() {
-    Square[] pawns = getAllPawns();
-    if (hasPassedPawn()) {
-      for (int i = 0; i < getNumAllPawns(); i++) {
-        if (isPassed(pawns[i])) {
-          return pawns[i];
+    /**
+     * Return the number of protected pawns that the player has
+     *
+     * @return the number of protected pawns that the player has
+     */
+    int numProtectedPawns() {
+        int count = 0;
+        for (Square pawn : getAllPawns()) {
+            if (pawn != null && isProtected(pawn)) {
+                count++;
+            }
         }
-      }
+        return count;
     }
-    return null;
-  }
 
-
-  public int count(Move[] moves) {
-    int count = 0;
-    for (int i = 0; moves[i] != null; i++) {
-      count++;
+    /**
+     * Return whether the pawn on the square is protected
+     * Precondition: the square must be populated by a player's pawn
+     *
+     * @param pawn square of the pawn to check
+     * @return whether the pawn on the square is protected
+     */
+    private boolean isProtected(Square pawn) {
+        int a = (pawn.occupiedBy() == Color.WHITE) ? 1 : -1;
+        if (pawn.getX() != (Board.NUM_ROW_COL - 1)) {
+            if (board.getSquare(pawn.getY() - a, pawn.getX() + 1).occupiedBy() == color)
+                return true;
+        }
+        if (pawn.getX() != 0) {
+            return board.getSquare(pawn.getY() - a, pawn.getX() - 1).occupiedBy() == color;
+        }
+        return false;
     }
-    return count;
-  }
 
-  public void makeMove() {
-    int n = new Random().nextInt(count(getAllValidMoves()));
-    game.applyMove(getAllValidMoves()[n]);
-  }
+    /**
+     * Return whether the pawn on the square is guarded
+     * Precondition: the square must be populated by a player's pawn
+     *
+     * @param pawn square of the pawn to check
+     * @return whether the pawn on the square is guarded
+     */
+    private boolean guarding(Square pawn) {
+        if (pawn.getX() != (Board.NUM_ROW_COL - 1)) {
+            if (board.getSquare(pawn.getX() + 1, pawn.getY() + direction).occupiedBy()
+                    == opponent.getColor()) {
+                return true;
+            }
+        }
+        if (pawn.getX() != 0) {
+            return board.getSquare(pawn.getX() - 1, pawn.getY() + direction).occupiedBy()
+                    == opponent.getColor();
+        }
+        return false;
+    }
 
-  public void computerMakeMove() {
-      makeMove(ai.minimaxBestMove());
-  }
+    /**
+     * Return whether the pawn on the square has no adjacent pawns
+     * Precondition: the square must be populated by a player's pawn
+     *
+     * @param pawn square of the pawn to check
+     * @return whether the pawn on the square has no adjacent pawns
+     */
+    private boolean noAdjacentPawn(Square pawn) {
+        int count = 0;
+        for (int i = 0; i < Board.NUM_ROW_COL; i++) {
+            if (pawn.getX() != Board.NUM_ROW_COL) {
+                if (board.getSquare(pawn.getX() + 1, i).occupiedBy() == color) count++;
+            }
+            if (pawn.getX() != 0) {
+                if (board.getSquare(pawn.getX() - 1, i).occupiedBy() == color) count++;
+            }
+        }
+        return count >= 2;
+    }
 
-  public void makeMove(Move move) {
-    game.applyMove(move);
-    board.notifyObservers();
-  }
+    /**
+     * Calculates the "forwardness" of all the player's pawns by the "forwardness" algorithm"
+     *
+     * @return the "forwardness" score of all the player's pwans
+     */
+    int forwardness() {
+        int forwardness = 0;
+        for (Square pawn : getAllPawns()) {
+            if (pawn != null) {
+                forwardness += forwardnessOfPawn(pawn);
+            }
+        }
+        return forwardness;
+    }
 
-  public void makeMove(int i) {
-    game.applyMove(getAllValidMoves()[i]);
-  }
+    /**
+     * Return the forwardness of a single pawn
+     * Precondition: the square must be populated by a player's pawn
+     *
+     * @param pawn square of the pawn to check
+     * @return the forwardness score of a single pawn
+     */
+    private int forwardnessOfPawn(Square pawn) {
+        int forwardness = 0;
+        forwardness += FORWARDNESS_MODIFIER * (direction * (pawn.getY() - startingRank));
+        if (isPassed(pawn)) {
+            forwardness *= FORWARDNESS_MODIFIER;
+        }
+        if (noAdjacentPawn(pawn) && isProtected(pawn)) {
+            forwardness *= NO_ADJACENT_PAWN_MODIFIER_PROTECTED;
+        } else if (noAdjacentPawn(pawn)) {
+            forwardness *= NO_ADJACENT_PAWN_MODIFIER;
+        }
+        if (guarding(pawn)) {
+            forwardness *= GUARDING_MODIFIER;
+        }
+        if (isProtected(pawn)) {
+            forwardness *= PROTECTED_MODIFIER;
+        }
+        if (canBeCaptured(pawn) && !isProtected(pawn)) {
+            forwardness = 0;
+        } else if (canBeCaptured(pawn) && isProtected(pawn)) {
+            forwardness /= PROTECTED_MODIFIER;
+        }
+        return forwardness;
+    }
 
+    /**
+     * Return the number of semi-open files on the player's side
+     *
+     * @return the number of semi-open files on the player's side
+     */
+    int numSemiOpenFiles() {
+        int count = 0;
+        for (Square pawn : getAllPawns()) {
+            if (pawn != null && semiOpenFile(pawn)) count++;
+        }
+        return count;
+    }
+
+    /**
+     * Return whether the pawn on the square is on a semi-open file
+     * Precondition: the square must be populated by a player's pawn
+     *
+     * @param pawn square of the pawn to check
+     * @return whether the pawn on the square is on a semi-open file
+     */
+    private boolean semiOpenFile(Square pawn) {
+        if (color == Color.WHITE) {
+            for (int i = pawn.getY(); i < Board.NUM_ROW_COL; i++) {
+                if (board.getSquare(pawn.getX(), i).occupiedBy() != Color.NONE) return false;
+            }
+            return true;
+        } else {
+            for (int i = pawn.getY(); i >= 0; i--) {
+                if (board.getSquare(pawn.getX(), i).occupiedBy() != Color.NONE) return false;
+            }
+            return true;
+        }
+    }
+
+    /**
+     * Return whether the pawn on the square can be captured
+     * Precondition: the square must be populated by a player's pawn
+     *
+     * @param pawn square of the pawn to check
+     * @return whether the pawn on the square can be captured
+     */
+    private boolean canBeCaptured(Square pawn) {
+        int a = (pawn.occupiedBy() == Color.WHITE) ? 1 : -1;
+        if (pawn.getX() != 7) {
+            if (board.getSquare(pawn.getY() + a, pawn.getX() + 1).occupiedBy()
+                    == opponent.getColor())
+                return true;
+        }
+        if (pawn.getX() != 0) {
+            return board.getSquare(pawn.getY() + a, pawn.getX() - 1).occupiedBy()
+                    == opponent.getColor();
+        }
+        return false;
+    }
+
+    /**
+     * Return whether the player has a passed pawn
+     *
+     * @return whether the player has a passed pawn
+     */
+    boolean hasPassedPawn() {
+        Square[] pawns = getAllPawns();
+        for (int i = 0; i < getNumAllPawns(); i++) {
+            if (isPassed(pawns[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Return the passed pawn if present
+     *
+     * @return the passed pawn if present (null otherwise)
+     */
+    Square getPassedPawn() {
+        Square[] pawns = getAllPawns();
+        for (int i = 0; i < getNumAllPawns(); i++) {
+            if (isPassed(pawns[i])) {
+                return pawns[i];
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Allows the computer to make a move
+     * Precondition: the game must not be finished and the player must be a computer player
+     */
+    private void computerMakeMove() {
+        makeMove(ai.minimaxBestMove());
+    }
+
+    /**
+     * Make a move and update the board on the interface
+     *
+     * @param move move to be made
+     */
+    private void makeMove(Move move) {
+        game.applyMove(move);
+        board.notifyObservers();
+    }
+
+    /**
+     * Processes a tap on the board in a two-step process. First tap stores the potential move,
+     * second tap applies the move to the target
+     *
+     * @param row the row of the square tapped
+     * @param col the column of the square tapped
+     * @return whether the tap was valid
+     */
     boolean processTap(int row, int col) {
         if (game.getCurrentPlayer() == color) {
             if (initialTap != null) {
@@ -425,16 +571,23 @@ public class Player implements Serializable {
         return false;
     }
 
+    /**
+     * Parses a move from two squares
+     *
+     * @param from square to move from
+     * @param to square to move to
+     * @return the Move from the from square to the to square
+     */
     private Move getMove(Square from, Square to) {
-      boolean isCapture = false;
-      boolean isEnPassantCapture = false;
-      if (to.getX() != from.getX()) {
-          isCapture = true;
-          if (to.occupiedBy() == Color.NONE) {
-              isEnPassantCapture = true;
-          }
-      }
-      return new Move(from, to, isCapture, isEnPassantCapture);
+        boolean isCapture = false;
+        boolean isEnPassantCapture = false;
+        if (to.getX() != from.getX()) {
+            isCapture = true;
+            if (to.occupiedBy() == Color.NONE) {
+                isEnPassantCapture = true;
+            }
+        }
+        return new Move(from, to, isCapture, isEnPassantCapture);
     }
 
 }

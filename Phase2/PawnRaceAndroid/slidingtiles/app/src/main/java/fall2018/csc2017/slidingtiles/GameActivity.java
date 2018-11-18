@@ -1,8 +1,8 @@
 package fall2018.csc2017.slidingtiles;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
@@ -21,13 +21,6 @@ import java.util.Observer;
  */
 public class GameActivity extends AppCompatActivity implements Observer {
 
-    private Player player;
-
-    /**
-     * The buttons to display.
-     */
-    private ArrayList<Button> tileButtons;
-
     /**
      * Constants for swiping directions. Should be an enum, probably.
      */
@@ -35,10 +28,14 @@ public class GameActivity extends AppCompatActivity implements Observer {
     public static final int DOWN = 2;
     public static final int LEFT = 3;
     public static final int RIGHT = 4;
-
+    private static int columnWidth, columnHeight;
+    private Player player;
+    /**
+     * The buttons to display.
+     */
+    private ArrayList<Button> tileButtons;
     // Grid View and calculated column height and width based on device size
     private GestureDetectGridView gridView;
-    private static int columnWidth, columnHeight;
 
     /**
      * Set up the background image for each button based on the master list
@@ -60,7 +57,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
 
         // Add View to activity
         gridView = findViewById(R.id.grid);
-        gridView.setNumColumns(Board.NUM_COLS);
+        gridView.setNumColumns(Board.NUM_ROW_COL);
         gridView.setPlayer(player);
         player.getBoard().addObserver(this);
         // Observer sets up desired dimensions as well as calls our display function
@@ -73,8 +70,8 @@ public class GameActivity extends AppCompatActivity implements Observer {
                         int displayWidth = gridView.getMeasuredWidth();
                         int displayHeight = gridView.getMeasuredHeight();
 
-                        columnWidth = displayWidth / Board.NUM_COLS;
-                        columnHeight = displayWidth / Board.NUM_ROWS;
+                        columnWidth = displayWidth / Board.NUM_ROW_COL;
+                        columnHeight = displayWidth / Board.NUM_ROW_COL;
 
                         display();
                     }
@@ -89,8 +86,8 @@ public class GameActivity extends AppCompatActivity implements Observer {
     private void createTileButtons(Context context) {
         Board board = player.getBoard();
         tileButtons = new ArrayList<>();
-        for (int row = 0; row != Board.NUM_ROWS; row++) {
-            for (int col = 0; col != Board.NUM_COLS; col++) {
+        for (int row = 0; row != Board.NUM_ROW_COL; row++) {
+            for (int col = 0; col != Board.NUM_ROW_COL; col++) {
                 Button tmp = new Button(context);
                 tmp.setBackgroundResource(board.getSquare(row, col).getBackground());
                 this.tileButtons.add(tmp);
@@ -99,14 +96,14 @@ public class GameActivity extends AppCompatActivity implements Observer {
     }
 
     /**
-     * Update the backgrounds on the buttons to match the tiles.
+     * Update the backgrounds on the buttons to match the board
      */
     private void updateTileButtons() {
         Board board = player.getBoard();
         int nextPos = 0;
         for (Button b : tileButtons) {
-            int col = Board.NUM_ROWS - (nextPos / Board.NUM_ROWS) - 1;
-            int row = Board.NUM_COLS - (nextPos % Board.NUM_COLS) - 1;
+            int col = Board.NUM_ROW_COL - (nextPos / Board.NUM_ROW_COL) - 1;
+            int row = Board.NUM_ROW_COL - (nextPos % Board.NUM_ROW_COL) - 1;
 
             b.setBackgroundResource(board.getSquare(row, col).getBackground());
             nextPos++;
@@ -123,7 +120,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
     }
 
     /**
-     * Load the board manager from fileName.
+     * Load the player from fileName.
      *
      * @param fileName the name of the file
      */
@@ -146,7 +143,7 @@ public class GameActivity extends AppCompatActivity implements Observer {
     }
 
     /**
-     * Save the board manager to fileName.
+     * Save the player to fileName.
      *
      * @param fileName the name of the file
      */

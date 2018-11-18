@@ -1,32 +1,26 @@
 package fall2018.csc2017.slidingtiles;
 
+import java.io.Serializable;
 import java.util.Observable;
 
-import java.io.Serializable;
-
 /**
- * The sliding board board.
+ * The pawn race chess board
  */
-public class Board extends Observable implements Serializable {
+class Board extends Observable implements Serializable {
 
     /**
-     * The number of rows.
+     * The number of rows and columns
      */
-    final static int NUM_ROWS = 8;
+    final static int NUM_ROW_COL = 8;
 
     /**
-     * The number of rows.
-     */
-    final static int NUM_COLS = 8;
-
-    /**
-     * The board on the board in row-major order.
+     * The chess board
      */
     private Square[][] board;
 
     /**
-     * A new board of board in row-major order.
-     * Precondition: len(board) == NUM_ROWS * NUM_COLS
+     * A new pawn race chess board
+     * Precondition: len(board) == NUM_ROW_COL * NUM_ROW_COL
      *
      * @param board the board for the board
      */
@@ -34,15 +28,24 @@ public class Board extends Observable implements Serializable {
         this.board = board;
     }
 
-    public void setSquare(int x, int y, Color c) {
-        board[x][y].setOccupier(c);
-    }
-
-    public Square getSquare(int x, int y) {
+    /**
+     * Return the square on the board given by the rank and file
+     *
+     * @param x file of the square
+     * @param y rank of the square
+     * @return Square on the board at that position
+     */
+    Square getSquare(int x, int y) {
         return board[x][y];
     }
 
-    public void applyMove(Move move) {
+    /**
+     * Applies a move on the board
+     * Precondition: move is a valid move
+     *
+     * @param move the move to be made
+     */
+    void applyMove(Move move) {
         Color c = move.getFrom().occupiedBy();
         move.getFrom().setOccupier(Color.NONE);
         move.getTo().setOccupier(c);
@@ -58,7 +61,13 @@ public class Board extends Observable implements Serializable {
         setChanged();
     }
 
-    public void unapplyMove(Move move) {
+    /**
+     * Undos a move on the board
+     * Precondition: move is the last move made on the board
+     *
+     * @param move move to be undo'd
+     */
+    void unapplyMove(Move move) {
         Color c = move.getTo().occupiedBy();
         move.getFrom().setOccupier(c);
         int toX = move.getTo().getX();
@@ -79,25 +88,6 @@ public class Board extends Observable implements Serializable {
         } else {
             move.getTo().setOccupier(Color.NONE);
         }
-    }
-
-    public void display() {
-        System.out.println("  A B C D E F G H");
-        for (int row = 7; row >= 0; row--) {
-            int x = row + 1;
-            System.out.print(x + " ");
-            for (int col = 0; col <= 7; col++) {
-                if (board[col][row].occupiedBy() == Color.WHITE) {
-                    System.out.print("W ");
-                } else if (board[col][row].occupiedBy() == Color.BLACK) {
-                    System.out.print("B ");
-                } else {
-                    System.out.print(". ");
-                }
-            }
-            System.out.println(x + "");
-        }
-        System.out.println("  A B C D E F G H");
     }
 
 }

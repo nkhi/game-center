@@ -4,17 +4,18 @@ import android.content.Context;
 import android.widget.Toast;
 
 
-public class MovementController {
+class MovementController {
 
     private Player player;
 
-    public void setGame(Player player) {
+    void setGame(Player player) {
         this.player = player;
     }
 
-    public void processTapMovement(Context context, int position, boolean display) {
-        if (player.processTap(Board.NUM_COLS - (position % Board.NUM_COLS) - 1,
-                Board.NUM_ROWS - (position / Board.NUM_ROWS) - 1)) {
+    void processTapMovement(Context context, int position, boolean display) {
+        int row = Board.NUM_ROW_COL - (position % Board.NUM_ROW_COL) - 1;
+        int col = Board.NUM_ROW_COL - (position / Board.NUM_ROW_COL) - 1;
+        if (row < Board.NUM_ROW_COL && col < Board.NUM_ROW_COL && player.processTap(row, col)) {
             Toast.makeText(context, "TAPPED", Toast.LENGTH_SHORT).show();
             if (player.isFinished()) {
                 Toast.makeText(context, "YOU WIN!", Toast.LENGTH_SHORT).show();

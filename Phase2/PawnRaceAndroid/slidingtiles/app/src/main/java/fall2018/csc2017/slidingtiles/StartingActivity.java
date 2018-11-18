@@ -1,8 +1,8 @@
 package fall2018.csc2017.slidingtiles;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -51,12 +51,10 @@ public class StartingActivity extends AppCompatActivity {
     private void initializeGame(int blackGap, int whiteGap, Color playerColor, int difficulty) {
         Color computerColor = playerColor == Color.WHITE ? Color.BLACK : Color.WHITE;
         Game game = new Game(blackGap, whiteGap);
-        Player computerPlayer = new Player(game, game.getBoard(), computerColor);
-        player = new Player(game, game.getBoard(), playerColor);
+        Player computerPlayer = new Player(game, game.getBoard(), computerColor, true, difficulty);
+        player = new Player(game, game.getBoard(), playerColor, false, 0);
         player.setOpponent(computerPlayer);
         computerPlayer.setOpponent(player);
-        computerPlayer.setAI(new MinimaxAI(computerPlayer, difficulty));
-        player.setAI(new MinimaxAI(player, difficulty)); //TEST
     }
 
     /**
@@ -108,7 +106,7 @@ public class StartingActivity extends AppCompatActivity {
                 saveToFile(TEMP_SAVE_FILENAME);
                 makeToastSavedText();
             }
-            });
+        });
     }
 
     /**
@@ -117,6 +115,7 @@ public class StartingActivity extends AppCompatActivity {
     private void makeToastSavedText() {
         Toast.makeText(this, "Game Saved", Toast.LENGTH_SHORT).show();
     }
+
     /**
      * Read the temporary board from disk.
      */

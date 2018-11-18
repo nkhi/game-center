@@ -11,7 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3845bb39-22b3-4e65-8a64-dc150e27f672" name="Default" comment="" />
+    <list default="true" id="19e7b405-e521-417a-8748-141818c3cbd5" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,106 +32,14 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CustomAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/CustomAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GameActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-555">
-              <caret line="88" column="19" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GestureDetectGridView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GestureDetectGridView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartingActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/StartingActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Move.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Move.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+            <state relative-caret-position="205">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
-                <element signature="e#455#456#0" expanded="true" />
-                <element signature="e#476#477#0" expanded="true" />
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#522#523#0" expanded="true" />
-                <element signature="e#554#555#0" expanded="true" />
-                <element signature="e#580#581#0" expanded="true" />
-                <element signature="e#621#622#0" expanded="true" />
-                <element signature="e#656#657#0" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#743#744#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="90" selection-start-line="90" selection-end-line="90" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MinimaxAI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/MinimaxAI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-              <folding>
-                <element signature="e#296#297#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#737#738#0" expanded="true" />
-                <element signature="e#765#766#0" expanded="true" />
-                <element signature="e#10329#10330#0" expanded="true" />
-                <element signature="e#10357#10358#0" expanded="true" />
+                <element signature="e#861#862#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,8 +48,132 @@
       <file leaf-file-name="MovementController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/MovementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="75">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+              <folding>
+                <element signature="e#1619#1620#0" expanded="true" />
+                <element signature="e#1655#1656#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GameActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="900">
+              <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartingActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/StartingActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GestureDetectGridView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GestureDetectGridView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MinimaxAI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/MinimaxAI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="77">
+              <caret line="191" column="62" selection-start-line="191" selection-start-column="62" selection-end-line="191" selection-end-column="62" />
+              <folding>
+                <element signature="e#5373#5374#0" expanded="true" />
+                <element signature="e#5407#5408#0" expanded="true" />
+                <element signature="e#5666#5667#0" expanded="true" />
+                <element signature="e#5700#5701#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Move.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Move.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1185">
+              <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+              <folding>
+                <element signature="e#1104#1105#0" expanded="true" />
+                <element signature="e#1131#1132#0" expanded="true" />
+                <element signature="e#1160#1161#0" expanded="true" />
+                <element signature="e#1185#1186#0" expanded="true" />
+                <element signature="e#1219#1220#0" expanded="true" />
+                <element signature="e#1251#1252#0" expanded="true" />
+                <element signature="e#1294#1295#0" expanded="true" />
+                <element signature="e#1335#1336#0" expanded="true" />
+                <element signature="e#1378#1379#0" expanded="true" />
+                <element signature="e#1432#1433#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+              <folding>
+                <element signature="e#2426#2427#0" expanded="true" />
+                <element signature="e#2457#2458#0" expanded="true" />
+                <element signature="e#2834#2835#0" expanded="true" />
+                <element signature="e#2874#2875#0" expanded="true" />
+                <element signature="e#2896#2897#0" expanded="true" />
+                <element signature="e#2923#2924#0" expanded="true" />
+                <element signature="e#2947#2948#0" expanded="true" />
+                <element signature="e#2975#2976#0" expanded="true" />
+                <element signature="e#3236#3237#0" expanded="true" />
+                <element signature="e#3264#3265#0" expanded="true" />
+                <element signature="e#3388#3389#0" expanded="true" />
+                <element signature="e#3441#3442#0" expanded="true" />
+                <element signature="e#3683#3684#0" expanded="true" />
+                <element signature="e#3735#3736#0" expanded="true" />
+                <element signature="e#16469#16470#0" expanded="true" />
+                <element signature="e#16515#16516#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Square.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
+              <folding>
+                <element signature="e#926#927#0" expanded="true" />
+                <element signature="e#950#951#0" expanded="true" />
+                <element signature="e#1049#1050#0" expanded="true" />
+                <element signature="e#1073#1074#0" expanded="true" />
+                <element signature="e#1180#1181#0" expanded="true" />
+                <element signature="e#1204#1205#0" expanded="true" />
+                <element signature="e#1349#1350#0" expanded="true" />
+                <element signature="e#1374#1375#0" expanded="true" />
+                <element signature="e#2356#2357#0" expanded="true" />
+                <element signature="e#2384#2385#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2396,42 +2428,42 @@
     </option>
     <option name="projectSyncType">
       <map>
+        <entry key="$PROJECT_DIR$/../../../../../A2/A2/slidingtiles" value="PREVIEW" />
         <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-        <entry key="$PROJECT_DIR$/../../A2/slidingtiles" value="PREVIEW" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Tile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/BoardManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GameActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GestureDetectGridView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Color.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Move.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/StartingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Board.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Color.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/CustomAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GameActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/StartingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/MovementController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Player.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/MinimaxAI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Move.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Player.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1392" />
-    <option name="y" value="-20" />
-    <option name="width" value="2579" />
-    <option name="height" value="1409" />
+    <option name="x" value="2551" />
+    <option name="y" value="-9" />
+    <option name="width" value="2578" />
+    <option name="height" value="1408" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2450,25 +2482,33 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="slidingtiles" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
+            <path>
+              <item name="slidingtiles" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="generatedJava" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="slidingtiles" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="slidingtiles" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="Pixel_2_API_27" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\School\OneDrive - University of Toronto\2nd Year Courses\CSC207\A2\A2 - Copy\slidingtiles\app\src\main\java\fall2018\csc2017\slidingtiles" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2587,11 +2627,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3845bb39-22b3-4e65-8a64-dc150e27f672" name="Default" comment="" />
-      <created>1542463998524</created>
+      <changelist id="19e7b405-e521-417a-8748-141818c3cbd5" name="Default" comment="" />
+      <created>1542552312800</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1542463998524</updated>
+      <updated>1542552312800</updated>
     </task>
     <servers />
   </component>
@@ -2599,248 +2639,45 @@
     <frame x="2553" y="-7" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Build Variants" order="2" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info id="Build Variants" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32931727" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Logcat" order="7" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Logcat" />
       <window_info id="Captures" order="2" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24975026" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32931727" />
-      <window_info anchor="right" id="Gradle" order="3" />
+      <window_info anchor="bottom" id="Build" weight="0.32931727" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32931727" />
+      <window_info anchor="right" id="Gradle" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Preview" order="3" weight="0.32967034" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32931727" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GameActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="139" column="39" selection-start-line="139" selection-start-column="39" selection-end-line="139" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GestureDetectGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
-          <caret line="146" column="18" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/StartingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Player.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/PawnRace.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/CustomAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GameActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="130" column="42" lean-forward="true" selection-start-line="130" selection-start-column="42" selection-end-line="130" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GestureDetectGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="104" column="18" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/CustomAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GameActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="78" column="68" selection-start-line="78" selection-start-column="68" selection-end-line="78" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GestureDetectGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="104" column="18" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/tile_1.PNG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/pawngame_black_black.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/tile_16.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/tile_14.PNG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2375" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/pawngame_black_black.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/tile_1.PNG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/PawnRace.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Color.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="77" column="87" selection-start-line="77" selection-start-column="87" selection-end-line="77" selection-end-column="87" />
-          <folding>
-            <element signature="e#716#717#0" expanded="true" />
-            <element signature="e#741#742#0" expanded="true" />
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1544#1545#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -2851,89 +2688,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/StartingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GestureDetectGridView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+        <state relative-caret-position="165">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/GameActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-555">
-          <caret line="88" column="19" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
+        <state relative-caret-position="900">
+          <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/MovementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="205">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#861#862#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Move.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        <state relative-caret-position="1185">
+          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
           <folding>
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#522#523#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#1104#1105#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
+            <element signature="e#1219#1220#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1335#1336#0" expanded="true" />
+            <element signature="e#1378#1379#0" expanded="true" />
+            <element signature="e#1432#1433#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Player.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/MovementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        <state relative-caret-position="75">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#10329#10330#0" expanded="true" />
-            <element signature="e#10357#10358#0" expanded="true" />
+            <element signature="e#1619#1620#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/MinimaxAI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="77">
+          <caret line="191" column="62" selection-start-line="191" selection-start-column="62" selection-end-line="191" selection-end-column="62" />
           <folding>
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#5373#5374#0" expanded="true" />
+            <element signature="e#5407#5408#0" expanded="true" />
+            <element signature="e#5666#5667#0" expanded="true" />
+            <element signature="e#5700#5701#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding>
+            <element signature="e#2426#2427#0" expanded="true" />
+            <element signature="e#2457#2458#0" expanded="true" />
+            <element signature="e#2834#2835#0" expanded="true" />
+            <element signature="e#2874#2875#0" expanded="true" />
+            <element signature="e#2896#2897#0" expanded="true" />
+            <element signature="e#2923#2924#0" expanded="true" />
+            <element signature="e#2947#2948#0" expanded="true" />
+            <element signature="e#2975#2976#0" expanded="true" />
+            <element signature="e#3236#3237#0" expanded="true" />
+            <element signature="e#3264#3265#0" expanded="true" />
+            <element signature="e#3388#3389#0" expanded="true" />
+            <element signature="e#3441#3442#0" expanded="true" />
+            <element signature="e#3683#3684#0" expanded="true" />
+            <element signature="e#3735#3736#0" expanded="true" />
+            <element signature="e#16469#16470#0" expanded="true" />
+            <element signature="e#16515#16516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
+          <folding>
+            <element signature="e#926#927#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="e#1180#1181#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
+            <element signature="e#2356#2357#0" expanded="true" />
+            <element signature="e#2384#2385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/slidingtiles/StartingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
         </state>
       </provider>
     </entry>
