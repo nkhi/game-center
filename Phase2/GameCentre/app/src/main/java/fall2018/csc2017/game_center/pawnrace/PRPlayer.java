@@ -11,9 +11,19 @@ import fall2018.csc2017.game_center.Scoreable;
 public class PRPlayer implements Serializable, Scoreable {
 
     /**
+     * Dynamic depth constant
+     */
+    static final int DYNAMIC_DEPTH = 0;
+
+    /**
+     * Constant for infinite undo
+     */
+    static final int INFINITE_UNDO = -1;
+
+    /**
      * Default score
      */
-    private static final int DEFAULT_SCORE = 10;
+    private static final int DEFAULT_SCORE = 20;
 
     /**
      * Max possible moves
@@ -101,6 +111,11 @@ public class PRPlayer implements Serializable, Scoreable {
     private int difficulty;
 
     /**
+     * Total number of undos allowed
+     */
+    private int numUndos;
+
+    /**
      * Initializes the player with relevant parameters
      *
      * @param game             game to be played
@@ -109,11 +124,13 @@ public class PRPlayer implements Serializable, Scoreable {
      * @param isComputerPlayer whether the player is played by the computer
      * @param difficulty       difficulty of computer AI
      */
-    PRPlayer(PRGame game, PRBoard board, PRColor color, boolean isComputerPlayer, int difficulty) {
+    PRPlayer(PRGame game, PRBoard board, PRColor color, boolean isComputerPlayer,
+             int difficulty, int numUndos) {
         this.game = game;
         this.board = board;
         this.color = color;
         this.difficulty = difficulty;
+        this.numUndos = numUndos;
         if (color == PRColor.WHITE) {
             startingRank = PRGame.WHITE_STARTING_RANK;
             direction = WHITE_DIRECTION;
@@ -288,8 +305,59 @@ public class PRPlayer implements Serializable, Scoreable {
                 }
             }
         }
-
         return moves;
+    }
+
+    /**
+     * Return the number of valid moves
+     *
+     * @return the number of valid moves
+     */
+    int getNumValidMoves() {
+        PRSquare[] allPawns = getAllPawns();
+        int index = 0;
+        PRColor c = color == PRColor.WHITE ? PRColor.BLACK : PRColor.WHITE;
+        int moveDirection = color == PRColor.WHITE ? WHITE_DIRECTION : BLACK_DIRECTION;
+        int startRow = color == PRColor.WHITE ? PRGame.WHITE_STARTING_RANK :
+                PRGame.BLACK_STARTING_RANK;
+
+        for (int i = 0; i < (PRBoard.NUM_ROW_COL - 1) && allPawns[i] != null; i++) {
+            PRSquare pawn = allPawns[i];
+            int x = pawn.getX();
+            int y = pawn.getY();
+            if (y == startRow && board.getSquare(x, y + 2 * moveDirection).occupiedBy()
+                    == PRColor.NONE && board.getSquare(x, y + moveDirection).occupiedBy()
+                    == PRColor.NONE) {
+                index++;
+            }
+            if (y != (PRBoard.NUM_ROW_COL - 1) && y != 0 &&
+                    board.getSquare(x, y + moveDirection).occupiedBy() == PRColor.NONE) {
+                index++;
+            }
+            if (x != (PRBoard.NUM_ROW_COL - 1) && y != (PRBoard.NUM_ROW_COL - 1) && y != 0 &&
+                    board.getSquare(x + 1, y + moveDirection).occupiedBy() == c) {
+                index++;
+            }
+            if (x != 0 && y != (PRBoard.NUM_ROW_COL - 1) && y != 0 &&
+                    board.getSquare(x - 1, y + moveDirection).occupiedBy() == c) {
+                index++;
+            }
+            if (game.getLastMove() != null) {
+                PRSquare opFrom = game.getLastMove().getFrom();
+                PRSquare opTo = game.getLastMove().getTo();
+                int opStartingRank = color == PRColor.WHITE ?
+                        PRGame.BLACK_STARTING_RANK : PRGame.WHITE_STARTING_RANK;
+                if (opFrom.getY() == opStartingRank && y == opStartingRank - 2 * moveDirection
+                        && y == opTo.getY()) {
+                    if (opFrom.getX() == x - 1) {
+                        index++;
+                    } else if (opFrom.getX() == x + 1) {
+                        index++;
+                    }
+                }
+            }
+        }
+        return index;
     }
 
     /**
@@ -550,8 +618,12 @@ public class PRPlayer implements Serializable, Scoreable {
      * Allows the computer to make a move
      * Precondition: the game must not be finished and the player must be a computer player
      */
-    private void computerMakeMove() {
-        makeMove(ai.minimaxBestMove());
+    void computerMakeMove() {
+        if (difficulty == DYNAMIC_DEPTH) {
+            makeMove(ai.minimaxBestMove());
+        } else {
+            makeMove(ai.minimaxBestMove(difficulty));
+        }
     }
 
     /**
@@ -565,6 +637,28 @@ public class PRPlayer implements Serializable, Scoreable {
     }
 
     /**
+     * Return whether an undo is allowed
+     *
+     * @return whether an undo is allowed
+     */
+    boolean hasUndo() {
+        return game.getLastMove() != null && (numUndos == INFINITE_UNDO || numUndos > 0);
+    }
+
+    /**
+     * Undo the last move and update the board on the interface
+     */
+    void undoMove() {
+        game.unapplyMove();
+        game.unapplyMove();
+        if (numUndos != INFINITE_UNDO) {
+            numUndos--;
+        }
+        board.notifyObservers();
+    }
+
+
+    /**
      * Processes a tap on the board in a two-step process. First tap stores the potential move,
      * second tap applies the move to the target
      *
@@ -572,7 +666,7 @@ public class PRPlayer implements Serializable, Scoreable {
      * @param col the column of the square tapped
      * @return whether the tap was valid
      */
-    boolean processTap(int row, int col) {
+    PRMovementController.TapResult processTap(int row, int col) {
         if (game.getCurrentPlayer() == color) {
             if (initialTap != null) {
                 PRSquare secondTap = board.getSquare(row, col);
@@ -580,17 +674,14 @@ public class PRPlayer implements Serializable, Scoreable {
                 initialTap = null;
                 if (Arrays.asList(getAllValidMoves()).contains(move)) {
                     makeMove(move);
-                    if (!isFinished()) {
-                        getOpponent().computerMakeMove();
-                    }
-                    return true;
+                    return PRMovementController.TapResult.MOVED;
                 }
             } else if (board.getSquare(row, col).occupiedBy() == color) {
                 initialTap = board.getSquare(row, col);
-                return true;
+                return PRMovementController.TapResult.INIT;
             }
         }
-        return false;
+        return PRMovementController.TapResult.INVALID;
     }
 
     /**
@@ -614,11 +705,13 @@ public class PRPlayer implements Serializable, Scoreable {
 
     @Override
     public int getScore() {
+        int difficultyModifier = getOpponent().difficulty == DYNAMIC_DEPTH ? 5
+                : getOpponent().difficulty;
         if (isFinished()) {
             if (game.getGameResult() == color) {
-                return DEFAULT_SCORE * getOpponent().difficulty;
+                return DEFAULT_SCORE * difficultyModifier - game.getNumMovesMade();
             } else if (game.getGameResult() == PRColor.NONE) {
-                return (DEFAULT_SCORE * getOpponent().difficulty) / 2;
+                return ((DEFAULT_SCORE * difficultyModifier) / 2) - game.getNumMovesMade();
             }
         }
         return 0;

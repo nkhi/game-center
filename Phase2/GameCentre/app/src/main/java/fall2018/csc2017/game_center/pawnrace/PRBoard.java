@@ -88,6 +88,7 @@ class PRBoard extends Observable implements Serializable {
         } else {
             move.getTo().setOccupier(PRColor.NONE);
         }
+        setChanged();
     }
 
 }

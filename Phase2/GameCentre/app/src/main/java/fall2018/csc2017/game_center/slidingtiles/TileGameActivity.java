@@ -11,12 +11,13 @@ import java.util.Observable;
 import java.util.Observer;
 
 import fall2018.csc2017.game_center.R;
+import fall2018.csc2017.game_center.SaveManager;
 import fall2018.csc2017.game_center.Score;
 
 /**
  * The game activity.
  */
-public class TileGameActivity extends TileSaveManager implements Observer {
+public class TileGameActivity extends SaveManager<TileBoardManager> implements Observer {
 
     /**
      * Column width and heights for each gridView entry
@@ -60,6 +61,7 @@ public class TileGameActivity extends TileSaveManager implements Observer {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initialize(TileGameMenuActivity.TILE_SAVE_FILE);
 
         boardManager = getTemp();
         autosaveIndex = 0;

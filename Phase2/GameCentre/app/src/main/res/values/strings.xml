@@ -31,4 +31,11 @@
     <string name="scoreboard_user">User:&#160;</string>
     <string name="scoreboard_score">. Score:&#160;</string>
     <string name="game_selection">Game Selection</string>
+    <string name="choose_side">Choose Side:</string>
+    <string name="white">White</string>
+    <string name="black">Black</string>
+    <string name="easy">Easy</string>
+    <string name="choose_difficulty">Choose Difficulty:</string>
+    <string name="hard">Hard</string>
+    <string name="normal">Normal</string>
 </resources>

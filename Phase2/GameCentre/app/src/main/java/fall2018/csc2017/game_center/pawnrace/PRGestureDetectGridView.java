@@ -7,6 +7,7 @@ https://github.com/DaveNOTDavid/sample-puzzle/blob/master/app/src/main/java/com/
 This extension of GridView contains built in logic for handling swipes between buttons
  */
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
@@ -24,7 +25,6 @@ public class PRGestureDetectGridView extends GridView {
     private boolean mFlingConfirmed = false;
     private float mTouchX;
     private float mTouchY;
-    private PRPlayer player;
 
     public PRGestureDetectGridView(Context context) {
         super(context);
@@ -57,8 +57,22 @@ public class PRGestureDetectGridView extends GridView {
                 int position = PRGestureDetectGridView.this.pointToPosition
                         (Math.round(event.getX()), Math.round(event.getY()));
 
-                mController.processTapMovement(context, position, true);
+                mController.processTapMovement(context, position);
                 return true;
+            }
+
+            /**
+             * Added gesture detection to implement undo functionality with a left swipe
+             */
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+                                   float velocityY) {
+                if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE &&
+                        Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    mController.processSwipe(context);
+                    return true;
+                }
+                return false;
             }
 
             @Override
@@ -96,13 +110,13 @@ public class PRGestureDetectGridView extends GridView {
         return super.onInterceptTouchEvent(ev);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         return gDetector.onTouchEvent(ev);
     }
 
     public void setPlayer(PRPlayer player) {
-        this.player = player;
         mController.setGame(player);
     }
 }

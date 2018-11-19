@@ -10,19 +10,18 @@ import java.io.Serializable;
 class PRMinimaxAI implements Serializable {
 
     /**
-     * Maximum search depth for a dynamically determined depth
+     * Constants used for determining dynamic depth
      */
-    private static final int MAX_DYNAMIC_DEPTH = 10;
+    private static final int DYNAMIC_DEPTH_STAGE_1_CUTOFF = 12;
+    private static final int DYNAMIC_DEPTH_STAGE_2_CUTOFF = 9;
+    private static final int DYNAMIC_DEPTH_STAGE_3_CUTOFF = 6;
+    private static final int DYNAMIC_DEPTH_STAGE_4_CUTOFF = 4;
 
-    /**
-     * Minimum index of moves to begin dynamic depth calculation
-     */
-    private static final int MIN_INDEX_DYNAMIC_DEPTH = 2;
-
-    /**
-     * Dynamic depth incrementer
-     */
-    private static final int DYNAMIC_DEPTH_INCREMENTER = 2;
+    private static final int DYNAMIC_DEPTH_STAGE_1_DEPTH = 4;
+    private static final int DYNAMIC_DEPTH_STAGE_2_DEPTH = 5;
+    private static final int DYNAMIC_DEPTH_STAGE_3_DEPTH = 6;
+    private static final int DYNAMIC_DEPTH_STAGE_4_DEPTH = 7;
+    private static final int DYNAMIC_DEPTH_STAGE_5_DEPTH = 8;
 
     /**
      * Num pawn score
@@ -55,11 +54,6 @@ class PRMinimaxAI implements Serializable {
     private int depth;
 
     /**
-     * Moves index to determine dynamic depth calculation
-     */
-    private int index;
-
-    /**
      * Initializes a minimax AI with a player and depth
      *
      * @param player player to calculate for
@@ -68,7 +62,6 @@ class PRMinimaxAI implements Serializable {
     PRMinimaxAI(PRPlayer player, int depth) {
         this.player = player;
         this.depth = depth;
-        index = 0;
     }
 
     /**
@@ -77,11 +70,29 @@ class PRMinimaxAI implements Serializable {
      * @return the best move as calculated by the dynamic depth minimax AI
      */
     PRMove minimaxBestMove() {
-        PRMove move = minimaxBestMove(depth);
-        if (depth < MAX_DYNAMIC_DEPTH && index > MIN_INDEX_DYNAMIC_DEPTH) {
-            depth += DYNAMIC_DEPTH_INCREMENTER;
+        depth = calculateDepth();
+        System.out.println(depth);
+        return minimaxBestMove(depth);
+    }
+
+    /**
+     * Calculates the depth to use for dynamic depth AI
+     *
+     * @return optimal depth
+     */
+    private int calculateDepth() {
+        int numMoves = player.getNumValidMoves();
+        if (numMoves > DYNAMIC_DEPTH_STAGE_1_CUTOFF) {
+            return DYNAMIC_DEPTH_STAGE_1_DEPTH;
+        } else if (numMoves > DYNAMIC_DEPTH_STAGE_2_CUTOFF) {
+            return DYNAMIC_DEPTH_STAGE_2_DEPTH;
+        } else if (numMoves > DYNAMIC_DEPTH_STAGE_3_CUTOFF) {
+            return DYNAMIC_DEPTH_STAGE_3_DEPTH;
+        } else if (numMoves > DYNAMIC_DEPTH_STAGE_4_CUTOFF) {
+            return DYNAMIC_DEPTH_STAGE_4_DEPTH;
+        } else {
+            return DYNAMIC_DEPTH_STAGE_5_DEPTH;
         }
-        return move;
     }
 
     /**
@@ -90,7 +101,7 @@ class PRMinimaxAI implements Serializable {
      * @param depth depth of calculation (in moves)
      * @return the best move calculated by the depth given
      */
-    private PRMove minimaxBestMove(int depth) {
+    PRMove minimaxBestMove(int depth) {
         return minimax(depth, player.getColor(), Integer.MIN_VALUE, Integer.MAX_VALUE).getValue();
     }
 

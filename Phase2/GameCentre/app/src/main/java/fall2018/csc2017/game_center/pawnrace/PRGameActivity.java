@@ -3,6 +3,7 @@ package fall2018.csc2017.game_center.pawnrace;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 
@@ -49,6 +50,13 @@ public class PRGameActivity extends PRSaveManager implements Observer {
     private int autosaveInterval;
 
     /**
+     * Computer move handler - adds delay otherwise update() gets lagged after player plays move
+     */
+    private Handler handler;
+
+    private Runnable computerMakeMove;
+
+    /**
      * Set up the background image for each button based on the master list
      * of positions, and then call the adapter to set the view.
      */
@@ -64,7 +72,7 @@ public class PRGameActivity extends PRSaveManager implements Observer {
 
         player = getTemp();
         autosaveIndex = 0;
-//        autosaveInterval = getIntent().getIntExtra()
+        autosaveInterval = getIntent().getIntExtra(PRSettingsActivity.AUTOSAVE_CONSTANT, 0);
 
         createTileButtons(this);
         setContentView(R.layout.activity_pawn_race_main);
@@ -87,6 +95,18 @@ public class PRGameActivity extends PRSaveManager implements Observer {
                         display();
                     }
                 });
+
+        handler = new Handler();
+        computerMakeMove = new Runnable() {
+            @Override
+            public void run() {
+                if (player.getGame().getCurrentPlayer() != player.getColor()) {
+                    player.getOpponent().computerMakeMove();
+                }
+            }
+        };
+
+        handler.postDelayed(computerMakeMove, 1);
     }
 
     /**
@@ -134,11 +154,22 @@ public class PRGameActivity extends PRSaveManager implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         display();
+        if (autosaveIndex == autosaveInterval) {
+            autosaveIndex = 0;
+            loadIntoTemp(player);
+            autoSave();
+            writeFile();
+            System.out.println("File saved");
+        } else {
+            autosaveIndex++;
+        }
         if (player.isFinished()) {
             Intent tmp = new Intent(this, PRScoreboard.class);
             tmp.putExtra(PRScoreboard.SCORE_EXTRA, new Score(username, player));
             startActivity(tmp);
             finish();
+        } else {
+            handler.postDelayed(computerMakeMove, 1);
         }
     }
 }

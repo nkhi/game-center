@@ -43,7 +43,7 @@ class TileMovementController {
     void processSwipe(Context context) {
         if (boardManager.hasUndo()) {
             boardManager.undo();
-            Toast.makeText(context, "Undo'd Last PRMove", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Undo'd Last Move", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, "Undo Not Allowed", Toast.LENGTH_SHORT).show();
         }

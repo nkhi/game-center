@@ -8,29 +8,28 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import fall2018.csc2017.game_center.LoadSaveGameActivity;
 import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
 
 public class PRGameMenuActivity extends PRSaveManager {
 
-    private static final int DEFAULT_DIFFICULTY = 5;
     private static final PRColor DEFAULT_COLOR = PRColor.WHITE;
 
     private int whiteGap;
     private int blackGap;
     private int undo;
     private int difficulty;
+    private int autosave;
     private PRColor playerColor;
+    private Random random;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Random random = new Random();
-        whiteGap = random.nextInt(PRBoard.NUM_ROW_COL);
-        blackGap = random.nextInt(PRBoard.NUM_ROW_COL);
-        playerColor = DEFAULT_COLOR;
-        difficulty = DEFAULT_DIFFICULTY;
+        random = new Random();
+        newGameInitializer();
 
         PRPlayer player = initializeGame(blackGap, whiteGap, playerColor, difficulty);
         loadIntoTemp(player);
@@ -46,11 +45,28 @@ public class PRGameMenuActivity extends PRSaveManager {
         addScoreboardButtonListener();
     }
 
-    private PRPlayer initializeGame(int blackGap, int whiteGap, PRColor playerColor, int difficulty) {
+    private void newGameInitializer() {
+        whiteGap = random.nextInt(PRBoard.NUM_ROW_COL);
+        blackGap = random.nextInt(PRBoard.NUM_ROW_COL);
+        playerColor = (PRColor) getIntent().getSerializableExtra(PRSettingsActivity.COLOR_CONSTANT);
+        if (playerColor == null) {
+            playerColor = DEFAULT_COLOR;
+        }
+        autosave = getIntent().getIntExtra(PRSettingsActivity.AUTOSAVE_CONSTANT, 1);
+        difficulty = getIntent().getIntExtra(PRSettingsActivity.DIFFICULTY_CONSTANT,
+                PRPlayer.DYNAMIC_DEPTH);
+        undo = getIntent().getIntExtra(PRSettingsActivity.UNDO_CONSTANT, PRPlayer.INFINITE_UNDO);
+    }
+
+    private PRPlayer initializeGame(int blackGap, int whiteGap, PRColor playerColor,
+                                    int difficulty) {
+        System.out.println(playerColor);
         PRColor computerColor = playerColor == PRColor.WHITE ? PRColor.BLACK : PRColor.WHITE;
         PRGame game = new PRGame(blackGap, whiteGap);
-        PRPlayer computerPlayer = new PRPlayer(game, game.getBoard(), computerColor, true, difficulty);
-        PRPlayer player = new PRPlayer(game, game.getBoard(), playerColor, false, 0);
+        PRPlayer computerPlayer = new PRPlayer(game, game.getBoard(), computerColor,
+                true, difficulty, 0);
+        PRPlayer player = new PRPlayer(game, game.getBoard(), playerColor,
+                false, 0, undo);
         player.setOpponent(computerPlayer);
         computerPlayer.setOpponent(player);
         return player;
@@ -64,6 +80,7 @@ public class PRGameMenuActivity extends PRSaveManager {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                newGameInitializer();
                 PRPlayer player = initializeGame(blackGap, whiteGap, playerColor, difficulty);
                 loadIntoTemp(player);
                 writeFile();
@@ -139,7 +156,7 @@ public class PRGameMenuActivity extends PRSaveManager {
     private void switchToGame() {
         Intent tmp = new Intent(this, PRGameActivity.class);
         tmp.putExtra(LoginActivity.CURRENT_USER, username);
-//        tmp.putExtra(TileSettingsActivity.AUTOSAVE_CONSTANT, autosave);
+        tmp.putExtra(PRSettingsActivity.AUTOSAVE_CONSTANT, autosave);
         startActivity(tmp);
     }
 
@@ -149,19 +166,19 @@ public class PRGameMenuActivity extends PRSaveManager {
      * @param isLoadActivity Whether to switch to the load menu or save menu.
      */
     private void switchToLoadSaveMenu(boolean isLoadActivity) {
-//        Intent tmp = new Intent(this, TileLoadSaveGameActivity.class);
-//        tmp.putExtra(LoginActivity.CURRENT_USER, username);
-//        tmp.putExtra(TileLoadSaveGameActivity.IS_LOAD_ACTIVITY, isLoadActivity);
-//        startActivity(tmp);
+        Intent tmp = new Intent(this, PRLoadSaveGameActivity.class);
+        tmp.putExtra(LoginActivity.CURRENT_USER, username);
+        tmp.putExtra(LoadSaveGameActivity.IS_LOAD_ACTIVITY, isLoadActivity);
+        startActivity(tmp);
     }
 
     /**
      * Switch to the TileSettingsActivity view to set game
      */
     private void switchToSettingMenu() {
-//        Intent tmp = new Intent(this, TileSettingsActivity.class);
-//        tmp.putExtra(LoginActivity.CURRENT_USER, username);
-//        startActivity(tmp);
+        Intent tmp = new Intent(this, PRSettingsActivity.class);
+        tmp.putExtra(LoginActivity.CURRENT_USER, username);
+        startActivity(tmp);
     }
 
     private void switchToScoreboard() {

@@ -19,6 +19,16 @@ public abstract class SaveManager<T extends Serializable>
         username = getIntent().getStringExtra(LoginActivity.CURRENT_USER);
     }
 
+    protected void initialize(String suffix) {
+        setFilePath(username + suffix);
+
+        readFile();
+        if (getSaveFile() == null) {
+            setSaveFile(new SavedGameState<T>());
+            writeFile();
+        }
+    }
+
     /**
      * Load a saved state into the temporary save slot
      *

@@ -16,7 +16,7 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
     /**
      * Default number of rows and columns
      */
-    public static final int DEFAULT_ROW_COL = 4;
+    static final int DEFAULT_ROW_COL = 4;
 
     /**
      * The number of rows and columns

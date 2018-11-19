@@ -50,16 +50,16 @@ public class TileSettingsActivity extends AppCompatActivity {
      * Activate the Type Button
      */
     private void initialize() {
-        radioGroup = findViewById(R.id.ButtonSize);
-        undo = findViewById(R.id.UndoLimitEdit);
-        autosave = findViewById(R.id.SaveIntervalLimitEdit);
+        radioGroup = findViewById(R.id.TileButtonSize);
+        undo = findViewById(R.id.TileUndoLimitEdit);
+        autosave = findViewById(R.id.TileSaveIntervalLimitEdit);
     }
 
     /**
      * Saves the settings when apply is pressed
      */
     private void addApplyListener() {
-        Button buttonSize = findViewById(R.id.button_apply);
+        Button buttonSize = findViewById(R.id.TileButtonApply);
         buttonSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

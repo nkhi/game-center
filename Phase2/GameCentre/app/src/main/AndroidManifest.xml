@@ -30,7 +30,9 @@
         <activity android:name=".slidingtiles.TileScoreboard" />
         <activity android:name=".pawnrace.PRGameMenuActivity" />
         <activity android:name=".GameSelectionActivity" />
-        <activity android:name=".pawnrace.PRScoreboard"></activity>
+        <activity android:name=".pawnrace.PRScoreboard" />
+        <activity android:name=".pawnrace.PRLoadSaveGameActivity" />
+        <activity android:name=".pawnrace.PRSettingsActivity"></activity>
     </application>
 
 </manifest>

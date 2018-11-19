@@ -8,11 +8,18 @@ import android.widget.TextView;
 
 import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
+import fall2018.csc2017.game_center.SaveManager;
+import fall2018.csc2017.game_center.SavedGameState;
 
 /**
  * The starting menu for the sliding tiles game.
  */
-public class TileGameMenuActivity extends TileSaveManager {
+public class TileGameMenuActivity extends SaveManager<TileBoardManager> {
+
+    /**
+     * Constant suffix for the sliding tile save file (unique per user)
+     */
+    public static final String TILE_SAVE_FILE = "_tile_saves.ser";
 
     private int size;
     private int autosave;
@@ -21,6 +28,7 @@ public class TileGameMenuActivity extends TileSaveManager {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initialize(TILE_SAVE_FILE);
 
         size = getIntent().getIntExtra(TileSettingsActivity.SIZE_CONSTANT,
                 TileBoard.DEFAULT_ROW_COL);

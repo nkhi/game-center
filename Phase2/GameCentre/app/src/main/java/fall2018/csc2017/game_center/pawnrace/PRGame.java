@@ -93,6 +93,15 @@ class PRGame implements Serializable {
     }
 
     /**
+     * Return the number of moves made
+     *
+     * @return the number of moves made
+     */
+    int getNumMovesMade() {
+        return index;
+    }
+
+    /**
      * Return whether a player has at least one pawn
      *
      * @param c color of player to check
