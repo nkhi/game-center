@@ -263,6 +263,11 @@ class BoardManager implements Serializable {
         return solvable;
     }
 
+    /**
+     * Returns the total number of inversions in a board
+     * @param tiles the list of the tiles.
+     * @return the total number of inversions
+     */
     private int getInversion(List<Tile> tiles){
         int i = 0;
         int inversion_i;
@@ -281,6 +286,11 @@ class BoardManager implements Serializable {
         return inversion_t;
     }
 
+    /**
+     * Determines the row of the blank tile in the board.
+     * @param tiles the list of tiles
+     * @return the row of the blank tile
+     */
     private int getBlankRow(List<Tile> tiles){
         for (int i = 0; i < tiles.size(); i++){
             if (tiles.get(i).getId() == board.numTiles())
