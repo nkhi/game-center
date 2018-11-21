@@ -64,6 +64,10 @@ class TileBoardManager implements Serializable, Scoreable {
         tiles.add(new Tile(numTiles, R.drawable.tile_25));
 
         Collections.shuffle(tiles);
+        while (!isSolvable(tiles, numRowCol)){
+            Collections.shuffle(tiles);
+        }
+
         this.board = new TileBoard(tiles, numRowCol);
         undoQueue = new ArrayDeque<>();
         this.numUndo = numUndo;
@@ -130,6 +134,69 @@ class TileBoardManager implements Serializable, Scoreable {
                 || (above != null && above.getId() == blankId)
                 || (left != null && left.getId() == blankId)
                 || (right != null && right.getId() == blankId);
+    }
+
+    /**
+     * Check to see if a board is solvable.
+     * @param tiles the list of the tiles.
+     * @param numRowCol the size of the row of the board.
+     * @return if the board is solvable or not.
+     * @see <a href="https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html">Solvability of the Tiles Game</a>
+     */
+    private boolean isSolvable(List<Tile> tiles, int numRowCol) {
+        boolean solvable = false;
+
+        if (numRowCol % 2 == 1) {
+            if (getInversion(tiles) % 2 == 0)
+                solvable = true;
+        }
+        else{
+            if ((getBlankRow(tiles, numRowCol) % 2 == 0) && (getInversion(tiles) % 2 == 0))
+                solvable = true;
+            else if ((getBlankRow(tiles, numRowCol) % 2 == 1) && (getInversion(tiles) % 2 == 1))
+                solvable = true;
+        }
+
+        return solvable;
+    }
+
+    /**
+     * Returns the total number of inversions in a board
+     * @param tiles the list of the tiles.
+     * @return the total number of inversions
+     */
+    private int getInversion(List<Tile> tiles){
+        int i = 0;
+        int inversion_i;
+        int inversion_t = 0;
+
+        while (i != tiles.size()){
+            inversion_i = tiles.get(i).getId() - 1;
+
+            for (int a = 0; a < i; a++){
+                if (tiles.get(a).getId() < tiles.get(i).getId())
+                    inversion_i--;
+            }
+            inversion_t += inversion_i;
+            i++;
+        }
+        return inversion_t;
+    }
+
+    /**
+     * Determines the row of the blank tile in the board.
+     * @param tiles the list of tiles,
+     * @param numRowCol  the size of the row of the board.
+     * @return the row of the blank tile
+     */
+    private int getBlankRow(List<Tile> tiles, int numRowCol){
+        System.out.println(numRowCol);
+        int numTiles = numRowCol * numRowCol;
+        for (int i = 0; i < tiles.size(); i++){
+            if (tiles.get(i).getId() == numTiles)
+                return i/numRowCol;
+        }
+        return numTiles/numRowCol;
     }
 
     /**

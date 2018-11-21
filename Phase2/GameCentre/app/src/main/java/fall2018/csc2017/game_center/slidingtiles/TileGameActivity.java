@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -64,8 +65,12 @@ public class TileGameActivity extends SaveManager<TileBoardManager> implements O
         initialize(TileGameMenuActivity.TILE_SAVE_FILE);
 
         boardManager = getTemp();
-        autosaveIndex = 0;
+        autosaveIndex = 1;
         autosaveInterval = getIntent().getIntExtra(TileSettingsActivity.AUTOSAVE_CONSTANT, 0);
+        if (autosaveInterval == 0) {
+            Toast.makeText(this, "Autosave has been reverted to 3 moves", Toast.LENGTH_SHORT).show();
+            autosaveInterval = 3;
+        }
 
         createTileButtons(this);
         setContentView(R.layout.activity_tile_main);
@@ -139,7 +144,7 @@ public class TileGameActivity extends SaveManager<TileBoardManager> implements O
     public void update(Observable o, Object arg) {
         display();
         if (autosaveIndex == autosaveInterval) {
-            autosaveIndex = 0;
+            autosaveIndex = 1;
             loadIntoTemp(boardManager);
             autoSave();
             writeFile();
