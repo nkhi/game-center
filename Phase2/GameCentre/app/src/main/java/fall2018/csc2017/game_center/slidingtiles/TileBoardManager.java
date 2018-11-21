@@ -143,7 +143,7 @@ class TileBoardManager implements Serializable, Scoreable {
      * @return if the board is solvable or not.
      * @see <a href="https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html">Solvability of the Tiles Game</a>
      */
-    private boolean isSolvable(List<Tile> tiles, int numRowCol) {
+    public boolean isSolvable(List<Tile> tiles, int numRowCol) {
         boolean solvable = false;
 
         if (numRowCol % 2 == 1) {
