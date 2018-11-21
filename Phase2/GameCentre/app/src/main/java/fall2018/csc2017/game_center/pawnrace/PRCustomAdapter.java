@@ -17,7 +17,7 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 public class PRCustomAdapter extends BaseAdapter {
-    private ArrayList<Button> mButtons = null;
+    private ArrayList<Button> mButtons;
     private int mColumnWidth;
 
     PRCustomAdapter(ArrayList<Button> buttons, int columnWidth) {

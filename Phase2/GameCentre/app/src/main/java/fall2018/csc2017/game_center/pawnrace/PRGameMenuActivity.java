@@ -151,7 +151,7 @@ public class PRGameMenuActivity extends PRSaveManager {
     }
 
     /**
-     * Switch to the TileGameActivity to play the game
+     * Switch to the PRGameActivity to play the game
      */
     private void switchToGame() {
         Intent tmp = new Intent(this, PRGameActivity.class);

@@ -13,4 +13,5 @@ public class PRLoadSaveGameActivity extends LoadSaveGameActivity<PRPlayer> {
         setContentView(R.layout.activity_pawn_race_load_save_game);
         initializeLoadSave(PRGameMenuActivity.TILE_SAVE_FILE, this, PRGameActivity.class);
     }
+
 }
