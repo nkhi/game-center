@@ -6,16 +6,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Set;
-
 import fall2018.csc2017.game_center.LoginActivity;
-import fall2018.csc2017.game_center.AskPreference;
 import fall2018.csc2017.game_center.R;
+import fall2018.csc2017.game_center.SaveManager;
+import fall2018.csc2017.game_center.SavedGameState;
 
 /**
  * The starting menu for the sliding tiles game.
  */
-public class TileGameMenuActivity extends TileSaveManager {
+public class TileGameMenuActivity extends SaveManager<TileBoardManager> {
+
+    /**
+     * Constant suffix for the sliding tile save file (unique per user)
+     */
+    public static final String TILE_SAVE_FILE = "_tile_saves.ser";
 
     private int size;
     private int autosave;
@@ -24,38 +28,56 @@ public class TileGameMenuActivity extends TileSaveManager {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initialize(TILE_SAVE_FILE);
 
-        size = getIntent().getIntExtra(SettingsActivity.SIZE_CONSTANT, Board.DEFAULT_ROW_COL);
-        autosave = getIntent().getIntExtra(SettingsActivity.AUTOSAVE_CONSTANT, 0);
-        undo = getIntent().getIntExtra(SettingsActivity.UNDO_CONSTANT, BoardManager.INFINITY_UNDO);
+        size = getIntent().getIntExtra(TileSettingsActivity.SIZE_CONSTANT,
+                TileBoard.DEFAULT_ROW_COL);
+        autosave = getIntent().getIntExtra(TileSettingsActivity.AUTOSAVE_CONSTANT, 0);
+        undo = getIntent().getIntExtra(TileSettingsActivity.UNDO_CONSTANT,
+                TileBoardManager.INFINITY_UNDO);
 
-        loadIntoTemp(new BoardManager(size));
-        setContentView(R.layout.activity_tile_game_menu);
+        loadIntoTemp(new TileBoardManager(size));
+        setContentView(R.layout.activity_game_menu);
         ((TextView) findViewById(R.id.LoggedInAs)).append(username);
+        ((TextView) findViewById(R.id.GameMenuTitle)).setText(R.string.silding_tiles_welcome);
+
         addNewGameButtonListener();
         addSaveButtonListener();
         addLoadButtonListener();
         addSettingsButtonListener();
+        addScoreboardButtonListener();
     }
 
     /**
-     * Activate the start button.
+     * Activate the start button
      */
     private void addNewGameButtonListener() {
         Button startButton = findViewById(R.id.NewGameButton);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadIntoTemp(new BoardManager(size, undo));
+                loadIntoTemp(new TileBoardManager(size, undo));
                 writeFile();
                 switchToGame();
             }
         });
     }
 
+    /**
+     * Activate the scoreboard button
+     */
+    private void addScoreboardButtonListener() {
+        Button scoreboardButton = findViewById(R.id.ScoreboardButton);
+        scoreboardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToScoreboard();
+            }
+        });
+    }
 
     /**
-     * Activate the load button.
+     * Activate the load button
      */
     private void addLoadButtonListener() {
         Button loadButton = findViewById(R.id.LoadGameButton);
@@ -68,7 +90,7 @@ public class TileGameMenuActivity extends TileSaveManager {
     }
 
     /**
-     * Activate the save button.
+     * Activate the save button
      */
     private void addSaveButtonListener() {
         Button saveButton = findViewById(R.id.SaveGameButton);
@@ -82,9 +104,9 @@ public class TileGameMenuActivity extends TileSaveManager {
     }
 
     /**
-     * Activate the Settings button
+     * Activate the settings button
      */
-    private void addSettingsButtonListener(){
+    private void addSettingsButtonListener() {
         Button settingButton = findViewById(R.id.SettingsButton);
         settingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +115,9 @@ public class TileGameMenuActivity extends TileSaveManager {
             }
         });
     }
+
     /**
-     * Read the temporary board from disk.
+     * Read the temporary board from disk
      */
     @Override
     protected void onResume() {
@@ -102,33 +125,38 @@ public class TileGameMenuActivity extends TileSaveManager {
     }
 
     /**
-     * Switch to the AskPreference to ask the user if they want to change the background.
+     * Switch to the TileGameActivity to play the game
      */
     private void switchToGame() {
-        Intent tmp = new Intent(this, AskPreference.class);
-        tmp.putExtra(SettingsActivity.AUTOSAVE_CONSTANT, autosave);
-        tmp.putExtra(SettingsActivity.SIZE_CONSTANT, size);
-        tmp.putExtra(SettingsActivity.UNDO_CONSTANT, undo);
+        Intent tmp = new Intent(this, TileGameActivity.class);
+        tmp.putExtra(LoginActivity.CURRENT_USER, username);
+        tmp.putExtra(TileSettingsActivity.AUTOSAVE_CONSTANT, autosave);
         startActivity(tmp);
     }
 
     /**
-     * Switch to the LoadSaveGameActivity view to load or save games
+     * Switch to the TileLoadSaveGameActivity view to load or save games
+     *
      * @param isLoadActivity Whether to switch to the load menu or save menu.
      */
     private void switchToLoadSaveMenu(boolean isLoadActivity) {
-        Intent tmp = new Intent(this, LoadSaveGameActivity.class);
+        Intent tmp = new Intent(this, TileLoadSaveGameActivity.class);
         tmp.putExtra(LoginActivity.CURRENT_USER, username);
-        tmp.putExtra(LoadSaveGameActivity.IS_LOAD_ACTIVITY, isLoadActivity);
+        tmp.putExtra(TileLoadSaveGameActivity.IS_LOAD_ACTIVITY, isLoadActivity);
         startActivity(tmp);
     }
 
     /**
-     * Switch to the SettingsActivity view to set game
+     * Switch to the TileSettingsActivity view to set game
      */
     private void switchToSettingMenu() {
-        Intent tmp = new Intent(this, SettingsActivity.class);
+        Intent tmp = new Intent(this, TileSettingsActivity.class);
         tmp.putExtra(LoginActivity.CURRENT_USER, username);
+        startActivity(tmp);
+    }
+
+    private void switchToScoreboard() {
+        Intent tmp = new Intent(this, TileScoreboard.class);
         startActivity(tmp);
     }
 

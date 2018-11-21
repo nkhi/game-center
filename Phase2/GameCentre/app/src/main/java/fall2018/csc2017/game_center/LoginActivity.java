@@ -6,9 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import fall2018.csc2017.game_center.slidingtiles.TileGameMenuActivity;
-import fall2018.csc2017.game_center.R;
-
 /**
  * The view for the login screen
  */
@@ -66,7 +63,7 @@ public class LoginActivity extends LoginRegisterActivity {
         readFile();
         if (loginRegisterCheck()) {
             writeFile();
-            Intent tmp = new Intent(this, TileGameMenuActivity.class);
+            Intent tmp = new Intent(this, GameSelectionActivity.class);
             tmp.putExtra(CURRENT_USER, getUsername());
             startActivity(tmp);
             finish();

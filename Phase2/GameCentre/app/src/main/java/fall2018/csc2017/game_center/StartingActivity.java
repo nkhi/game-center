@@ -1,12 +1,10 @@
 package fall2018.csc2017.game_center;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
-import fall2018.csc2017.game_center.R;
 
 /**
  * The initial activity for the game center.

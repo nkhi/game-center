@@ -5,8 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import fall2018.csc2017.game_center.R;
-
 /**
  * The view for the register screen.
  */
@@ -85,6 +83,7 @@ public class RegisterActivity extends LoginRegisterActivity {
 
     /**
      * Return the text in the confirm password field
+     *
      * @return The text in the confirm password field
      */
     private String getConfirmPassword() {
