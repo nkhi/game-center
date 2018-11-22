@@ -78,7 +78,9 @@ class TileBoardManager implements Serializable, Scoreable {
 
     /**
      * Manage a new shuffled board with manual board
-     * @param
+     * @param board a preset board
+     * @param numRowCol  number of rows and columns for the board
+     * @param numUndo number of Undos
      */
     TileBoardManager(TileBoard board, int numRowCol, int numUndo){
         final int numTiles = numRowCol * numRowCol;
@@ -179,7 +181,7 @@ class TileBoardManager implements Serializable, Scoreable {
      * @param tiles the list of the tiles.
      * @return the total number of inversions
      */
-    public int getInversion(List<Tile> tiles){
+    private int getInversion(List<Tile> tiles){
         int i = 0;
         int inversion_i;
         int inversion_t = 0;
@@ -203,7 +205,7 @@ class TileBoardManager implements Serializable, Scoreable {
      * @param numRowCol  the size of the row of the board.
      * @return the row of the blank tile
      */
-    public int getBlankRow(List<Tile> tiles, int numRowCol){
+    private int getBlankRow(List<Tile> tiles, int numRowCol){
         int numTiles = numRowCol * numRowCol;
         for (int i = 0; i < tiles.size(); i++){
             if (tiles.get(i).getId() == numTiles)

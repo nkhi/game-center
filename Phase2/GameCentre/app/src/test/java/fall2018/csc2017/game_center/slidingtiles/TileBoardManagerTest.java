@@ -16,33 +16,41 @@ public class TileBoardManagerTest {
     /**
      * Solvable boardManager for testing.
      */
-    TileBoardManager boardManagers;
+    private TileBoardManager boardManagers;
 
     /**
      * Unsolvable boardManager for testing.
      */
-    TileBoardManager boardManageru;
+    private TileBoardManager boardManageru;
+
+    /**
+     * List of the solvable board in list format
+     */
+    private List<Tile> tiles;
+
+    /**
+     * List of the unsolvable board in list format
+     */
+    private List<Tile> tileu;
 
     /**
      * Make a solved board
-     * @return the board in row format.
      */
-    private List<Tile> setupCorrects(){
-        List<Tile> tiles = make4Tiles();
+    @Before
+    public void setupSolvedBoard(){
+        tiles = make4Tiles();
         TileBoard board = new TileBoard(tiles, 4);
         boardManagers = new TileBoardManager(board, 4, -1);
-        return tiles;
     }
 
     /**
      * Make an unsolved board
-     * @return the board in row format.
      */
-    private List<Tile> setupCorrectu(){
-        List<Tile> tiles = make4Tileu();
+    @Before
+    public void setupUnsolvedBoard(){
+        tileu = make4Tileu();
         TileBoard board = new TileBoard(tiles, 4);
         boardManageru = new TileBoardManager(board, 4, -1);
-        return tiles;
     }
     /**
      * Solvable 4X4 board in list format for testing
@@ -67,44 +75,38 @@ public class TileBoardManagerTest {
         return  tiles;
     }
 
-    @Before
-    public void setUp() throws Exception {
-    }
-
     @After
-    public void tearDown() throws Exception {
+    public void tearDown(){
     }
 
     @Test
-    public void getBoard() {
+    public void testgetBoard() {
+        int row;
+        int col;
+        for (int i = 0; i < 16; i++){
+            row = i/4;
+            col = i%4;
+            assertEquals(i+1, boardManagers.getBoard().getTile(row, col).getId());
+        }
     }
 
     @Test
-    public void puzzleSolved() {
+    public void testpuzzleSolved() {
+        assertTrue(boardManagers.isSolvable(tiles, 4));
+        assertFalse(boardManageru.isSolvable(tileu, 4));
     }
 
     @Test
-    public void isValidTap() {
+    public void testisValidTap() {
+        assertTrue(boardManagers.isValidTap(11));
+        assertFalse(boardManagers.isValidTap(15));
+        assertFalse(boardManagers.isValidTap(10));
     }
 
     @Test
-    public void isSolvable() {
-        List<Tile> tiles = setupCorrects();
-        List<Tile> tileu = setupCorrectu();
-        assertEquals(true, boardManagers.isSolvable(tiles, 4));
-        assertEquals(false, boardManageru.isSolvable(tileu, 4));
-    }
-
-    @Test
-    public void getInversion() {
-        List<Tile> tile = setupCorrects();
-        assertEquals(0, boardManagers.getInversion(tile));
-    }
-
-    @Test
-    public void getBlankRow() {
-        List<Tile> tile = setupCorrects();
-        assertEquals(4, boardManagers.getBlankRow(tile, 4));
+    public void testisSolvable() {
+        assertTrue(boardManagers.isSolvable(tiles, 4));
+        assertFalse(boardManageru.isSolvable(tileu, 4));
     }
 
     @Test
