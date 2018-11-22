@@ -77,6 +77,10 @@ public class TileBoardManagerTest {
 
     @After
     public void tearDown(){
+        tiles.clear();
+        tileu.clear();
+        boardManagers = null;
+        boardManageru = null;
     }
 
     @Test
@@ -110,18 +114,34 @@ public class TileBoardManagerTest {
     }
 
     @Test
-    public void touchMove() {
+    public void testtouchMove() {
+        boardManagers.touchMove(14);
+        assertEquals(16, boardManagers.getBoard().getTile(3, 2).getId());
+        assertEquals(15, boardManagers.getBoard().getTile(3, 3).getId());
     }
 
     @Test
-    public void undo() {
+    public void testundo() {
+        boardManagers.touchMove(14);
+        assertEquals(16, boardManagers.getBoard().getTile(3, 2).getId());
+        assertEquals(15, boardManagers.getBoard().getTile(3, 3).getId());
+        boardManagers.undo();
+        assertEquals(15, boardManagers.getBoard().getTile(3,2).getId());
+        assertEquals(16, boardManagers.getBoard().getTile(3,3).getId());
     }
 
     @Test
-    public void hasUndo() {
+    public void testhasUndo() {
+        assertFalse(boardManagers.hasUndo());
+        boardManagers.touchMove(14);
+        assertTrue(boardManagers.hasUndo());
     }
 
     @Test
-    public void getScore() {
+    public void testgetScore() {
+        assertEquals(200, boardManagers.getScore());
+        boardManagers.touchMove(14);
+        boardManagers.touchMove(15);
+        assertEquals(198, boardManagers.getScore());
     }
 }
