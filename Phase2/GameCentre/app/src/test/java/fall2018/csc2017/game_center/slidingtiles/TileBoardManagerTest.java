@@ -37,21 +37,18 @@ public class TileBoardManagerTest {
      * Make a solved board
      */
     @Before
-    public void setupSolvedBoard(){
+    public void setup(){
+        // Make solved board
         tiles = make4Tiles();
         TileBoard board = new TileBoard(tiles, 4);
         boardManagers = new TileBoardManager(board, 4, -1);
-    }
 
-    /**
-     * Make an unsolved board
-     */
-    @Before
-    public void setupUnsolvedBoard(){
+        //Make Unsolved board
         tileu = make4Tileu();
-        TileBoard board = new TileBoard(tiles, 4);
+        board = new TileBoard(tiles, 4);
         boardManageru = new TileBoardManager(board, 4, -1);
     }
+
     /**
      * Solvable 4X4 board in list format for testing
      */
