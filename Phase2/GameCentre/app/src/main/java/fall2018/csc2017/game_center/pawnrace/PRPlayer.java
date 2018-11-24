@@ -650,7 +650,7 @@ public class PRPlayer implements Serializable, Scoreable {
      */
     void undoMove() {
         game.unapplyMove();
-        game.unapplyMove();
+//        game.unapplyMove();
         if (numUndos != INFINITE_UNDO) {
             numUndos--;
         }
