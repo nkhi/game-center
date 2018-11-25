@@ -1,5 +1,6 @@
 package fall2018.csc2017.game_center.pawnrace;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,6 +41,16 @@ public class PRPlayerTest {
         opponent.setOpponent(player);
     }
 
+    @After
+    public void teardown() {
+        game = null;
+        opponent = null;
+        player = null;
+    }
+
+    /**
+     * Tests to see if isFinished works when the game ends.
+     */
     @Test
     public void testisFinished() {
         assertFalse(player.isFinished());
@@ -47,6 +58,9 @@ public class PRPlayerTest {
         assertTrue(player.isFinished());
     }
 
+    /**
+     * Tests to see if getNumAllPawns return the total number of pawns.
+     */
     @Test
     public void testgetNumAllPawns() {
         assertEquals(2, player.getNumAllPawns());
@@ -55,6 +69,9 @@ public class PRPlayerTest {
         assertEquals(0, player.getNumAllPawns());
     }
 
+    /**
+     * Tests to see if all Valid Moves are returned.
+     */
     @Test
     public void testgetAllValidMoves() {
         PRMove[] actual = player.getAllValidMoves();
@@ -74,7 +91,8 @@ public class PRPlayerTest {
     @Test
     public void testnumProtectedPawns() {
         assertEquals(0, player.numProtectedPawns());
-      //need TODO
+        getSquare(6, 7).setOccupier(PRColor.WHITE);
+        assertEquals(1, player.numProtectedPawns());
     }
 
     @Test
@@ -86,14 +104,23 @@ public class PRPlayerTest {
 
     @Test
     public void numSemiOpenFiles() {
+        //TODO fix numSemiOpenFiles
+        assertEquals(0, player.numSemiOpenFiles());
+        //getSquare(2,7).setOccupier(PRColor.BLACK);
+        //assertEquals(1, player.numSemiOpenFiles());
     }
 
     @Test
     public void hasPassedPawn() {
+        assertTrue(player.hasPassedPawn());
+        getSquare(7, 6).setOccupier(PRColor.NONE);
+        assertFalse(player.hasPassedPawn());
     }
 
     @Test
     public void getPassedPawn() {
+        assertEquals(7, player.getPassedPawn().getX());
+        assertEquals(6, player.getPassedPawn().getY());
     }
 
     @Test
@@ -109,12 +136,11 @@ public class PRPlayerTest {
     @Test
     public void testundoMove() {
         assertFalse(player.hasUndo());
-        player.getGame().applyMove(new PRMove(getSquare(1,5),getSquare(2,6),true,false));
-        assertEquals(0, opponent.getNumAllPawns());
-        assertEquals(PRColor.WHITE, getSquare(2,6).occupiedBy());
+        player.getGame().applyMove(new PRMove(getSquare(1,5),getSquare(1,6),false,false));
+        opponent.getGame().applyMove(new PRMove(getSquare(2,6),getSquare(2,5),false, false));
+        assertEquals(PRColor.WHITE, getSquare(1,6).occupiedBy());
         assertTrue(player.hasUndo());
         player.undoMove();
-        assertEquals(1, opponent.getNumAllPawns());
         assertEquals(PRColor.BLACK, getSquare(2,6).occupiedBy());
     }
 
