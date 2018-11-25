@@ -38,4 +38,6 @@
     <string name="choose_difficulty">Choose Difficulty:</string>
     <string name="hard">Hard</string>
     <string name="normal">Normal</string>
+    <string name="restart">restart</string>
+    <string name="score">score</string>
 </resources>

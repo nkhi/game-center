@@ -1,6 +1,7 @@
 package fall2018.csc2017.game_center.a3072;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -8,15 +9,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import fall2018.csc2017.game_center.R;
+import java.util.Observable;
+import java.util.Observer;
 
-public class MainActivity extends AppCompatActivity {
+import fall2018.csc2017.game_center.LoginActivity;
+import fall2018.csc2017.game_center.R;
+import fall2018.csc2017.game_center.Score;
+import fall2018.csc2017.game_center.Scoreable;
+import fall2018.csc2017.game_center.slidingtiles.TileScoreboard;
+
+public class MainActivity extends AppCompatActivity implements Scoreable{
 
     @SuppressLint("StaticFieldLeak")
     private static MainActivity mainActivity = null;
-    private Board board;
+    private BoardView boardview;
     private int score = 0;
     private TextView tvScore;
+    private String username;
 
     public MainActivity() {
         mainActivity = this;
@@ -29,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        username = getIntent().getStringExtra(LoginActivity.CURRENT_USER);
+        setContentView(R.layout.activity_3072);
 
-        board = findViewById(R.id.gameView);
+        boardview = findViewById(R.id.gameView);
+
         tvScore = findViewById(R.id.tvScore);
 
         clearScore();
@@ -40,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clearScore();
-                board.startGame();
+                boardview.startGame();
             }
         });
     }
@@ -64,4 +75,10 @@ public class MainActivity extends AppCompatActivity {
         score += s;
         showScore();
     }
+
+    @Override
+    public int getScore() {
+        return score;
+    }
+
 }

@@ -2,11 +2,13 @@ package fall2018.csc2017.game_center.a3072;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class Card extends FrameLayout {
+
     public Card(Context context) {
         super(context);
 
@@ -23,6 +25,7 @@ public class Card extends FrameLayout {
     }
 
     private int num = 0;
+    protected int cardWidth = GetCardWidth();
 
     public int getNum() {
         return num;
@@ -75,6 +78,12 @@ public class Card extends FrameLayout {
             case 3072:
                 label.setBackgroundColor(0xffedc22e);
                 break;
+            case 6144:
+                label.setBackgroundColor(0xff75a7f1);
+                break;
+            case 12288:
+                label.setBackgroundColor(0xff4585f2);
+                break;
             default:
                 label.setBackgroundColor(0xff3c3a32);
                 break;
@@ -83,6 +92,14 @@ public class Card extends FrameLayout {
 
     public boolean equals(Card c) {
         return getNum() == c.getNum();
+    }
+
+    private int GetCardWidth() {
+        DisplayMetrics displayMetrics;
+        displayMetrics = getResources().getDisplayMetrics();
+        int cardWidth;
+        cardWidth = displayMetrics.widthPixels;
+        return ( cardWidth - 10 ) / 4;
     }
 
     private TextView label;

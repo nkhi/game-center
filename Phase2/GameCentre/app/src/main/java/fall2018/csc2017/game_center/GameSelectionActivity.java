@@ -10,21 +10,22 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import fall2018.csc2017.game_center.a3072.MainActivity;
 import fall2018.csc2017.game_center.pawnrace.PRGameMenuActivity;
 import fall2018.csc2017.game_center.slidingtiles.TileGameMenuActivity;
 
 public class GameSelectionActivity extends AppCompatActivity {
 
     private static final String[] GAME_NAMES = {
-            "Sliding Tiles", "Pawn Race"
+            "Sliding Tiles", "Pawn Race", "3072"
     };
 
     private static final String[] GAME_DESCRIPTIONS = {
-            "Arrange the tiles in order!", "First to the end wins!"
+            "Arrange the tiles in order!", "First to the end wins!", "1 more than 2048"
     };
 
     private static final Class[] GAME_MENU_ACTIVITIES = {
-            TileGameMenuActivity.class, PRGameMenuActivity.class
+            TileGameMenuActivity.class, PRGameMenuActivity.class, MainActivity.class
     };
 
     private String username;
