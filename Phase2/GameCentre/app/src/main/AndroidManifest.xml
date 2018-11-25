@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="fall2018.csc2017.game_center">
-
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,28 +8,28 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".StartingActivity">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".StartingActivity"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".slidingtiles.TileGameActivity" />
-        <activity android:name=".pawnrace.PRGameActivity" />
+        <activity android:name=".slidingtiles.GameActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".AskPreference" />
+        <activity android:name=".SelectImageActivity" />
         <activity android:name=".slidingtiles.TileGameMenuActivity" />
-        <activity android:name=".slidingtiles.TileSettingsActivity" />
-        <activity android:name=".slidingtiles.TileLoadSaveGameActivity" />
-        <activity android:name=".slidingtiles.TileScoreboard" />
-        <activity android:name=".pawnrace.PRGameMenuActivity" />
-        <activity android:name=".GameSelectionActivity" />
-        <activity android:name=".pawnrace.PRScoreboard" />
-        <activity android:name=".pawnrace.PRLoadSaveGameActivity" />
-        <activity android:name=".pawnrace.PRSettingsActivity" />
+        <activity android:name=".slidingtiles.SettingsActivity" />
+        <activity android:name=".slidingtiles.LoadSaveGameActivity"></activity>
     </application>
+    
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>
