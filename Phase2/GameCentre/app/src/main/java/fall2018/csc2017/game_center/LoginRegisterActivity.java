@@ -32,6 +32,7 @@ public abstract class LoginRegisterActivity extends FileProcessor<UserManager> {
 
     /**
      * Creates a popup display of text
+     *
      * @param s String of text to display
      */
     protected void makeToastShortText(String s) {
@@ -41,6 +42,7 @@ public abstract class LoginRegisterActivity extends FileProcessor<UserManager> {
     /**
      * Checks username and password fields for acceptable inputs and displays warning messages if
      * not.
+     *
      * @return true if input ok, false otherwise
      */
     protected boolean inputCheck() {
@@ -71,18 +73,21 @@ public abstract class LoginRegisterActivity extends FileProcessor<UserManager> {
 
     /**
      * Checks for valid login/register
+     *
      * @return true if login/register ok, false otherwise
      */
     protected abstract boolean loginRegisterCheck();
 
     /**
      * Return text in username field.
+     *
      * @return Text in username field.
      */
     protected abstract String getUsername();
 
     /**
      * Return text in password field
+     *
      * @return Text in password field
      */
     protected abstract String getPassword();
