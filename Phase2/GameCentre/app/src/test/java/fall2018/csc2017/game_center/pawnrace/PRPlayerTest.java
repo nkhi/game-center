@@ -104,10 +104,11 @@ public class PRPlayerTest {
 
     @Test
     public void numSemiOpenFiles() {
-        //TODO fix numSemiOpenFiles
-        assertEquals(0, player.numSemiOpenFiles());
-        //getSquare(2,7).setOccupier(PRColor.BLACK);
-        //assertEquals(1, player.numSemiOpenFiles());
+        assertEquals(2, player.numSemiOpenFiles());
+        assertEquals(1,opponent.numSemiOpenFiles());
+        getSquare(7,7).setOccupier(PRColor.BLACK);
+        assertEquals(1, player.numSemiOpenFiles());
+        assertEquals(1,opponent.numSemiOpenFiles());
     }
 
     @Test
