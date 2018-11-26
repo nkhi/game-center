@@ -35,6 +35,7 @@ public class PRPlayerTest {
         getSquare(2, 6).setOccupier(PRColor.BLACK);
         getSquare(7, 6).setOccupier(PRColor.WHITE);
         getSquare(1, 5).setOccupier(PRColor.WHITE);
+        getSquare(1, 1).setOccupier(PRColor.WHITE);
         player = new PRPlayer(game, game.getBoard(), PRColor.WHITE, false, 3, -1);
         opponent = new PRPlayer(game, game.getBoard(), PRColor.BLACK, true, 3, -1);
         player.setOpponent(opponent);
@@ -63,10 +64,10 @@ public class PRPlayerTest {
      */
     @Test
     public void testgetNumAllPawns() {
-        assertEquals(2, player.getNumAllPawns());
+        assertEquals(3, player.getNumAllPawns());
         getSquare(7, 6).setOccupier(PRColor.NONE);
         getSquare(1, 5).setOccupier(PRColor.NONE);
-        assertEquals(0, player.getNumAllPawns());
+        assertEquals(1, player.getNumAllPawns());
     }
 
     /**
@@ -75,17 +76,18 @@ public class PRPlayerTest {
     @Test
     public void testgetAllValidMoves() {
         PRMove[] actual = player.getAllValidMoves();
+        player.getGame().applyMove(new PRMove(getSquare(1,1), getSquare(1,2),false,false));
         int size = actual.length;
         for (int i =0; i < actual.length; i++){
             if (actual[i] == null)
                 size --;
         }
-        assertEquals(3, size);
+        assertEquals(5, size);
     }
 
     @Test
     public void testgetNumValidMoves() {
-        assertEquals(3, player.getNumValidMoves());
+        assertEquals(5, player.getNumValidMoves());
     }
 
     @Test
@@ -150,5 +152,20 @@ public class PRPlayerTest {
         assertEquals(0, player.getScore());
         MoveToWin();
         assertEquals(60, player.getScore());
+    }
+
+    /**
+     * Tests to see if PRMinimaxAI method works.
+     */
+    @Test
+    public void testMakeBestMove(){
+        boolean checker = false;
+        player.getOpponent().computerMakeMove();
+        assertEquals(PRColor.NONE, getSquare(2,6).occupiedBy());
+        for (int i = 0; i < PRBoard.NUM_ROW_COL; i++){
+            if (PRColor.BLACK == getSquare(i, 5).occupiedBy());
+                checker = true;
+        }
+        assertTrue(checker);
     }
 }
