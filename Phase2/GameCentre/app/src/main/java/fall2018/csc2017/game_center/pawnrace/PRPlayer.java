@@ -551,12 +551,12 @@ public class PRPlayer implements Serializable, Scoreable {
      */
     private boolean semiOpenFile(PRSquare pawn) {
         if (color == PRColor.WHITE) {
-            for (int i = pawn.getY(); i < PRBoard.NUM_ROW_COL; i++) {
+            for (int i = pawn.getY() + 1; i < PRBoard.NUM_ROW_COL; i++) {
                 if (board.getSquare(pawn.getX(), i).occupiedBy() != PRColor.NONE) return false;
             }
             return true;
         } else {
-            for (int i = pawn.getY(); i >= 0; i--) {
+            for (int i = pawn.getY() - 1; i >= 0; i--) {
                 if (board.getSquare(pawn.getX(), i).occupiedBy() != PRColor.NONE) return false;
             }
             return true;
