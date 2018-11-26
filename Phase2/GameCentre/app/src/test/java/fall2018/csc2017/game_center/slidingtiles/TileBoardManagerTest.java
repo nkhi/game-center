@@ -39,7 +39,7 @@ public class TileBoardManagerTest {
     @Before
     public void setup(){
         // Make solved board
-        tiles = make4Tiles();
+        tiles = make4Tiles(4);
         TileBoard board = new TileBoard(tiles, 4);
         boardManagers = new TileBoardManager(board, 4, -1);
 
@@ -50,11 +50,12 @@ public class TileBoardManagerTest {
     }
 
     /**
-     * Solvable 4X4 board in list format for testing
+     * Solvable board in list format for testing
+     * @param rowcol the size of the sides of a board.
      */
-    private List<Tile> make4Tiles() {
+    private List<Tile> make4Tiles(int rowcol) {
         List<Tile> tiles = new ArrayList<>();
-        final int numTiles = 16;
+        final int numTiles = rowcol * rowcol;
         for (int tileNum = 0; tileNum != numTiles - 1; tileNum++) {
             tiles.add(new Tile(tileNum + 1, tileNum));
         }
@@ -67,7 +68,7 @@ public class TileBoardManagerTest {
      * Unsolvable 4X4 board in list format for testing
      */
     private List <Tile> make4Tileu() {
-        List<Tile> tiles = make4Tiles();
+        List<Tile> tiles = make4Tiles(4);
         Collections.swap(tiles, 10, 11);
         return  tiles;
     }
@@ -81,7 +82,14 @@ public class TileBoardManagerTest {
     }
 
     @Test
-    public void testgetBoard() {
+    public void testParameter(){
+        TileBoard board= new TileBoard(tiles,4);
+        TileBoardManager boardManager = new TileBoardManager(4,-1);
+        assertTrue(boardManager.isSolvable(tiles, 4));
+    }
+
+    @Test
+    public void testGetBoard() {
         int row;
         int col;
         for (int i = 0; i < 16; i++){
@@ -92,33 +100,37 @@ public class TileBoardManagerTest {
     }
 
     @Test
-    public void testpuzzleSolved() {
+    public void testPuzzleSolved() {
         assertTrue(boardManagers.isSolvable(tiles, 4));
         assertFalse(boardManageru.isSolvable(tileu, 4));
     }
 
     @Test
-    public void testisValidTap() {
+    public void testIsValidTap() {
         assertTrue(boardManagers.isValidTap(11));
         assertFalse(boardManagers.isValidTap(15));
         assertFalse(boardManagers.isValidTap(10));
     }
 
     @Test
-    public void testisSolvable() {
+    public void testIsSolvable() {
         assertTrue(boardManagers.isSolvable(tiles, 4));
         assertFalse(boardManageru.isSolvable(tileu, 4));
+        tiles = make4Tiles(3);
+        TileBoard board = new TileBoard(tiles, 3);
+        boardManagers = new TileBoardManager(board, 3, -1);
+        assertTrue(boardManagers.isSolvable(tiles, 3));
     }
 
     @Test
-    public void testtouchMove() {
+    public void testTouchMove() {
         boardManagers.touchMove(14);
         assertEquals(16, boardManagers.getBoard().getTile(3, 2).getId());
         assertEquals(15, boardManagers.getBoard().getTile(3, 3).getId());
     }
 
     @Test
-    public void testundo() {
+    public void testUndo() {
         boardManagers.touchMove(14);
         assertEquals(16, boardManagers.getBoard().getTile(3, 2).getId());
         assertEquals(15, boardManagers.getBoard().getTile(3, 3).getId());
@@ -128,16 +140,17 @@ public class TileBoardManagerTest {
     }
 
     @Test
-    public void testhasUndo() {
+    public void testHasUndo() {
         assertFalse(boardManagers.hasUndo());
         boardManagers.touchMove(14);
         assertTrue(boardManagers.hasUndo());
     }
 
     @Test
-    public void testgetScore() {
+    public void testGetScore() {
         assertEquals(200, boardManagers.getScore());
         boardManagers.touchMove(14);
+        assertEquals(0, boardManagers.getScore());
         boardManagers.touchMove(15);
         assertEquals(198, boardManagers.getScore());
     }
