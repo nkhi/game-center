@@ -67,8 +67,6 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
         return tiles[row][col];
     }
 
-
-
     /**
      * Swap the tiles at (row1, col1) and (row2, col2)
      *

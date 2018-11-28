@@ -13,7 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68d4bfe4-1a3c-4e67-a084-555c6bf63222" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoard.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,23 +49,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivityTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivityTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/a3072/MainActivityTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="288">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#255#256#0" expanded="true" />
@@ -77,8 +66,34 @@
       <file leaf-file-name="TileBoardTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="288">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#300#301#0" expanded="true" />
+                <element signature="e#371#372#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="355">
+              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileBoard.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -2381,9 +2396,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_score_board.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/ScoreBoardActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/Board.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/a3072/MainActivityTest.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardTest.java" />
+        <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/a3072/MainActivityTest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoard.java" />
       </list>
     </option>
   </component>
@@ -2878,7 +2894,28 @@
       <option name="project" value="LOCAL" />
       <updated>1543427512622</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="3072 &amp; TileBoardTest test">
+      <created>1543429126125</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1543429126125</updated>
+    </task>
+    <task id="LOCAL-00004" summary="3072 &amp; TileBoardTest test">
+      <created>1543429233936</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1543429233936</updated>
+    </task>
+    <task id="LOCAL-00005" summary="3072 &amp; TileBoardTest test">
+      <created>1543429329351</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543429329351</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2997,7 +3034,8 @@
     <MESSAGE value="all the classes and layouts needs for 3072" />
     <MESSAGE value="The board class for 3072." />
     <MESSAGE value="3072." />
-    <option name="LAST_COMMIT_MESSAGE" value="3072." />
+    <MESSAGE value="3072 &amp; TileBoardTest test" />
+    <option name="LAST_COMMIT_MESSAGE" value="3072 &amp; TileBoardTest test" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tile_game_menu.xml" />
@@ -3264,16 +3302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRSquare.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="683">
@@ -3298,34 +3326,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoard.java">
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/a3072/MainActivityTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="288">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#294#295#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="288">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/a3072/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/a3072/MainActivityTest.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="192">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#255#256#0" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
           </folding>
         </state>
       </provider>
