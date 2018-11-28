@@ -7,14 +7,19 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import fall2018.csc2017.game_center.R;
+
 import static org.junit.Assert.*;
 
 public class CustomAdapterTest {
     private TileCustomAdapter
 
+
     @Before
     public void setup() {
         ArrayList<Button> button = new ArrayList<>();
+        Button e;
+        e = findviewbyid(R.id.all);
         button.add(e);
         button.add(x);
         button.add(z);

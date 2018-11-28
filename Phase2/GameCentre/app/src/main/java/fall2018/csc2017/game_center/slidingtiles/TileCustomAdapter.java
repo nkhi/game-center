@@ -20,7 +20,7 @@ public class TileCustomAdapter extends BaseAdapter {
     private ArrayList<Button> mButtons = null;
     private int mColumnWidth, mColumnHeight;
 
-    TileCustomAdapter(ArrayList<Button> buttons, int columnWidth, int columnHeight) {
+    TileCustomAdapter(ArrayList<Button> buttons, int columnWidth, int columnHeight)  {
         mButtons = buttons;
         mColumnWidth = columnWidth;
         mColumnHeight = columnHeight;
