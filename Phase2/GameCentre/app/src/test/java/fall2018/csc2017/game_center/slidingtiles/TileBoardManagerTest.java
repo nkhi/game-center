@@ -86,7 +86,6 @@ public class TileBoardManagerTest {
      */
     @Test
     public void testParameter(){
-        TileBoard board= new TileBoard(tiles,4);
         TileBoardManager boardManager = new TileBoardManager(4,-1);
         assertTrue(boardManager.isSolvable(tiles, 4));
     }
