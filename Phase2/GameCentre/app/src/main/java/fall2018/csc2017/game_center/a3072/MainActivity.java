@@ -18,7 +18,6 @@ import fall2018.csc2017.game_center.Score;
 import fall2018.csc2017.game_center.Scoreable;
 import fall2018.csc2017.game_center.slidingtiles.TileScoreboard;
 
-
 public class MainActivity extends AppCompatActivity implements Scoreable{
 
     @SuppressLint("StaticFieldLeak")
