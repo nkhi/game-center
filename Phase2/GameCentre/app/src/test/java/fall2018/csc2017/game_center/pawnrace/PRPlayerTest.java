@@ -32,9 +32,9 @@ public class PRPlayerTest {
                 getSquare(i, j).setOccupier(PRColor.NONE);
             }
         }
-        getSquare(2, 6).setOccupier(PRColor.BLACK);
+        getSquare(2, 5).setOccupier(PRColor.BLACK);
         getSquare(7, 6).setOccupier(PRColor.WHITE);
-        getSquare(1, 5).setOccupier(PRColor.WHITE);
+        getSquare(1, 4).setOccupier(PRColor.WHITE);
         getSquare(1, 1).setOccupier(PRColor.WHITE);
         player = new PRPlayer(game, game.getBoard(), PRColor.WHITE, false, 3, -1);
         opponent = new PRPlayer(game, game.getBoard(), PRColor.BLACK, true, 3, -1);
@@ -66,7 +66,7 @@ public class PRPlayerTest {
     public void testGetNumAllPawns() {
         assertEquals(3, player.getNumAllPawns());
         getSquare(7, 6).setOccupier(PRColor.NONE);
-        getSquare(1, 5).setOccupier(PRColor.NONE);
+        getSquare(1, 4).setOccupier(PRColor.NONE);
         assertEquals(1, player.getNumAllPawns());
     }
 
@@ -78,9 +78,9 @@ public class PRPlayerTest {
         PRMove[] actual = player.getAllValidMoves();
         player.getGame().applyMove(new PRMove(getSquare(1,1), getSquare(1,2),false,false));
         int size = actual.length;
-        for (int i =0; i < actual.length; i++){
-            if (actual[i] == null)
-                size --;
+        for (PRMove move : actual) {
+            if (move == null)
+                size--;
         }
         assertEquals(5, size);
     }
@@ -99,9 +99,9 @@ public class PRPlayerTest {
 
     @Test
     public void testForwardness() {
-        assertEquals(62, player.forwardness());
-        player.getBoard().applyMove(new PRMove(getSquare(1,5), getSquare(1,6), false, false));
-        assertEquals(55, player.forwardness());
+        assertEquals(59, player.forwardness());
+        player.getBoard().applyMove(new PRMove(getSquare(1,4), getSquare(1,5), false, false));
+        assertEquals(54, player.forwardness());
     }
 
     @Test
@@ -128,18 +128,18 @@ public class PRPlayerTest {
 
     @Test
     public void testComputerMakeMove() {
-        assertEquals(PRColor.BLACK, getSquare(2,6).occupiedBy());
+        assertEquals(PRColor.BLACK, getSquare(2,5).occupiedBy());
         opponent.computerMakeMove();
-        assertEquals(PRColor.NONE, getSquare(2,6).occupiedBy());
+        assertEquals(PRColor.NONE, getSquare(2,5).occupiedBy());
     }
 
     @Test
     public void testUndoMove() {
-        player.getGame().applyMove(new PRMove(getSquare(1,5),getSquare(1,6),false,false));
-        opponent.getGame().applyMove(new PRMove(getSquare(2,6),getSquare(2,5),false, false));
-        assertEquals(PRColor.WHITE, getSquare(1,6).occupiedBy());
+        player.getGame().applyMove(new PRMove(getSquare(1,4),getSquare(1,5),false,false));
+        opponent.getGame().applyMove(new PRMove(getSquare(2,5),getSquare(2,4),false, false));
+        assertEquals(PRColor.WHITE, getSquare(1,5).occupiedBy());
         player.undoMove();
-        assertEquals(PRColor.BLACK, getSquare(2,6).occupiedBy());
+        assertEquals(PRColor.BLACK, getSquare(2,5).occupiedBy());
     }
 
     @Test
@@ -163,9 +163,15 @@ public class PRPlayerTest {
     public void testMakeBestMove(){
         boolean checker = false;
         player.getOpponent().computerMakeMove();
-        assertEquals(PRColor.NONE, getSquare(2,6).occupiedBy());
+        assertEquals(PRColor.NONE, getSquare(2,5).occupiedBy());
         for (int i = 0; i < PRBoard.NUM_ROW_COL; i++){
-            if (PRColor.BLACK == getSquare(i, 5).occupiedBy());
+            for (int j = 0; j < PRBoard.NUM_ROW_COL; j++){
+                if (PRColor.BLACK == getSquare(i,j).occupiedBy())
+                    System.out.println(j);
+            }
+        }
+        for (int i = 0; i < PRBoard.NUM_ROW_COL; i++){
+            if (PRColor.BLACK == getSquare(i, 4).occupiedBy())
                 checker = true;
         }
         assertTrue(checker);
