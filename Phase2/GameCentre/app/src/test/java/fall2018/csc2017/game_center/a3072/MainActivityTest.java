@@ -11,9 +11,10 @@ public class MainActivityTest {
 
     private MainActivity MA;
 
+    //Not working
     @Before
     public void setup() {
-        MA = new MainActivity();
+        this.MA = new MainActivity();
     }
 
     @Test
