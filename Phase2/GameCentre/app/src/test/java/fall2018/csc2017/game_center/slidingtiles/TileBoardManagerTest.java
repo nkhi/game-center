@@ -81,6 +81,9 @@ public class TileBoardManagerTest {
         boardManageru = null;
     }
 
+    /**
+     * Tests the parameters of each constructor.
+     */
     @Test
     public void testParameter(){
         TileBoard board= new TileBoard(tiles,4);

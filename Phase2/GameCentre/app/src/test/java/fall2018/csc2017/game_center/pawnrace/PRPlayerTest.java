@@ -133,18 +133,20 @@ public class PRPlayerTest {
         assertEquals(PRColor.NONE, getSquare(2,6).occupiedBy());
     }
 
-    /**
-     * Tests undoMove() and hasUndo()
-     */
     @Test
     public void testUndoMove() {
-        assertFalse(player.hasUndo());
         player.getGame().applyMove(new PRMove(getSquare(1,5),getSquare(1,6),false,false));
         opponent.getGame().applyMove(new PRMove(getSquare(2,6),getSquare(2,5),false, false));
         assertEquals(PRColor.WHITE, getSquare(1,6).occupiedBy());
-        assertTrue(player.hasUndo());
         player.undoMove();
         assertEquals(PRColor.BLACK, getSquare(2,6).occupiedBy());
+    }
+
+    @Test
+    public void testHasUndo(){
+        assertFalse(player.hasUndo());
+        player.getGame().applyMove(new PRMove(getSquare(1,5),getSquare(1,6),false,false));
+        assertTrue(player.hasUndo());
     }
 
     @Test
