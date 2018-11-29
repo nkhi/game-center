@@ -14,14 +14,39 @@ import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
 import fall2018.csc2017.game_center.Score;
 
+/**
+ * Main game activity for 3072
+ */
 public class GameActivity3072 extends AppCompatActivity implements Observer {
 
+    /**
+     * The background color constant for the main activity
+     */
     private static final int GAME_BG = 0xffbbada0;
 
+    /**
+     * Custom grid layout for game
+     */
     private GestureDetectGridLayout3072 gridLayout;
+
+    /**
+     * Board of the game
+     */
     private Board3072 board;
+
+    /**
+     * Player's score
+     */
     private int score = 0;
+
+    /**
+     * TextView of the score
+     */
     private TextView tvScore;
+
+    /**
+     * Username of current player
+     */
     private String username;
 
     @Override
@@ -51,23 +76,32 @@ public class GameActivity3072 extends AppCompatActivity implements Observer {
         });
     }
 
+    /**
+     * Clears the score on the activity
+     */
     private void clearScore() {
         score = 0;
         showScore();
     }
 
+    /**
+     * Displays the updated score
+     */
     private void showScore() {
         tvScore.setText(String.valueOf(score));
     }
 
 
+    /**
+     * Initializes the grid layout with "cards"
+     */
     private void addCards() {
         Card3072 c;
         for (int y = 0; y < Board3072.NUM_ROW_COL; y++) {
             for (int x = 0; x < Board3072.NUM_ROW_COL; x++) {
                 c = new Card3072(gridLayout.getContext());
                 c.setNum(0);
-                gridLayout.addView(c, c.cardWidth, c.cardWidth);
+                gridLayout.addView(c, c.getCardWidth(), c.getCardWidth());
                 board.getBoard()[x][y] = c;
             }
         }
@@ -76,15 +110,13 @@ public class GameActivity3072 extends AppCompatActivity implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        synchronized (this) {
-            score = board.getScore();
-            showScore();
-            if (board.isFinished()) {
-                Intent tmp = new Intent(this, Scoreboard3072.class);
-                tmp.putExtra(Scoreboard3072.SCORE_EXTRA, new Score(username, board));
-                startActivity(tmp);
-                finish();
-            }
+        score = board.getScore();
+        showScore();
+        if (board.isFinished()) {
+            Intent tmp = new Intent(this, ScoreboardActivity3072.class);
+            tmp.putExtra(ScoreboardActivity3072.SCORE_EXTRA, new Score(username, board));
+            startActivity(tmp);
+            finish();
         }
     }
 }

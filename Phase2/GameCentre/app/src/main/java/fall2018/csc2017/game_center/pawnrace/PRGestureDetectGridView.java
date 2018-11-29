@@ -16,30 +16,84 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.GridView;
 
+/**
+ * Custom GridView layout for the Pawn Race game
+ */
 public class PRGestureDetectGridView extends GridView {
+
+    /**
+     * Minimum swipe distance for swipe to be detected
+     */
     public static final int SWIPE_MIN_DISTANCE = 100;
+
+    /**
+     * Velocity for swipe to be processed
+     */
     public static final int SWIPE_THRESHOLD_VELOCITY = 100;
+
+    /**
+     * The gesture detector, used for detecting swipes and taps
+     */
     private GestureDetector gDetector;
+
+    /**
+     * Movement controller for the Pawn Race game - processes taps and swipes
+     */
     private PRMovementController mController;
+
+    /**
+     * Stores whether or not the list fling is confirmed
+     */
     private boolean mFlingConfirmed = false;
+
+    /**
+     * X coordinate of the tap
+     */
     private float mTouchX;
+
+    /**
+     * Y coordinate of the tap
+     */
     private float mTouchY;
 
+    /**
+     * Initializes a PRGestureDetectGridView
+     *
+     * @param context the parent activity
+     */
     public PRGestureDetectGridView(Context context) {
         super(context);
         init(context);
     }
 
+    /**
+     * Initializes a PRGestureDetectGridView
+     *
+     * @param context the parent activity
+     * @param attrs the set of attributes for the GridView
+     */
     public PRGestureDetectGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
+    /**
+     * Initializes a PRGestureDetectGridView
+     *
+     * @param context the parent activity
+     * @param attrs the set of attributes for the GridView
+     * @param defStyleAttr style attribute reference
+     */
     public PRGestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
 
+    /**
+     * Initializes parameters of the grid view layout
+     *
+     * @param context the parent activity
+     */
     private void init(final Context context) {
         mController = new PRMovementController();
         gDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
@@ -108,6 +162,11 @@ public class PRGestureDetectGridView extends GridView {
         return gDetector.onTouchEvent(ev);
     }
 
+    /**
+     * Sets the player parameter for the movement controller
+     *
+     * @param player PRPlayer class of the player
+     */
     public void setPlayer(PRPlayer player) {
         mController.setGame(player);
     }

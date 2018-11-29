@@ -25,13 +25,26 @@ class TileBoardManager implements Serializable, Scoreable {
      */
     private static final long serialVersionUID = 3L;
 
+    /**
+     * Constant for default max score (per complexity)
+     */
     private static final int MAX_SCORE = 50;
+
+    /**
+     * Constant for default min score
+     */
     private static final int MIN_SCORE = 10;
+
     /**
      * ID of the blank tile.
      */
     private final int blankId;
+
+    /**
+     * Number of rows and columns on the board
+     */
     private final int numRowCol;
+
     /**
      * The board being managed.
      */
@@ -47,6 +60,9 @@ class TileBoardManager implements Serializable, Scoreable {
      */
     private Deque<TilePosition> undoQueue;
 
+    /**
+     * Number of moves currently made
+     */
     private int numMoves;
 
     /**

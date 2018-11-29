@@ -2,6 +2,9 @@ package fall2018.csc2017.game_center.pawnrace;
 
 import java.io.Serializable;
 
+/**
+ * The game class of Pawn Race - contains the board and move functionality
+ */
 class PRGame implements Serializable {
 
     /**

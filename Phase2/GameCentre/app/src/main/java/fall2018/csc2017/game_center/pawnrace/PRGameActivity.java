@@ -55,6 +55,9 @@ public class PRGameActivity extends SaveManager<PRPlayer> implements Observer {
      */
     private Handler handler;
 
+    /**
+     * Computer move "runnable" - used to resolve a lag issue with the update()
+     */
     private Runnable computerMakeMove;
 
     @Override
@@ -165,8 +168,8 @@ public class PRGameActivity extends SaveManager<PRPlayer> implements Observer {
             autosaveIndex++;
         }
         if (player.isFinished()) {
-            Intent tmp = new Intent(this, PRScoreboard.class);
-            tmp.putExtra(PRScoreboard.SCORE_EXTRA, new Score(username, player));
+            Intent tmp = new Intent(this, PRScoreboardActivity.class);
+            tmp.putExtra(PRScoreboardActivity.SCORE_EXTRA, new Score(username, player));
             startActivity(tmp);
             finish();
         } else {

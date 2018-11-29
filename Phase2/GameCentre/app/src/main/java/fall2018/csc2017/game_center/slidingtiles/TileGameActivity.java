@@ -157,8 +157,8 @@ public class TileGameActivity extends SaveManager<TileBoardManager> implements O
             autosaveIndex++;
         }
         if (boardManager.puzzleSolved()) {
-            Intent tmp = new Intent(this, TileScoreboard.class);
-            tmp.putExtra(TileScoreboard.SCORE_EXTRA, new Score(username, boardManager));
+            Intent tmp = new Intent(this, TileScoreboardActivity.class);
+            tmp.putExtra(TileScoreboardActivity.SCORE_EXTRA, new Score(username, boardManager));
             startActivity(tmp);
             finish();
         }

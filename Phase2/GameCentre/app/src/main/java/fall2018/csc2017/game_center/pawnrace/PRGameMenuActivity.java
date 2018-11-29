@@ -20,14 +20,44 @@ public class PRGameMenuActivity extends SaveManager<PRPlayer> {
      */
     public static final String TILE_SAVE_FILE = "_pawn_race_saves.ser";
 
+    /**
+     * Default color of the player
+     */
     private static final PRColor DEFAULT_COLOR = PRColor.WHITE;
 
+    /**
+     * The white player's 'gap' rank
+     */
     private int whiteGap;
+
+    /**
+     * The black player's 'gap' rank
+     */
     private int blackGap;
+
+    /**
+     * Number of total undo moves allowed
+     */
     private int undo;
+
+    /**
+     * Difficulty depth of the game
+     */
     private int difficulty;
+
+    /**
+     * Autosave interval
+     */
     private int autosave;
+
+    /**
+     * The player's color
+     */
     private PRColor playerColor;
+
+    /**
+     * The random number generator used to determine a black and white gap
+     */
     private Random random;
 
     @Override
@@ -52,6 +82,9 @@ public class PRGameMenuActivity extends SaveManager<PRPlayer> {
         addScoreboardButtonListener();
     }
 
+    /**
+     * Initializes a new game from default values or values given through the settings menu
+     */
     private void newGameInitializer() {
         whiteGap = random.nextInt(PRBoard.NUM_ROW_COL);
         blackGap = random.nextInt(PRBoard.NUM_ROW_COL);
@@ -65,6 +98,15 @@ public class PRGameMenuActivity extends SaveManager<PRPlayer> {
         undo = getIntent().getIntExtra(PRSettingsActivity.UNDO_CONSTANT, PRPlayer.INFINITE_UNDO);
     }
 
+    /**
+     * Initializes a player given parameters
+     *
+     * @param blackGap black player's gap rank
+     * @param whiteGap white player's gap rank
+     * @param playerColor player's color
+     * @param difficulty difficulty of the AI
+     * @return the PRPlayer class of the player with above attributes
+     */
     private PRPlayer initializeGame(int blackGap, int whiteGap, PRColor playerColor,
                                     int difficulty) {
         System.out.println(playerColor);
@@ -189,10 +231,10 @@ public class PRGameMenuActivity extends SaveManager<PRPlayer> {
     }
 
     /**
-     * Switch to the PRScoreboard activity to view the scoreboard
+     * Switch to the PRScoreboardActivity activity to view the scoreboard
      */
     private void switchToScoreboard() {
-        Intent tmp = new Intent(this, PRScoreboard.class);
+        Intent tmp = new Intent(this, PRScoreboardActivity.class);
         startActivity(tmp);
     }
 

@@ -13,8 +13,19 @@ import fall2018.csc2017.game_center.Scoreable;
  */
 public class Board3072 extends Observable implements Scoreable {
 
+    /**
+     * Number of rows and columns in the game
+     */
     public static final int NUM_ROW_COL = 4;
+
+    /**
+     * Probability that a new random number will be a large number
+     */
     private static final float PROB_LARGE_NUM = 0.1f;
+
+    /**
+     * Number of initial numbers generated
+     */
     private static final int NUM_INIT_CARDS = 3;
 
     /**

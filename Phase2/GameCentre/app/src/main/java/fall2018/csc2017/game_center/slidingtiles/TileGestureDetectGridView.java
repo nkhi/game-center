@@ -57,16 +57,34 @@ public class TileGestureDetectGridView extends GridView {
      */
     private float mTouchY;
 
+    /**
+     * Initializes a TileGestureDetectGridView
+     *
+     * @param context the parent activity
+     */
     public TileGestureDetectGridView(Context context) {
         super(context);
         init(context);
     }
 
+    /**
+     * Initializes a TileGestureDetectGridView
+     *
+     * @param context the parent activity
+     * @param attrs the set of attributes for the GridView
+     */
     public TileGestureDetectGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
+    /**
+     * Initializes a TileGestureDetectGridView
+     *
+     * @param context the parent activity
+     * @param attrs the set of attributes for the GridView
+     * @param defStyleAttr style attribute reference
+     */
     public TileGestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);

@@ -166,10 +166,10 @@ public class TileGameMenuActivity extends SaveManager<TileBoardManager> {
     }
 
     /**
-     * Switch to the TileScoreboard view to view the scoreboard
+     * Switch to the TileScoreboardActivity view to view the scoreboard
      */
     private void switchToScoreboard() {
-        Intent tmp = new Intent(this, TileScoreboard.class);
+        Intent tmp = new Intent(this, TileScoreboardActivity.class);
         startActivity(tmp);
     }
 

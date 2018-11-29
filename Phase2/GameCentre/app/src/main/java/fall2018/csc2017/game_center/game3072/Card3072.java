@@ -7,15 +7,41 @@ import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import java.util.Objects;
+
+/**
+ * A single "card" on the grid of the game - can be either empty or a number
+ */
 public class Card3072 extends FrameLayout {
 
+    /**
+     * Text size of number
+     */
     private static final int TEXT_SIZE = 32;
+
+    /**
+     * Default background color of label
+     */
     private static final int LABEL_BACKGROUND_COL = 0x33ffffff;
+
+    /**
+     * Placeholder width and height constant
+     */
     private static final int PLACEHOLDER_WIDTH_HEIGHT = -1;
+
+    /**
+     * Margins for the text
+     */
     private static final int LABEL_MARGIN = 10;
 
+    /**
+     * Base number of the game (2 for 2048, 3 for 3072...etc.)
+     */
     public static final int BASE_NUM = 3;
 
+    /*
+     * Background colors of different numbers
+     */
     private static final int EMPTY_BG = 0x00000000;
     private static final int NUM_1_BG = 0xffeee4da;
     private static final int NUM_2_BG = 0xffede0c8;
@@ -32,8 +58,14 @@ public class Card3072 extends FrameLayout {
     private static final int NUM_13_BG = 0xff4585f2;
     private static final int LARGE_NUM_BG = 0xff3c3a32;
 
-    protected int cardWidth = getCardWidth();
-    private int num = 0;
+    /**
+     * Number displayed on the Card (0 for empty card)
+     */
+    private int num;
+
+    /**
+     * Label on the card displaying the text
+     */
     private TextView label;
 
     public Card3072(Context context) {
@@ -51,10 +83,22 @@ public class Card3072 extends FrameLayout {
         setNum(0);
     }
 
+    /**
+     * Return the number of the card
+     *
+     * @return the number of the card
+     */
     public int getNum() {
         return num;
     }
 
+    /**
+     * Sets the number, displays the updated card, and sets the background color
+     * Suppresses String concatenation because text displayed with always be a number -
+     * no need for translation
+     *
+     * @param num number to be set (0 for empty card)
+     */
     @SuppressLint("SetTextI18n")
     public void setNum(int num) {
         this.num = num;
@@ -114,15 +158,29 @@ public class Card3072 extends FrameLayout {
         }
     }
 
-    public boolean equals(Card3072 c) {
-        return getNum() == c.getNum();
-    }
-
-    private int getCardWidth() {
+    /**
+     * Return the card's width
+     *
+     * @return width of the frame
+     */
+    int getCardWidth() {
         DisplayMetrics displayMetrics;
         displayMetrics = getResources().getDisplayMetrics();
         int cardWidth;
         cardWidth = displayMetrics.widthPixels;
         return (cardWidth - LABEL_MARGIN) / 4;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card3072 card3072 = (Card3072) o;
+        return num == card3072.num;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(num);
     }
 }

@@ -7,28 +7,58 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridLayout;
 
+/**
+ * Custom grid layout for the 3072 game
+ */
 public class GestureDetectGridLayout3072 extends GridLayout {
 
+    /**
+     * Swipe offset constant
+     */
     private static final int OFFSET_CONSTANT = 5;
 
+    /**
+     * Movement controller for the 3072 game
+     */
     private MovementController3072 mController;
 
+    /**
+     * Initializes a GestureDetectGridLayout3072
+     *
+     * @param context the parent activity
+     * @param attrs the set of attributes for the GridView
+     * @param defStyleAttr style attribute reference
+     */
     public GestureDetectGridLayout3072(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initBoard();
+        initGridLayout();
     }
 
+    /**
+     * Initializes a GestureDetectGridLayout3072
+     *
+     * @param context the parent activity
+     * @param attrs the set of attributes for the GridView
+     */
     public GestureDetectGridLayout3072(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initBoard();
+        initGridLayout();
     }
 
+    /**
+     * Initializes a GestureDetectGridLayout3072
+     *
+     * @param context the parent activity
+     */
     public GestureDetectGridLayout3072(Context context) {
         super(context);
-        initBoard();
+        initGridLayout();
     }
 
-    private void initBoard() {
+    /**
+     * Initializes the grid layout with parameters and a listener
+     */
+    private void initGridLayout() {
         mController = new MovementController3072();
         setOnTouchListener(new View.OnTouchListener() {
 
@@ -68,6 +98,11 @@ public class GestureDetectGridLayout3072 extends GridLayout {
         });
     }
 
+    /**
+     * Sets the board for the movement controller
+     *
+     * @param board board to be set
+     */
     void setBoard(Board3072 board) {
         mController.setBoard(board);
     }
