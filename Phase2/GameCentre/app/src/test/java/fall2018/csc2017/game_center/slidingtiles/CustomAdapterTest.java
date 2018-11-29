@@ -35,14 +35,8 @@ public class CustomAdapterTest {
         button.add(z);
         TileCustomAdapter Testadpter = new TileCustomAdapter(button, 2, 3);
         View v = null;
-        ViewGroup group = new ViewGroup() {
-            @Override
-            protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
-                if(b) {button.get(i);}
-                else if(b != true) {button.get(i2);}
-            }
-        };
-        this.parent = group;
+        ViewGroup prt = null;
+        this.parent = prt;
         this.view = v;
         this.view2 = e;
         this.adapter = Testadpter;
