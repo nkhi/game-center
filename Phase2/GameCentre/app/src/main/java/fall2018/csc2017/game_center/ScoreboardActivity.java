@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Abstract scoreboard class containing the scoreboard list view functionality
+ */
 public abstract class ScoreboardActivity extends FileProcessor<List<Score>> {
 
     /**
