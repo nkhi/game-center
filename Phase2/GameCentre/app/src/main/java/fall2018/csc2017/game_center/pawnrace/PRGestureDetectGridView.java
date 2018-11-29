@@ -18,7 +18,6 @@ import android.widget.GridView;
 
 public class PRGestureDetectGridView extends GridView {
     public static final int SWIPE_MIN_DISTANCE = 100;
-    public static final int SWIPE_MAX_OFF_PATH = 100;
     public static final int SWIPE_THRESHOLD_VELOCITY = 100;
     private GestureDetector gDetector;
     private PRMovementController mController;
@@ -38,13 +37,6 @@ public class PRGestureDetectGridView extends GridView {
 
     public PRGestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP) // API 21
-    public PRGestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr,
-                                   int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }
 

@@ -31,10 +31,30 @@ public class TileGestureDetectGridView extends GridView {
      */
     public static final int SWIPE_THRESHOLD_VELOCITY = 100;
 
+    /**
+     * The gesture detector, used for detecting swipes and taps
+     */
     private GestureDetector gDetector;
+
+    /**
+     * Movement controller in the MVC model - processes swipes and taps with regards to the tile
+     * game
+     */
     private TileMovementController mController;
+
+    /**
+     * Stores whether or not the list fling is confirmed
+     */
     private boolean mFlingConfirmed = false;
+
+    /**
+     * X coordinate of the tap
+     */
     private float mTouchX;
+
+    /**
+     * Y coordinate of the tap
+     */
     private float mTouchY;
 
     public TileGestureDetectGridView(Context context) {
@@ -52,13 +72,11 @@ public class TileGestureDetectGridView extends GridView {
         init(context);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP) // API 21
-    public TileGestureDetectGridView(Context context, AttributeSet attrs, int defStyleAttr,
-                                     int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context);
-    }
-
+    /**
+     * Initializes the grid view parameters and adds a gesture detector to it
+     *
+     * @param context the parent activity
+     */
     private void init(final Context context) {
         mController = new TileMovementController();
         gDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {

@@ -12,9 +12,19 @@ import fall2018.csc2017.game_center.R;
 import fall2018.csc2017.game_center.Score;
 import fall2018.csc2017.game_center.ScoreboardAdapter;
 
+/**
+ * Scoreboard activity to display all scores associated with Pawn Race in a list
+ */
 public class PRScoreboard extends FileProcessor<List<Score>> {
 
+    /**
+     * Path of the scoreboard file for the Pawn Race game
+     */
     public static final String PR_SCORE_FILE = "pawn_race_scores.ser";
+
+    /**
+     * Constant for storing the score extra passed when a game ends
+     */
     public static final String SCORE_EXTRA = "SCORE_EXTRA";
 
     @Override

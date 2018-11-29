@@ -1,4 +1,4 @@
-package fall2018.csc2017.game_center.a3072;
+package fall2018.csc2017.game_center.game3072;
 
 import android.os.Bundle;
 import android.widget.ListView;
@@ -12,7 +12,7 @@ import fall2018.csc2017.game_center.R;
 import fall2018.csc2017.game_center.Score;
 import fall2018.csc2017.game_center.ScoreboardAdapter;
 
-public class ScoreBoard extends FileProcessor<List<Score>> {
+public class Scoreboard3072 extends FileProcessor<List<Score>> {
 
 
     public static final String a3072_SCORE_FILE = "3072_scores.ser";

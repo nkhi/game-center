@@ -18,9 +18,6 @@ public class RegisterActivity extends LoginRegisterActivity {
         addLoginRegisterButtonListener();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void addLoginRegisterButtonListener() {
         Button registerButton = findViewById(R.id.RegisterButton);
@@ -32,9 +29,6 @@ public class RegisterActivity extends LoginRegisterActivity {
         });
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void loginRegister() {
         if (loginRegisterCheck()) {
@@ -43,9 +37,6 @@ public class RegisterActivity extends LoginRegisterActivity {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected boolean loginRegisterCheck() {
         String username = getUsername();
@@ -65,17 +56,11 @@ public class RegisterActivity extends LoginRegisterActivity {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected String getUsername() {
         return ((EditText) findViewById(R.id.UsernameRegisterField)).getText().toString();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected String getPassword() {
         return ((EditText) findViewById(R.id.PasswordRegisterField)).getText().toString();

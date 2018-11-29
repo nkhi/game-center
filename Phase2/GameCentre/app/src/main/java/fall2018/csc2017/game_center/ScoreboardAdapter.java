@@ -12,8 +12,19 @@ import android.widget.TextView;
  */
 public class ScoreboardAdapter extends BaseAdapter {
 
+    /**
+     * The activity in which this adapter is defined
+     */
     private Context context;
+
+    /**
+     * An array of scores for this particular game
+     */
     private Integer[] scores;
+
+    /**
+     * An array of usernames corresponding to the scores array
+     */
     private String[] usernames;
 
     public ScoreboardAdapter(Context context, Integer[] scores, String[] usernames) {

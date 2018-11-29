@@ -3,7 +3,8 @@ package fall2018.csc2017.game_center.pawnrace;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class PRBoardTest {
 
@@ -43,7 +44,7 @@ public class PRBoardTest {
         for (int i = 0; i < PRBoard.NUM_ROW_COL; i++) {
             for (int j = 0; j < PRBoard.NUM_ROW_COL; j++) {
                 PRSquare temp = new PRSquare(i, j);
-                switch(j) {
+                switch (j) {
                     case PRGame.WHITE_STARTING_RANK:
                         temp.setOccupier(PRColor.WHITE);
                         assertEquals(temp, board.getSquare(i, j));

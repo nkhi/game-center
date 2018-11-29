@@ -5,6 +5,9 @@ import android.os.Bundle;
 import fall2018.csc2017.game_center.LoadSaveGameActivity;
 import fall2018.csc2017.game_center.R;
 
+/**
+ * The Load Game and Save Game screen for the Pawn Race game.
+ */
 public class PRLoadSaveGameActivity extends LoadSaveGameActivity<PRPlayer> {
 
     @Override

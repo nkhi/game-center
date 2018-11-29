@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="a3072.MainActivity">
+    tools:context=".game3072.GameActivity3072">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="fill_parent"
@@ -48,7 +48,7 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    <fall2018.csc2017.game_center.a3072.BoardView
+    <fall2018.csc2017.game_center.game3072.GestureDetectGridLayout3072
         android:id="@+id/gameView"
         android:layout_width="match_parent"
         android:layout_height="0dp"

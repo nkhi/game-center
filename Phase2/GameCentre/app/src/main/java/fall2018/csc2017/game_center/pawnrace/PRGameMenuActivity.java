@@ -11,8 +11,14 @@ import java.util.Random;
 import fall2018.csc2017.game_center.LoadSaveGameActivity;
 import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
+import fall2018.csc2017.game_center.SaveManager;
 
-public class PRGameMenuActivity extends PRSaveManager {
+public class PRGameMenuActivity extends SaveManager<PRPlayer> {
+
+    /**
+     * Constant suffix for the pawn race save file (unique per user)
+     */
+    public static final String TILE_SAVE_FILE = "_pawn_race_saves.ser";
 
     private static final PRColor DEFAULT_COLOR = PRColor.WHITE;
 
@@ -27,6 +33,7 @@ public class PRGameMenuActivity extends PRSaveManager {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initialize(TILE_SAVE_FILE);
 
         random = new Random();
         newGameInitializer();
@@ -161,7 +168,7 @@ public class PRGameMenuActivity extends PRSaveManager {
     }
 
     /**
-     * Switch to the TileLoadSaveGameActivity view to load or save games
+     * Switch to the PRLoadSaveGameActivity view to load or save games
      *
      * @param isLoadActivity Whether to switch to the load menu or save menu.
      */
@@ -173,7 +180,7 @@ public class PRGameMenuActivity extends PRSaveManager {
     }
 
     /**
-     * Switch to the TileSettingsActivity view to set game
+     * Switch to the PRSettingsActivity view to set game
      */
     private void switchToSettingMenu() {
         Intent tmp = new Intent(this, PRSettingsActivity.class);
@@ -181,6 +188,9 @@ public class PRGameMenuActivity extends PRSaveManager {
         startActivity(tmp);
     }
 
+    /**
+     * Switch to the PRScoreboard activity to view the scoreboard
+     */
     private void switchToScoreboard() {
         Intent tmp = new Intent(this, PRScoreboard.class);
         startActivity(tmp);

@@ -5,6 +5,11 @@ import android.support.annotation.Nullable;
 
 import java.io.Serializable;
 
+/**
+ * Abstract class that processes loading and saving a SavedGameState for a game to a file
+ *
+ * @param <T> Savable game file to be saved
+ */
 public abstract class SaveManager<T extends Serializable>
         extends FileProcessor<SavedGameState<T>> {
 
@@ -19,6 +24,13 @@ public abstract class SaveManager<T extends Serializable>
         username = getIntent().getStringExtra(LoginActivity.CURRENT_USER);
     }
 
+    /**
+     * Initializes parameters on creation of the activity and creates a save file if not already
+     * present
+     *
+     * @param suffix suffix of the file path - usually denoting the game for which the saves
+     *               belong
+     */
     protected void initialize(String suffix) {
         setFilePath(username + suffix);
 

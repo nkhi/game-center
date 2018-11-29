@@ -140,6 +140,10 @@ public class TileGameActivity extends SaveManager<TileBoardManager> implements O
         writeFile();
     }
 
+    /**
+     * Processes the autosave and checks whether the game is finished.
+     * Switches to the scoreboard on finish.
+     */
     @Override
     public void update(Observable o, Object arg) {
         display();

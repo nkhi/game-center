@@ -1,8 +1,8 @@
 package fall2018.csc2017.game_center.pawnrace;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -12,9 +12,12 @@ import android.widget.TextView;
 import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
 
+/**
+ * Settings activity to allow for the adjustment of adjustable game settings
+ */
 public class PRSettingsActivity extends AppCompatActivity {
 
-    /**
+    /*
      * Constants for referencing extras when settings are passed
      */
     static final String COLOR_CONSTANT = "COLOR_CONSTANT";
@@ -22,15 +25,25 @@ public class PRSettingsActivity extends AppCompatActivity {
     static final String AUTOSAVE_CONSTANT = "AUTOSAVE_CONSTANT";
     static final String DIFFICULTY_CONSTANT = "DIFFICULTY_CONSTANT";
 
+    /**
+     * Easy difficulty depth constant
+     */
     private static final int EASY_DIFFICULTY = 3;
-    private static final int HARD_DIFFICULTY = 6;
 
     /**
-     * Radiobutton and radiogroup in choosing game type
+     * Hard difficulty depth constant
+     */
+    private static final int HARD_DIFFICULTY = 6;
+
+    /*
+     * Radiobutton and radiogroup in choosing player color
      */
     private RadioButton gameColorRadioButton;
     private RadioGroup gameColorRadioGroup;
 
+    /*
+     * Radiobutton and radiogroup in choosing game difficulty
+     */
     private RadioButton gameDifficultyRadioButton;
     private RadioGroup gameDifficultyRadioGroup;
 

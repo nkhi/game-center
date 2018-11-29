@@ -12,9 +12,12 @@ import android.widget.TextView;
 import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
 
+/**
+ * Settings activity used to allow for adjustment of adjustable game settings
+ */
 public class TileSettingsActivity extends AppCompatActivity {
 
-    /**
+    /*
      * Constants for referencing extras when settings are passed
      */
     public static final String SIZE_CONSTANT = "SIZE_CONSTANT";
@@ -22,10 +25,14 @@ public class TileSettingsActivity extends AppCompatActivity {
     public static final String AUTOSAVE_CONSTANT = "AUTOSAVE_CONSTANT";
 
     /**
-     * Radiobutton and radiogroup in choosing game type
+     * Radiobutton in choosing game type
      */
-    public RadioButton radioButton;
-    RadioGroup radioGroup;
+    private RadioButton radioButton;
+
+    /**
+     * Radiogroup in choosing game type
+     */
+    private RadioGroup radioGroup;
 
     /**
      * Undo limit field

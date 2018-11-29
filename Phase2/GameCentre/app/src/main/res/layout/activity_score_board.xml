@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fall2018.csc2017.game_center.a3072.ScoreBoard">
+    tools:context="fall2018.csc2017.game_center.game3072.Scoreboard3072">
     <ListView
         android:id="@+id/ScoreboardList"
         android:layout_width="0dp"

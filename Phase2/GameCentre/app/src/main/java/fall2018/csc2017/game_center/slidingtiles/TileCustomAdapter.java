@@ -16,8 +16,19 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
+/**
+ * View adapter for the Tile Game
+ */
 public class TileCustomAdapter extends BaseAdapter {
-    private ArrayList<Button> mButtons = null;
+
+    /**
+     * Array of Tile "buttons"
+     */
+    private ArrayList<Button> mButtons;
+
+    /**
+     * Width and height of each sliding tile Tile
+     */
     private int mColumnWidth, mColumnHeight;
 
     TileCustomAdapter(ArrayList<Button> buttons, int columnWidth, int columnHeight) {

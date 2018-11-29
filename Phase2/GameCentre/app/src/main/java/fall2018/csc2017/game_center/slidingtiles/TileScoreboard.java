@@ -1,12 +1,7 @@
 package fall2018.csc2017.game_center.slidingtiles;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,9 +12,19 @@ import fall2018.csc2017.game_center.R;
 import fall2018.csc2017.game_center.Score;
 import fall2018.csc2017.game_center.ScoreboardAdapter;
 
+/**
+ * Scoreboard activity to display all scores associated with the Tile Game in a list
+ */
 public class TileScoreboard extends FileProcessor<List<Score>> {
 
+    /**
+     * Path of the scoreboard file for the tile game
+     */
     public static final String TILE_SCORE_FILE = "tile_scores.ser";
+
+    /**
+     * Constant for storing the score extra passed when a game ends
+     */
     public static final String SCORE_EXTRA = "SCORE_EXTRA";
 
     @Override
