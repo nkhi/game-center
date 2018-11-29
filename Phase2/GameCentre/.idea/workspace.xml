@@ -9,8 +9,10 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ff78ff5-3085-4b92-8a70-6e4badcd507c" name="Default" comment="Test cases for custom adapter partially complete, the functionality is still in question. but in theory, the completed ones should work">
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileTest.java" afterDir="false" />
+    <list default="true" id="68d4bfe4-1a3c-4e67-a084-555c6bf63222" name="Default" comment="Setup for gesture detect">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/GestureDetectGridViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/GestureDetectGridViewTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,39 +29,74 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="GameCentre" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="GameCentre" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/Tile.java">
+      <file leaf-file-name="TileBoardTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-801">
-              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="32">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TileTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileTest.java">
+      <file leaf-file-name="TileSaveManagerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileSaveManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+            <state relative-caret-position="68">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaveManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/SaveManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-391">
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PRGestureDetectGridView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGestureDetectGridView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="967">
+              <caret line="105" column="28" lean-forward="true" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileGestureDetectGridView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileGestureDetectGridView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GestureDetectGridViewTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/GestureDetectGridViewTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingsActivityTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/SettingsActivityTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -76,7 +113,7 @@
       <file leaf-file-name="TileBoardManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoardManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-816">
+            <state relative-caret-position="119">
               <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
             </state>
           </provider>
@@ -87,15 +124,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
               <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PRGameMenuActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGameMenuActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -114,7 +142,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="nikhi" />
+        <entry key="$PROJECT_DIR$/../.." value="yang" />
       </map>
     </option>
   </component>
@@ -2388,14 +2416,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileCustomAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/CustomAdapterTest.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileTest.java" />
+        <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/GestureDetectGridViewTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -2780,7 +2808,7 @@
       <list>
         <item itemvalue="Android JUnit.TileTest" />
         <item itemvalue="Android JUnit.fall2018.csc2017.game_center in app" />
-        <item itemvalue="Android JUnit.fall2018.csc2017.game_center in app" />
+        <item itemvalue="Android JUnit.TileTest" />
         <item itemvalue="Android JUnit.fall2018.csc2017.game_center in app" />
         <item itemvalue="Android JUnit.fall2018.csc2017.game_center in app" />
       </list>
@@ -2816,103 +2844,66 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" order="22" weight="0.32905984" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Build Variants" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Android Profiler" order="16" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="12" weight="0.32905984" />
+      <window_info active="true" anchor="bottom" id="Messages" order="23" visible="true" weight="0.32905984" />
+      <window_info anchor="right" id="Palette&#9;" order="14" />
+      <window_info id="Image Layers" order="15" />
+      <window_info id="Build Variants" order="7" sideWeight="0.50106156" side_tool="true" weight="0.24966443" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32897863" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32905984" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49932885" weight="0.32905984" />
-      <window_info anchor="bottom" id="Logcat" order="8" weight="0.32905984" />
-      <window_info id="Captures" order="2" weight="0.24966443" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
-      <window_info active="true" anchor="bottom" id="Build" order="8" visible="true" weight="0.33190882" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32905984" />
+      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49932885" weight="0.32905984" />
+      <window_info anchor="bottom" id="Logcat" order="11" weight="0.32905984" />
+      <window_info id="Captures" order="3" weight="0.24966443" />
+      <window_info id="Capture Tool" order="9" />
+      <window_info id="Designer" order="4" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49893844" weight="0.5159501" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.3945869" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Gradle" order="5" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.3295302" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Assistant" order="3" weight="0.33482143" />
-      <window_info id="Build Variants" order="3" side_tool="true" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32905984" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="10" />
-      <window_info anchor="bottom" id="Logcat" order="8" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32905984" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="UI Designer" order="8" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32897863" />
-      <window_info anchor="bottom" id="Build" order="8" weight="0.33190882" />
-      <window_info anchor="bottom" id="Messages" order="22" weight="0.32905984" />
-      <window_info id="Captures" order="2" weight="0.25" />
-      <window_info anchor="right" id="Gradle" order="5" />
-      <window_info anchor="right" id="Palette" order="9" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info id="Designer" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info anchor="bottom" id="Build" order="7" weight="0.33190882" />
-      <window_info id="Designer" order="3" />
-      <window_info anchor="right" id="Palette" order="10" />
-      <window_info id="Build Variants" order="4" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32897863" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Captures" order="2" weight="0.25" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info id="UI Designer" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.3295302" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" />
-      <window_info anchor="right" id="Assistant" order="3" weight="0.33482143" />
-      <window_info anchor="bottom" id="Logcat" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32905984" />
-      <window_info anchor="right" id="Maven Projects" order="11" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.32905984" />
       <window_info anchor="right" id="Gradle" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32905984" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Structure" order="1" sideWeight="0.50106156" side_tool="true" weight="0.24966443" />
+      <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-    </layout-to-restore>
+      <window_info id="Favorites" order="6" sideWeight="0.50106156" side_tool="true" weight="0.24966443" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.24966443" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.3295302" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Assistant" order="3" weight="0.33482143" />
+      <window_info id="Build Variants" order="10" side_tool="true" />
+      <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="18" visible="true" weight="0.32905984" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Maven Projects" order="16" />
+      <window_info anchor="bottom" id="Logcat" order="19" />
+      <window_info anchor="right" id="Device File Explorer" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Image Layers" order="11" />
+      <window_info anchor="right" id="Theme Preview" order="11" />
+      <window_info anchor="bottom" id="Android Profiler" order="20" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="21" weight="0.32905984" />
+      <window_info anchor="right" id="Capture Analysis" order="12" />
+      <window_info anchor="bottom" id="TODO" order="15" />
+      <window_info id="Favorites" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info id="UI Designer" order="16" />
+      <window_info anchor="bottom" id="Find" order="4" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.32897863" />
+      <window_info anchor="bottom" id="Build" order="22" weight="0.33190882" />
+      <window_info anchor="bottom" id="Messages" order="24" weight="0.32905984" />
+      <window_info id="Captures" order="8" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="13" />
+      <window_info anchor="right" id="Palette" order="15" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Designer" order="14" />
+    </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -2945,7 +2936,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test cases for custom adapter partially complete, the functionality is still in question. but in theory, the completed ones should work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test cases for custom adapter partially complete, the functionality is still in question. but in theory, the completed ones should work" />
+    <MESSAGE value="Setup for gesture detect" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup for gesture detect" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2953,41 +2945,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/UserTests.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
-          <folding>
-            <element signature="e#548#566#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGestureDetectGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -3039,7 +2996,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileScoreboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
+        <state relative-caret-position="68">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
@@ -3120,13 +3077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGestureDetectGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -3162,13 +3112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/SettingsActivityTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileLoadSaveGameActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -3185,15 +3128,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileSettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/BoardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="867">
+          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -3211,20 +3147,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileGestureDetectGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/GestureDetectGridViewTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRBoard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -3234,15 +3156,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/pawnrace/PRBoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="425">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileCustomAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="44" column="72" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="72" />
+        <state relative-caret-position="255">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -3274,10 +3196,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoardManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileGameActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        <state relative-caret-position="119">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/BoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/MovementControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/SettingsActivityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -3288,6 +3246,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoardManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileMovementController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -3295,20 +3260,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/Tile.java">
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-801">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="32">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileTest.java">
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileSaveManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/SaveManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGestureDetectGridView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="967">
+          <caret line="105" column="28" lean-forward="true" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileGestureDetectGridView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/GestureDetectGridViewTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
         </state>
       </provider>
     </entry>
