@@ -2,6 +2,7 @@ package fall2018.csc2017.game_center.slidingtiles;
 
 import android.content.Intent;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,47 +15,49 @@ import static org.junit.Assert.*;
 public class TileTest {
     private Tile t1;
     private Tile t2;
-    private int backgroung1;
+    private int background1;
     private int background2;
-    private ArrayList backround;
+    private ArrayList<Integer> background;
 
     @Before
     public void setup() {
-        int bg = 1;
-        int bg2 = 3;
-        ArrayList backgroundid = new ArrayList<>();
-
-        backgroundid.add(R.drawable.tile_1);
-        backgroundid.add(R.drawable.tile_3);
+        int bg = 0;
+        int bg2 = 2;
+        background = new ArrayList<>();
+        background.add(R.drawable.tile_1);
+        background.add(R.drawable.tile_3);
 
         Tile tile = new Tile(bg);
         Tile tile2 = new Tile(bg2);
-        //Tile ctile = new Tile(2, 10);
-        //Tile ctile2 = new Tile(4, 3);
         this.t1 = tile;
         this.t2 = tile2;
-        this.backgroung1 = bg;
+        this.background1 = bg;
         this.background2 = bg2;
-        this.backround = backgroundid;
+    }
 
-
-
+    @After
+    public void teardown() {
+        t1 = null;
+        t2 = null;
+        background1 = 0;
+        background2 = 0;
+        background = null;
     }
 
     @Test
-    public void getBackground() {
-        assertEquals(backround.get(1), t2.getBackground());
-        assertEquals(backround.get(0), t1.getBackground());
+    public void testGetBackground() {
+        assertEquals(background.get(1), (Integer)t2.getBackground());
+        assertEquals(background.get(0), (Integer)t1.getBackground());
     }
 
     @Test
-    public void getId() {
-        assertEquals(backgroung1+1, t1.getId());
+    public void testGetId() {
+        assertEquals(background1+1, t1.getId());
         assertEquals(background2+1, t2.getId());
     }
 
     @Test
-    public void compareTo() {
-        assertEquals(background2-backgroung1,t2.compareTo(t1) );
+    public void testCompareTo() {
+        assertEquals(background2-background1,t1.compareTo(t2) );
     }
 }
