@@ -35,7 +35,7 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
      * @param tiles     the tiles for the board
      * @param numRowCol number of rows and columns for the board
      */
-    TileBoard(List<Tile> tiles, int numRowCol) {
+    public TileBoard(List<Tile> tiles, int numRowCol) {
         this.numRowCol = numRowCol;
         this.tiles = new Tile[numRowCol][numRowCol];
         Iterator<Tile> iter = tiles.iterator();

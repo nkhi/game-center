@@ -13,7 +13,7 @@ import fall2018.csc2017.game_center.Scoreable;
 /**
  * Manage a board, including swapping tiles, checking for a win, and managing taps.
  */
-class TileBoardManager implements Serializable, Scoreable {
+public class TileBoardManager implements Serializable, Scoreable {
 
     /**
      * Constant for infinity undo moves allowed
@@ -71,7 +71,7 @@ class TileBoardManager implements Serializable, Scoreable {
      * @param numRowCol number of rows and columns for board
      * @param numUndo   number of undo moves allowed
      */
-    TileBoardManager(int numRowCol, int numUndo) {
+    public TileBoardManager(int numRowCol, int numUndo) {
         List<Tile> tiles = new ArrayList<>();
         final int numTiles = numRowCol * numRowCol;
         for (int tileNum = 0; tileNum != numTiles - 1; tileNum++) {
@@ -104,14 +104,14 @@ class TileBoardManager implements Serializable, Scoreable {
     /**
      * Manage a new shuffled board with default rows and columns
      */
-    TileBoardManager() {
+    public TileBoardManager() {
         this(TileBoard.DEFAULT_ROW_COL);
     }
 
     /**
      * Manage a preset board with manually rows and columns
      */
-    TileBoardManager(TileBoard board, int numRowCol, int numUndo){
+    public TileBoardManager(TileBoard board, int numRowCol, int numUndo){
         final int numTiles = numRowCol * numRowCol;
         this.board = board;
         undoQueue = new ArrayDeque<>();
