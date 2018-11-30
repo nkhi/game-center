@@ -16,6 +16,9 @@ public class TileBoardTest {
     int numRowCol = 4;
     int numTiles = numRowCol * numRowCol;
 
+    /**
+     * Sets up a board with a list of numTiles Tiles and a board size of numRowCol by numRowCol.
+     */
     @Before
     public void setup() {
         for (int x = 0; x != numTiles; x++) {
@@ -25,13 +28,14 @@ public class TileBoardTest {
     }
 
     /**
-     * Checks if the getter return value for a board initialized with a known numRowCol is correct.
+     * Checks if the getter return value for a board initialized with a known number of Tiles is correct.
      */
     @Test
-    public void numTiles() {
-        assertEquals(this.board.numTiles(), numTiles);
-    }
+    public void numTiles() { assertEquals(this.board.numTiles(), numTiles); }
 
+    /**
+     * Compares every Tile in a board to the output accessed through (row,col) form.
+     */
     @Test
     public void getTile() {
         Tile[][] tilesList = board.getTiles();
@@ -42,6 +46,11 @@ public class TileBoardTest {
         }
     }
 
+    /**
+     * Generates four random ints no larger than numRowCol and uses those numbers
+     * as row and column values to swap tiles at valid board locations. Compares tiles at
+     * positions before and after function execution.
+     */
     @Test
     public void swapTiles() {
         Tile[][] original = board.getTiles();
@@ -59,30 +68,42 @@ public class TileBoardTest {
         assertEquals(second, board.getTile(randomRow, randomCol));
     }
 
-    @Test
-    public void iterator() {
-        Iterator<Tile> iter = tileList.iterator();
-        assertEquals(0, iter.)
-    }
-
+    /**
+     * Checks if a non-empty collection returns True to hasNext().
+     * Checks if an empty collection returns False.
+     */
     @Test
     public void hasNext() {
+        Iterator<Tile> iter = tileList.iterator();
+        assertTrue(iter.hasNext());
 
+        List<Tile> emptyTileList = new ArrayList<>();
+        Iterator<Tile> iter2 = emptyTileList.iterator();
+        assertFalse(iter2.hasNext());
     }
 
+    /**
+     * Checks if method returns correct Tile object from a non-empty collection of Tiles.
+     */
     @Test
-    public void iteratorNext() {
-        // iterator with some elements
-        // should be true at start
-        // empty the iterator list, hasnext should be false
+    public void next() {
+        Iterator<Tile> iter = tileList.iterator();
+        for (int i = 0; i != numTiles; i++) {
+            assertEquals(tileList.get(i), iter.next());
+        }
     }
 
-
+    /**
+     * Checks if the getter return value for a board initialized with a known numRowCol is correct.
+     */
     @Test
     public void getNumRowCol(){
         assertEquals(numRowCol, board.getNumRowCol());
     }
 
+    /**
+     * Checks if tile list returned matches expected list.
+     */
     @Test
     public void getTiles() {
     }
