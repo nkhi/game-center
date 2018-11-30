@@ -35,6 +35,30 @@ public class TileBoardTest {
         }
     }
 
+    @Test
+    public void swapTiles() {
+
+    }
+
+    @Test
+    public void iterator() {
+        // should return a new Tile Iterator when called
+    }
+
+    @Test
+    public void iteratorHasNext() {
+        // create new iterator with elements
+        // next() a few times leaving some iterables remaining
+        // hasnext should be true
+    }
+
+    @Test
+    public void iteratorNext() {
+        // iterator with some elements
+        // should be true at start
+        // empty the iterator list, hasnext should be false
+    }
+
 
     @Test
     public void getNumRowCol(){
@@ -43,29 +67,6 @@ public class TileBoardTest {
     }
 }
 
-//package fall2018.csc2017.game_center.slidingtiles;
-//
-//import org.junit.After;
-//import org.junit.Before;
-//import org.junit.Test;
-//
-//import static org.junit.Assert.*;
-//
-//public class TileBoardTest {
-//
-//    @Before
-//    public void setup() {
-//        int numRowCol = 4;
-//        Tile[][] tiles = Tile[numRowCol][numRowCol];
-//        TileBoard t1 = new TileBoard(tiles, 4);
-//        TileBoard t2 = new TileBoard(tiles, 5);
-//    }
-//
-//    @After
-//    public void tearDown() {
-//
-//    }
-//
 //    @Test
 //    public void NumTiles() {
 //        int exp_default = 16;
