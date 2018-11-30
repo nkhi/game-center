@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.Before;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -12,7 +13,6 @@ import static org.junit.Assert.*;
 public class TileBoardTest {
     private TileBoard board;
     private List<Tile> tileList = new ArrayList<>();
-    private Tile[][] tiles;
     int numRowCol = 4;
     int numTiles = numRowCol * numRowCol;
 
@@ -24,9 +24,12 @@ public class TileBoardTest {
         this.board = new TileBoard(tileList, numRowCol);
     }
 
+    /**
+     * Checks if the getter return value for a board initialized with a known numRowCol is correct.
+     */
     @Test
     public void numTiles() {
-        assertEquals(this.board.getNumRowCol(), numRowCol);
+        assertEquals(this.board.numTiles(), numTiles);
     }
 
     @Test
@@ -58,14 +61,13 @@ public class TileBoardTest {
 
     @Test
     public void iterator() {
-        // should return a new Tile Iterator when called
+        Iterator<Tile> iter = tileList.iterator();
+        assertEquals(0, iter.)
     }
 
     @Test
-    public void iteratorHasNext() {
-        // create new iterator with elements
-        // next() a few times leaving some iterables remaining
-        // hasnext should be true
+    public void hasNext() {
+
     }
 
     @Test
