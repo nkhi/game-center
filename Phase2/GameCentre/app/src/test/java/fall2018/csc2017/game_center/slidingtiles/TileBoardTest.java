@@ -2,20 +2,28 @@ package fall2018.csc2017.game_center.slidingtiles;
 
 import org.junit.Test;
 import org.junit.Before;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import fall2018.csc2017.game_center.R;
 
 import static org.junit.Assert.*;
 
 public class TileBoardTest {
     private TileBoard board;
+    private List<Tile> tiles;
 
     @Before
     public void setup() {
-        //int numRowColMod = 5; //Customized Row/Col value toggleable by user
-        //List<Tile> tilesDef = Tile[numRowColDef][numRowColDef];
-        //List<Tile> tilesMod = Tile[numRowColMod][numRowColMod];
-        this.board = new TileBoard(tiles, 4);
-        //this.board2 = new TileBoard(tilesMod, numRowColMod);
+        int numRowCol = this.board.getNumRowCol();
+        this.tiles = new ArrayList<Tile>();
+        final int numTiles = numRowCol * numRowCol;
+        for (int tileNum = 0; tileNum != numTiles - 1; tileNum++) {
+            tiles.add(new Tile(tileNum));
+        }
+        tiles.add(new Tile(numTiles, R.drawable.tile_25));
+        this.board = new TileBoard(tiles, numRowCol);
     }
 
     @Test
