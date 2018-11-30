@@ -7,22 +7,16 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UserManagerTest {
-    private User user;
     private UserManager userManager;
 
     @Before
     public void setUp() {
-        String username = "testuser";
-        String password = "testpword";
-
-        user = new User (username, password);
         userManager = new UserManager();
         userManager.createUser("testuser","testpword");
     }
 
     @After
     public void tearDown(){
-        user = null;
         userManager = null;
     }
 
