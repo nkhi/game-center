@@ -27,12 +27,6 @@ public class UserManagerTest {
     }
 
     @Test
-    public void testCreateUser() {
-        assertEquals(user.getUsername(), userManager.getUser("testuser").getUsername());
-        assertEquals(user.getPassword(), userManager.getUser("testuser").getPassword());
-    }
-
-    @Test
     public void testLogin() {
         assertFalse(userManager.login("testnotuser", "testnotpword"));
         assertFalse(userManager.login("testnotuser","testpword"));

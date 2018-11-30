@@ -61,7 +61,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      * @return The List of saves with the auto save at index 0 if present and manually saved games
      * following.
      */
-    List<T> getSaves() {
+    public List<T> getSaves() {
         List<T> list = new ArrayList<>();
         for (SavedState savedState : savedGames) {
             list.add(savedState.save);
@@ -93,7 +93,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param game Game to be saved
      */
-    void saveGame(T game) {
+     public void saveGame(T game) {
         savedGames.add(new SavedState(game));
     }
 
@@ -103,7 +103,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      * @param game  Game to be saved
      * @param index Index to insert the save data in
      */
-    void saveGame(T game, int index) {
+    public void saveGame(T game, int index) {
         savedGames.add(index, new SavedState(game));
     }
 
@@ -112,7 +112,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param index Index of game to be deleted
      */
-    void deleteSave(int index) {
+    public void deleteSave(int index) {
         savedGames.remove(index);
     }
 

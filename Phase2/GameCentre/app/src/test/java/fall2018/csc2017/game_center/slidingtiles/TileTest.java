@@ -56,6 +56,5 @@ public class TileTest {
     @Test
     public void compareTo() {
         assertEquals(background2-backgroung1,t2.compareTo(t1) );
-
     }
 }
