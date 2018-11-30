@@ -135,4 +135,8 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
     int getNumRowCol() {
         return numRowCol;
     }
+
+    Tile[][] getTiles() {
+        return tiles;
+    }
 }
