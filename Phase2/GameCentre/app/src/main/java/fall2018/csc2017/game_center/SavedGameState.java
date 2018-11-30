@@ -22,14 +22,17 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      */
     private static DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss",
             Locale.CANADA);
+
     /**
      * A list of manually saved games
      */
     private List<SavedState> savedGames;
+
     /**
      * The automatically saved game
      */
     private SavedState autoSave;
+
     /**
      * Temporarily stored game for load/store access
      */
@@ -38,7 +41,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
     /**
      * Creates a new SavedGameState with empty fields
      */
-    public SavedGameState() {
+    SavedGameState() {
         savedGames = new LinkedList<>();
     }
 
@@ -58,7 +61,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      * @return The List of saves with the auto save at index 0 if present and manually saved games
      * following.
      */
-    public List<T> getSaves() {
+    List<T> getSaves() {
         List<T> list = new ArrayList<>();
         for (SavedState savedState : savedGames) {
             list.add(savedState.save);
@@ -74,7 +77,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @return the List of associated times with each save provided by the getSaves() method.
      */
-    public List<String> getTimes() {
+    List<String> getTimes() {
         List<String> list = new ArrayList<>();
         for (SavedState savedState : savedGames) {
             list.add(df.format(savedState.time));
@@ -90,7 +93,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param game Game to be saved
      */
-    public void saveGame(T game) {
+    void saveGame(T game) {
         savedGames.add(new SavedState(game));
     }
 
@@ -100,7 +103,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      * @param game  Game to be saved
      * @param index Index to insert the save data in
      */
-    public void saveGame(T game, int index) {
+    void saveGame(T game, int index) {
         savedGames.add(index, new SavedState(game));
     }
 
@@ -109,7 +112,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param index Index of game to be deleted
      */
-    public void deleteSave(int index) {
+    void deleteSave(int index) {
         savedGames.remove(index);
     }
 
@@ -118,7 +121,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param autoSave Game to be auto saved
      */
-    public void setAutoSave(T autoSave) {
+    void setAutoSave(T autoSave) {
         this.autoSave = new SavedState(autoSave);
     }
 
@@ -127,7 +130,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @return The game stored in the temporary slot
      */
-    public T getTempSave() {
+    T getTempSave() {
         return tempSave.save;
     }
 
@@ -136,7 +139,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param tempSave Game to be stored in the temporary save slot
      */
-    public void setTempSave(T tempSave) {
+    void setTempSave(T tempSave) {
         this.tempSave = new SavedState(tempSave);
     }
 

@@ -6,7 +6,8 @@ import java.util.Arrays;
 import fall2018.csc2017.game_center.Scoreable;
 
 /**
- * Stores a player and its relevant functions to make board evaluations...etc.
+ * Stores a player and its relevant functions to make board evaluations...etc. - contains only
+ * player specific functionality
  */
 public class PRPlayer implements Serializable, Scoreable {
 

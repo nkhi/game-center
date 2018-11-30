@@ -11,22 +11,59 @@ import java.util.Random;
 import fall2018.csc2017.game_center.LoadSaveGameActivity;
 import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
+import fall2018.csc2017.game_center.SaveManager;
 
-public class PRGameMenuActivity extends PRSaveManager {
+public class PRGameMenuActivity extends SaveManager<PRPlayer> {
 
+    /**
+     * Constant suffix for the pawn race save file (unique per user)
+     */
+    public static final String TILE_SAVE_FILE = "_pawn_race_saves.ser";
+
+    /**
+     * Default color of the player
+     */
     private static final PRColor DEFAULT_COLOR = PRColor.WHITE;
 
+    /**
+     * The white player's 'gap' rank
+     */
     private int whiteGap;
+
+    /**
+     * The black player's 'gap' rank
+     */
     private int blackGap;
+
+    /**
+     * Number of total undo moves allowed
+     */
     private int undo;
+
+    /**
+     * Difficulty depth of the game
+     */
     private int difficulty;
+
+    /**
+     * Autosave interval
+     */
     private int autosave;
+
+    /**
+     * The player's color
+     */
     private PRColor playerColor;
+
+    /**
+     * The random number generator used to determine a black and white gap
+     */
     private Random random;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initialize(TILE_SAVE_FILE);
 
         random = new Random();
         newGameInitializer();
@@ -45,6 +82,9 @@ public class PRGameMenuActivity extends PRSaveManager {
         addScoreboardButtonListener();
     }
 
+    /**
+     * Initializes a new game from default values or values given through the settings menu
+     */
     private void newGameInitializer() {
         whiteGap = random.nextInt(PRBoard.NUM_ROW_COL);
         blackGap = random.nextInt(PRBoard.NUM_ROW_COL);
@@ -58,6 +98,15 @@ public class PRGameMenuActivity extends PRSaveManager {
         undo = getIntent().getIntExtra(PRSettingsActivity.UNDO_CONSTANT, PRPlayer.INFINITE_UNDO);
     }
 
+    /**
+     * Initializes a player given parameters
+     *
+     * @param blackGap black player's gap rank
+     * @param whiteGap white player's gap rank
+     * @param playerColor player's color
+     * @param difficulty difficulty of the AI
+     * @return the PRPlayer class of the player with above attributes
+     */
     private PRPlayer initializeGame(int blackGap, int whiteGap, PRColor playerColor,
                                     int difficulty) {
         System.out.println(playerColor);
@@ -161,7 +210,7 @@ public class PRGameMenuActivity extends PRSaveManager {
     }
 
     /**
-     * Switch to the TileLoadSaveGameActivity view to load or save games
+     * Switch to the PRLoadSaveGameActivity view to load or save games
      *
      * @param isLoadActivity Whether to switch to the load menu or save menu.
      */
@@ -173,7 +222,7 @@ public class PRGameMenuActivity extends PRSaveManager {
     }
 
     /**
-     * Switch to the TileSettingsActivity view to set game
+     * Switch to the PRSettingsActivity view to set game
      */
     private void switchToSettingMenu() {
         Intent tmp = new Intent(this, PRSettingsActivity.class);
@@ -181,8 +230,11 @@ public class PRGameMenuActivity extends PRSaveManager {
         startActivity(tmp);
     }
 
+    /**
+     * Switch to the PRScoreboardActivity activity to view the scoreboard
+     */
     private void switchToScoreboard() {
-        Intent tmp = new Intent(this, PRScoreboard.class);
+        Intent tmp = new Intent(this, PRScoreboardActivity.class);
         startActivity(tmp);
     }
 

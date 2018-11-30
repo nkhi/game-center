@@ -140,6 +140,10 @@ public class TileGameActivity extends SaveManager<TileBoardManager> implements O
         writeFile();
     }
 
+    /**
+     * Processes the autosave and checks whether the game is finished.
+     * Switches to the scoreboard on finish.
+     */
     @Override
     public void update(Observable o, Object arg) {
         display();
@@ -153,8 +157,8 @@ public class TileGameActivity extends SaveManager<TileBoardManager> implements O
             autosaveIndex++;
         }
         if (boardManager.puzzleSolved()) {
-            Intent tmp = new Intent(this, TileScoreboard.class);
-            tmp.putExtra(TileScoreboard.SCORE_EXTRA, new Score(username, boardManager));
+            Intent tmp = new Intent(this, TileScoreboardActivity.class);
+            tmp.putExtra(TileScoreboardActivity.SCORE_EXTRA, new Score(username, boardManager));
             startActivity(tmp);
             finish();
         }

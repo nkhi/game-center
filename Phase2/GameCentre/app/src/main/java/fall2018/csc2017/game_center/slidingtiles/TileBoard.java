@@ -84,13 +84,6 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
         notifyObservers();
     }
 
-    @Override
-    public String toString() {
-        return "TileBoard{" +
-                "tiles=" + Arrays.toString(tiles) +
-                '}';
-    }
-
     /**
      * Return an iterator for all the tiles on the board
      *

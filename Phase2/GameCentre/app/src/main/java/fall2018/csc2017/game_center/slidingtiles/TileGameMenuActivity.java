@@ -9,7 +9,6 @@ import android.widget.TextView;
 import fall2018.csc2017.game_center.LoginActivity;
 import fall2018.csc2017.game_center.R;
 import fall2018.csc2017.game_center.SaveManager;
-import fall2018.csc2017.game_center.SavedGameState;
 
 /**
  * The starting menu for the sliding tiles game.
@@ -21,8 +20,19 @@ public class TileGameMenuActivity extends SaveManager<TileBoardManager> {
      */
     public static final String TILE_SAVE_FILE = "_tile_saves.ser";
 
+    /**
+     * Complexity of the tile game
+     */
     private int size;
+
+    /**
+     * Autosave interval setting, determines how frequently autosave is called
+     */
     private int autosave;
+
+    /**
+     * Number of consecutive undos allowed
+     */
     private int undo;
 
     @Override
@@ -155,8 +165,11 @@ public class TileGameMenuActivity extends SaveManager<TileBoardManager> {
         startActivity(tmp);
     }
 
+    /**
+     * Switch to the TileScoreboardActivity view to view the scoreboard
+     */
     private void switchToScoreboard() {
-        Intent tmp = new Intent(this, TileScoreboard.class);
+        Intent tmp = new Intent(this, TileScoreboardActivity.class);
         startActivity(tmp);
     }
 

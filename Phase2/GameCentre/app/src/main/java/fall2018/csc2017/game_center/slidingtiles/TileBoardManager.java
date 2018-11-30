@@ -25,13 +25,26 @@ class TileBoardManager implements Serializable, Scoreable {
      */
     private static final long serialVersionUID = 3L;
 
+    /**
+     * Constant for default max score (per complexity)
+     */
     private static final int MAX_SCORE = 50;
+
+    /**
+     * Constant for default min score
+     */
     private static final int MIN_SCORE = 10;
+
     /**
      * ID of the blank tile.
      */
     private final int blankId;
+
+    /**
+     * Number of rows and columns on the board
+     */
     private final int numRowCol;
+
     /**
      * The board being managed.
      */
@@ -47,6 +60,9 @@ class TileBoardManager implements Serializable, Scoreable {
      */
     private Deque<TilePosition> undoQueue;
 
+    /**
+     * Number of moves currently made
+     */
     private int numMoves;
 
     /**
@@ -64,7 +80,7 @@ class TileBoardManager implements Serializable, Scoreable {
         tiles.add(new Tile(numTiles, R.drawable.tile_25));
 
         Collections.shuffle(tiles);
-        while (!isSolvable(tiles, numRowCol)){
+        while (!isSolvable(tiles, numRowCol)) {
             Collections.shuffle(tiles);
         }
 
@@ -138,10 +154,12 @@ class TileBoardManager implements Serializable, Scoreable {
 
     /**
      * Check to see if a board is solvable.
-     * @param tiles the list of the tiles.
+     *
+     * @param tiles     the list of the tiles.
      * @param numRowCol the size of the row of the board.
      * @return if the board is solvable or not.
-     * @see <a href="https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html">Solvability of the Tiles Game</a>
+     * @see <a href="https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html">
+     *     Solvability of the Tiles Game</a>
      */
     private boolean isSolvable(List<Tile> tiles, int numRowCol) {
         boolean solvable = false;
@@ -149,8 +167,7 @@ class TileBoardManager implements Serializable, Scoreable {
         if (numRowCol % 2 == 1) {
             if (getInversion(tiles) % 2 == 0)
                 solvable = true;
-        }
-        else{
+        } else {
             if ((getBlankRow(tiles, numRowCol) % 2 == 0) && (getInversion(tiles) % 2 == 0))
                 solvable = true;
             else if ((getBlankRow(tiles, numRowCol) % 2 == 1) && (getInversion(tiles) % 2 == 1))
@@ -162,41 +179,43 @@ class TileBoardManager implements Serializable, Scoreable {
 
     /**
      * Returns the total number of inversions in a board
+     *
      * @param tiles the list of the tiles.
      * @return the total number of inversions
      */
-    private int getInversion(List<Tile> tiles){
+    private int getInversion(List<Tile> tiles) {
         int i = 0;
-        int inversion_i;
-        int inversion_t = 0;
+        int inversionI;
+        int inversionT = 0;
 
-        while (i != tiles.size()){
-            inversion_i = tiles.get(i).getId() - 1;
+        while (i != tiles.size()) {
+            inversionI = tiles.get(i).getId() - 1;
 
-            for (int a = 0; a < i; a++){
+            for (int a = 0; a < i; a++) {
                 if (tiles.get(a).getId() < tiles.get(i).getId())
-                    inversion_i--;
+                    inversionI--;
             }
-            inversion_t += inversion_i;
+            inversionT += inversionI;
             i++;
         }
-        return inversion_t;
+        return inversionT;
     }
 
     /**
      * Determines the row of the blank tile in the board.
-     * @param tiles the list of tiles,
-     * @param numRowCol  the size of the row of the board.
+     *
+     * @param tiles     the list of tiles,
+     * @param numRowCol the size of the row of the board.
      * @return the row of the blank tile
      */
-    private int getBlankRow(List<Tile> tiles, int numRowCol){
+    private int getBlankRow(List<Tile> tiles, int numRowCol) {
         System.out.println(numRowCol);
         int numTiles = numRowCol * numRowCol;
-        for (int i = 0; i < tiles.size(); i++){
+        for (int i = 0; i < tiles.size(); i++) {
             if (tiles.get(i).getId() == numTiles)
-                return i/numRowCol;
+                return i / numRowCol;
         }
-        return numTiles/numRowCol;
+        return numTiles / numRowCol;
     }
 
     /**

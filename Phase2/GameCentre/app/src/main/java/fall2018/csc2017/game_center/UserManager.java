@@ -50,17 +50,6 @@ public class UserManager implements Serializable {
     }
 
     /**
-     * Return the User given its username
-     * Precondition: user must exist in the UserManager (method must be called after contains)
-     *
-     * @param username username of user to be returned
-     * @return the User matching the username
-     */
-    public User getUser(String username) {
-        return userMap.get(username);
-    }
-
-    /**
      * Return whether UserManager contains a User with username
      *
      * @param username username of User to be checked

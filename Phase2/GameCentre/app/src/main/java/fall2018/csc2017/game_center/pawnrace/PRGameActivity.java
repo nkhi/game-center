@@ -12,12 +12,13 @@ import java.util.Observable;
 import java.util.Observer;
 
 import fall2018.csc2017.game_center.R;
+import fall2018.csc2017.game_center.SaveManager;
 import fall2018.csc2017.game_center.Score;
 
 /**
  * The game activity.
  */
-public class PRGameActivity extends PRSaveManager implements Observer {
+public class PRGameActivity extends SaveManager<PRPlayer> implements Observer {
 
     /**
      * Column width for each gridView entry
@@ -54,21 +55,15 @@ public class PRGameActivity extends PRSaveManager implements Observer {
      */
     private Handler handler;
 
-    private Runnable computerMakeMove;
-
     /**
-     * Set up the background image for each button based on the master list
-     * of positions, and then call the adapter to set the view.
+     * Computer move "runnable" - used to resolve a lag issue with the update()
      */
-    // Display
-    public void display() {
-        updateTileButtons();
-        gridView.setAdapter(new PRCustomAdapter(tileButtons, columnWidth));
-    }
+    private Runnable computerMakeMove;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initialize(PRGameMenuActivity.TILE_SAVE_FILE);
 
         player = getTemp();
         autosaveIndex = 0;
@@ -142,6 +137,15 @@ public class PRGameActivity extends PRSaveManager implements Observer {
     }
 
     /**
+     * Set up the background image for each button based on the master list
+     * of positions, and then call the adapter to set the view.
+     */
+    private void display() {
+        updateTileButtons();
+        gridView.setAdapter(new PRCustomAdapter(tileButtons, columnWidth));
+    }
+
+    /**
      * Dispatch onPause() to fragments.
      */
     @Override
@@ -164,8 +168,8 @@ public class PRGameActivity extends PRSaveManager implements Observer {
             autosaveIndex++;
         }
         if (player.isFinished()) {
-            Intent tmp = new Intent(this, PRScoreboard.class);
-            tmp.putExtra(PRScoreboard.SCORE_EXTRA, new Score(username, player));
+            Intent tmp = new Intent(this, PRScoreboardActivity.class);
+            tmp.putExtra(PRScoreboardActivity.SCORE_EXTRA, new Score(username, player));
             startActivity(tmp);
             finish();
         } else {

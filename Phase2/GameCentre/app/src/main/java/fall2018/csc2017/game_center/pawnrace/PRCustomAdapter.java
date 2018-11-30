@@ -8,19 +8,35 @@ This Class is an overwrite of the Base Adapter class
 It is designed to aid setting the button sizes and positions in the GridView
  */
 
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
-import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * View adapter for the Pawn Race game
+ */
 public class PRCustomAdapter extends BaseAdapter {
-    private ArrayList<Button> mButtons;
+
+    /**
+     * List of all the squares as buttons
+     */
+    private List<Button> mButtons;
+
+    /**
+     * Width and height of the buttons (square button so equal width and height)
+     */
     private int mColumnWidth;
 
-    PRCustomAdapter(ArrayList<Button> buttons, int columnWidth) {
+    /**
+     * Initializes the view adapter with parameters
+     *
+     * @param buttons list of all the squares as buttons
+     * @param columnWidth width and height of the buttons
+     */
+    PRCustomAdapter(List<Button> buttons, int columnWidth) {
         mButtons = buttons;
         mColumnWidth = columnWidth;
     }

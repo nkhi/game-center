@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 class PRMinimaxAI implements Serializable {
 
-    /**
+    /*
      * Constants used for determining dynamic depth
      */
     private static final int DYNAMIC_DEPTH_STAGE_1_CUTOFF = 12;
@@ -169,7 +169,6 @@ class PRMinimaxAI implements Serializable {
      * @return an integer score of the board's current state
      */
     private int evaluateBoard() {
-        // TODO: Add pawn chain, !!controls opponents spaces!!, zugzwang, blocking move formulas
         int score = 0;
 
         if (player.isFinished() && player.getGame().getGameResult() == player.getColor()) {

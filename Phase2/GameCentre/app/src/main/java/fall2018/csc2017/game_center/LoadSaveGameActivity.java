@@ -2,7 +2,6 @@ package fall2018.csc2017.game_center;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.Serializable;
-
-import fall2018.csc2017.game_center.LoginActivity;
-import fall2018.csc2017.game_center.R;
-import fall2018.csc2017.game_center.SaveManager;
-import fall2018.csc2017.game_center.SavedGameState;
 
 /**
  * The Load Game and Save Game screen for the sliding tiles game.
@@ -44,10 +38,23 @@ public abstract class LoadSaveGameActivity<T extends Serializable> extends SaveM
      */
     private boolean isLoadActivity;
 
+    /**
+     * Context of the actual non-abstract activity
+     */
     private Context context;
 
+    /**
+     * The activity to start when a save file is loaded
+     */
     private Class nextActivity;
 
+    /**
+     * Initializes the activity parameters
+     *
+     * @param path file path for save files
+     * @param context context of the actual non-abstract activity
+     * @param nextActivity the activity to start when a save file is loaded
+     */
     @SuppressWarnings("unchecked")
     protected void initializeLoadSave(String path, Context context, Class nextActivity) {
         this.context = context;

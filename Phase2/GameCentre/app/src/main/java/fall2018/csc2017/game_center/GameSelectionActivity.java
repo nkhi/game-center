@@ -10,24 +10,39 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import fall2018.csc2017.game_center.a3072.MainActivity;
+import fall2018.csc2017.game_center.game3072.GameActivity3072;
 import fall2018.csc2017.game_center.pawnrace.PRGameMenuActivity;
 import fall2018.csc2017.game_center.slidingtiles.TileGameMenuActivity;
 
+/**
+ * ListView activity used for game selection
+ */
 public class GameSelectionActivity extends AppCompatActivity {
 
+    /**
+     * List of game names
+     */
     private static final String[] GAME_NAMES = {
             "Sliding Tiles", "Pawn Race", "3072"
     };
 
+    /**
+     * List of game descriptions corresponding to the prev. list of game names
+     */
     private static final String[] GAME_DESCRIPTIONS = {
-            "Arrange the tiles in order!", "First to the end wins!", "1 more than 2048"
+            "Arrange the tiles in order!", "First to the end wins!", "2048 but 1 better!"
     };
 
+    /**
+     * List of starting activities for each game to jump to, corresponding to prev. lists
+     */
     private static final Class[] GAME_MENU_ACTIVITIES = {
-            TileGameMenuActivity.class, PRGameMenuActivity.class, MainActivity.class
+            TileGameMenuActivity.class, PRGameMenuActivity.class, GameActivity3072.class
     };
 
+    /**
+     * Username of the current logged in user
+     */
     private String username;
 
     @Override
@@ -41,6 +56,9 @@ public class GameSelectionActivity extends AppCompatActivity {
         username = getIntent().getStringExtra(LoginActivity.CURRENT_USER);
     }
 
+    /**
+     * ListView adapter for selecting a game from a list of games
+     */
     class GameSelectionAdapter extends BaseAdapter {
 
         @Override
