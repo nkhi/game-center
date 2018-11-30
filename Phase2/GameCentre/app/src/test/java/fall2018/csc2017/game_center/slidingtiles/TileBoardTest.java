@@ -68,41 +68,28 @@ public class TileBoardTest {
         assertEquals(second, board.getTile(randomRow, randomCol));
     }
 
-    public static class IteratorTest {
-        List<Tile> tileList2;
-        List<Tile> emptyTileList;
+    /**
+     * Checks if a non-empty collection returns True to hasNext().
+     * Checks if an empty collection returns False.
+    */
+    @Test
+    public void hasNext() {
+        Iterator<Tile> iter = tileList.iterator();
+        assertTrue(iter.hasNext());
 
-        @Before
-        public void setUp() {
-            List<Tile> tileList2 = new ArrayList<>();
-            List<Tile> emptyTileList = new ArrayList<>();
-            for (int x = 0; x != 16; x++) {
-                tileList2.add(new Tile(x));
-            }
-        }
+        List<Tile> emptyTileList = new ArrayList<>();
+        Iterator<Tile> iter2 = emptyTileList.iterator();
+        assertFalse(iter2.hasNext());
+    }
 
-        /**
-         * Checks if a non-empty collection returns True to hasNext().
-         * Checks if an empty collection returns False.
-         */
-        @Test
-        public void hasNext() {
-            Iterator<Tile> iter = tileList2.iterator();
-            assertTrue(iter.hasNext());
-
-            Iterator<Tile> iter2 = emptyTileList.iterator();
-            assertFalse(iter2.hasNext());
-        }
-
-        /**
-         * Checks if method returns correct Tile object from a non-empty collection of Tiles.
-         */
-        @Test
-        public void next() {
-            Iterator<Tile> iter = tileList2.iterator();
-            for (int i = 0; i != 16; i++) {
-                assertEquals(tileList2.get(i), iter.next());
-            }
+    /**
+     * Checks if method returns correct Tile object from a non-empty collection of Tiles.
+     */
+    @Test
+    public void next() {
+        Iterator<Tile> iter = tileList.iterator();
+        for (int i = 0; i != numTiles; i++) {
+            assertEquals(tileList.get(i), iter.next());
         }
     }
 
