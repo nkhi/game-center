@@ -12,28 +12,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d15882a-6968-4c82-a7ba-51e46abaa15f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/ScoreTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/UserManagerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/UserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Card3072Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/MovementController3072Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/pawnrace/PRPlayerAndMinimaxAITest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/SavedGameStateTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardManagerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_core_1_10_19_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_objenesis_objenesis_2_1_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileBoardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Board3072Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Board3072Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Card3072Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Card3072Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/MovementController3072Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/MovementController3072Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,64 +47,28 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Card3072.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/Card3072.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Board3072.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/Board3072.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1806">
-              <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+            <state relative-caret-position="740">
+              <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2566#2567#0" expanded="true" />
-                <element signature="e#2592#2593#0" expanded="true" />
-                <element signature="e#5402#5403#0" expanded="true" />
-                <element signature="e#5442#5443#0" expanded="true" />
+                <element signature="e#1075#1076#0" expanded="true" />
+                <element signature="e#1103#1104#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Card3072Test.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Card3072Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Card3072Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SavedGameStateTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/SavedGameStateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PRSquareTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/pawnrace/PRSquareTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1106">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PRSquare.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRSquare.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1386">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovementController3072.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/MovementController3072.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            <state relative-caret-position="280">
+              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,17 +76,8 @@
       <file leaf-file-name="Board3072Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Board3072Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovementController3072Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/MovementController3072Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="220">
+              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,11 +85,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board3072.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/Board3072.java">
+      <file leaf-file-name="ScoreboardActivity3072.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/ScoreboardActivity3072.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-760">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="140">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SavedGameStateTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/SavedGameStateTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SavedGameState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/SavedGameState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PRBoardTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/pawnrace/PRBoardTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameActivity3072.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/GameActivity3072.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovementController3072Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/MovementController3072Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -152,6 +153,11 @@
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="yang" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -2405,7 +2411,7 @@
     </option>
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$" value="IMPORT" />
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
       </map>
     </option>
   </component>
@@ -2413,14 +2419,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Card3072Test.java" />
+        <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/MovementController3072Test.java" />
+        <option value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Board3072Test.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="377" />
-    <option name="y" value="27" />
-    <option name="width" value="1284" />
-    <option name="height" value="714" />
+    <option name="x" value="375" />
+    <option name="y" value="25" />
+    <option name="width" value="1286" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -2428,6 +2436,93 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="game_center" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="game_center" type="462c0819:PsiDirectoryNode" />
+              <item name="pawnrace" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameCentre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameCentre" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pawnrace" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2451,27 +2546,6 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="game_center" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="pawnrace" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameCentre" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="game_center" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameCentre" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="game_center" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="game3072" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameCentre" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="game_center" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="pawnrace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GameCentre" type="1abcf292:AndroidViewProjectNode" />
@@ -2484,9 +2558,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2507,7 +2578,30 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android JUnit.game3072 in app">
+  <component name="RunManager" selected="Android JUnit.Card3072Test">
+    <configuration name="Board3072Test" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fall2018.csc2017.game_center.game3072.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="fall2018.csc2017.game_center.game3072" />
+      <option name="MAIN_CLASS_NAME" value="fall2018.csc2017.game_center.game3072.Board3072Test" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration name="Card3072Test" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
@@ -2530,10 +2624,6 @@
         <value defaultName="singleModule" />
       </option>
       <patterns />
-      <method>
-        <option name="Make" enabled="false" />
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Card3072Test.getNum" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
@@ -2557,10 +2647,6 @@
         <value defaultName="singleModule" />
       </option>
       <patterns />
-      <method>
-        <option name="Make" enabled="false" />
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -2599,10 +2685,6 @@
       </option>
       <dir value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072" />
       <patterns />
-      <method>
-        <option name="Make" enabled="false" />
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration name="slidingtiles in app" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
@@ -2621,10 +2703,6 @@
       </option>
       <dir value="$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles" />
       <patterns />
-      <method>
-        <option name="Make" enabled="false" />
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
@@ -2710,12 +2788,14 @@
       <item itemvalue="Android JUnit.Card3072Test.getNum" />
       <item itemvalue="Android JUnit.slidingtiles in app" />
       <item itemvalue="Android JUnit.game3072 in app" />
+      <item itemvalue="Android JUnit.Board3072Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Android JUnit.Card3072Test" />
+        <item itemvalue="Android JUnit.Board3072Test" />
         <item itemvalue="Android JUnit.game3072 in app" />
         <item itemvalue="Android JUnit.slidingtiles in app" />
-        <item itemvalue="Android JUnit.Card3072Test" />
         <item itemvalue="Android JUnit.Card3072Test.getNum" />
       </list>
     </recent_temporary>
@@ -2737,45 +2817,80 @@
     <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info anchor="bottom" id="Android Profiler" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Android Profiler" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info id="Build Variants" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Logcat" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="7" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32897863" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.21670702" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Logcat" order="7" />
       <window_info id="Captures" order="2" weight="0.25" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24985269" />
-      <window_info anchor="bottom" id="Build" visible="true" weight="0.26997578" />
-      <window_info anchor="right" id="Gradle" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="5" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2492634" />
+      <window_info anchor="bottom" id="Build" order="11" visible="true" weight="0.21670702" />
+      <window_info anchor="right" id="Gradle" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Board3072Test.java">
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/pawnrace/PRGameTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="-1600">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1386">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/Card3072.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1806">
+          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/TileBoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/pawnrace/PRSquareTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1106">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -2789,24 +2904,185 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Card3072Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/Board3072.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-760">
+        <state relative-caret-position="-100">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/MovementController3072.java">
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Board3072Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="240">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/SavedGameStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/UserManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-469">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRMinimaxAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3544">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRCustomAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="65" lean-forward="true" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileScoreboard.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/slidingtiles/TileLoadSaveGameActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/GameSelectionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/Scoreable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRLoadSaveGameActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_game_menu.xml">
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGameMenuActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="156" column="42" selection-start-line="156" selection-start-column="42" selection-end-line="156" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/tile_25.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/LoadSaveGameActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1121">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/ScoreboardAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/UserTests.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+          <folding>
+            <element signature="e#548#566#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGestureDetectGridView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/pawnrace/PRGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="59" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/pawnrace/PRBoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2415">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="720">
+          <caret line="48" column="66" lean-forward="true" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -2845,31 +3121,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/GameActivity3072.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/Card3072.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1806">
-          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        <state relative-caret-position="-1339">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/MovementController3072.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/ScoreboardActivity3072.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/GestureDetectGridLayout3072.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1012">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/game3072/Board3072.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+          <folding>
+            <element signature="e#1075#1076#0" expanded="true" />
+            <element signature="e#1103#1104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Card3072Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2566#2567#0" expanded="true" />
-            <element signature="e#2592#2593#0" expanded="true" />
-            <element signature="e#5402#5403#0" expanded="true" />
-            <element signature="e#5442#5443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Board3072Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/MovementController3072Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/pawnrace/PRBoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fall2018/csc2017/game_center/SavedGameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/slidingtiles/SavedGameStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/fall2018/csc2017/game_center/game3072/Card3072Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="199">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
