@@ -12,10 +12,10 @@ public class TileBoardTest {
     private TileBoard board;
 
     //Not working
-    @Before
-    public void setup() {
-        this.board = new TileBoard(tiles, board.getNumRowCol());
-    }
+    //@Before
+    //public void setup() {
+        //this.board = new TileBoard(tiles, board.getNumRowCol());
+    //}
 
     @Test
     public void numTiles() {
