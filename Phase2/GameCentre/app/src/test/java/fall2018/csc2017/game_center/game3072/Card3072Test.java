@@ -4,6 +4,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import android.content.Context;
+import android.util.DisplayMetrics;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
+import java.util.Objects;
 
 import static org.junit.Assert.*;
 
@@ -12,9 +22,14 @@ public class Card3072Test {
     @Mock
     private Context mMockContext;
 
+    @Mock
+    DisplayMetrics dm;
+
     private Card3072 card1;
 
     private Card3072 card2;
+
+    private static final int LABEL_MARGIN = 10;
 
     @Before
     public void setUp() throws Exception {
@@ -41,6 +56,7 @@ public class Card3072Test {
     //TODO: change this number
     @Test
     public void getCardWidth() {
+        int i = 1000;
         card1.setNum(3072);
         assertEquals(0, card1.getCardWidth());
     }
@@ -48,7 +64,7 @@ public class Card3072Test {
     @Test
     public void equals() {
         card1.setNum(3072);
-        assertTrue(card1.equals(card1));
+        assertEquals(card1, card1);
         card2.setNum(1536);
         assertFalse(card1.equals(card2));
         assertFalse(card1.equals(null));

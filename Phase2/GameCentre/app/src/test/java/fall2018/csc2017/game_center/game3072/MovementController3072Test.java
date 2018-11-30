@@ -150,9 +150,9 @@ public class MovementController3072Test {
         }
         assertEquals(2, cnt);
         board1.getBoard()[3][0].setNum(12);
-        board1.getBoard()[2][0].setNum(12);
+        board1.getBoard()[1][1].setNum(12);
         board1.getBoard()[0][0].setNum(3);
-        board1.getBoard()[1][0].setNum(3);
+        board1.getBoard()[2][1].setNum(3);
         board1.getBoard()[3][1].setNum(3);
         mc3072.swipeLeft();
         cnt = 0;
