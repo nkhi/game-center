@@ -29,6 +29,7 @@ public class Card3072Test {
         }
     }
 
+    //TODO: change this number
     @Test
     public void getCardWidth() {
         Card3072 card3 = new Card3072(mMockContext);
@@ -41,21 +42,10 @@ public class Card3072Test {
         Card3072 card5 = new Card3072(mMockContext);
         card4.setNum(3072);
         card5.setNum(1536);
-        assertEquals(card4.getNum(),card5.getNum()*2);
-//        for (int i = 1; i < 13; i++) {
-//            card4.setNum(i);
-//            for (int j = 1; j < 13; j++) {
-//                card5.setNum(j);
-//                if (i != j) {
-//                    assertNotEquals(card4, card5);
-//                }
-//                else if (i == j) {
-//                    assertEquals(card4, card5);
-//                }
-//            }
-//        }
+        assertEquals(card4.getNum(),card5.getNum() * 2);
     }
 
+    //TODO or not?
     //@Test
     //public void hashCode() {
     //}
