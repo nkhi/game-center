@@ -6,9 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import fall2018.csc2017.game_center.slidingtiles.TileGameMenuActivity;
-import fall2018.csc2017.game_center.R;
-
 /**
  * The view for the login screen
  */
@@ -26,9 +23,6 @@ public class LoginActivity extends LoginRegisterActivity {
         addLoginRegisterButtonListener();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void addLoginRegisterButtonListener() {
         Button loginButton = findViewById(R.id.LoginButton);
@@ -40,9 +34,6 @@ public class LoginActivity extends LoginRegisterActivity {
         });
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected boolean loginRegisterCheck() {
         String username = getUsername();
@@ -58,32 +49,23 @@ public class LoginActivity extends LoginRegisterActivity {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void loginRegister() {
         readFile();
         if (loginRegisterCheck()) {
             writeFile();
-            Intent tmp = new Intent(this, TileGameMenuActivity.class);
+            Intent tmp = new Intent(this, GameSelectionActivity.class);
             tmp.putExtra(CURRENT_USER, getUsername());
             startActivity(tmp);
             finish();
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected String getUsername() {
         return ((EditText) findViewById(R.id.UsernameField)).getText().toString();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected String getPassword() {
         return ((EditText) findViewById(R.id.PasswordField)).getText().toString();

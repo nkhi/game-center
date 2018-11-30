@@ -24,6 +24,7 @@ public class User implements Serializable {
 
     /**
      * Creates a user
+     *
      * @param username username of user to be created
      * @param password password of user to be created
      */
@@ -34,17 +35,19 @@ public class User implements Serializable {
 
     /**
      * Return the username of the user
+     *
      * @return username of user
      */
-    public String getUsername() {
+    String getUsername() {
         return username;
     }
 
     /**
      * Return the password of the user
+     *
      * @return password of user
      */
-    public String getPassword() {
+    String getPassword() {
         return password;
     }
 

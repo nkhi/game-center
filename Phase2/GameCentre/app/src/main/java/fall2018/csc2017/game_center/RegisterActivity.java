@@ -5,8 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import fall2018.csc2017.game_center.R;
-
 /**
  * The view for the register screen.
  */
@@ -20,9 +18,6 @@ public class RegisterActivity extends LoginRegisterActivity {
         addLoginRegisterButtonListener();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void addLoginRegisterButtonListener() {
         Button registerButton = findViewById(R.id.RegisterButton);
@@ -34,9 +29,6 @@ public class RegisterActivity extends LoginRegisterActivity {
         });
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void loginRegister() {
         if (loginRegisterCheck()) {
@@ -45,9 +37,6 @@ public class RegisterActivity extends LoginRegisterActivity {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected boolean loginRegisterCheck() {
         String username = getUsername();
@@ -67,17 +56,11 @@ public class RegisterActivity extends LoginRegisterActivity {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected String getUsername() {
         return ((EditText) findViewById(R.id.UsernameRegisterField)).getText().toString();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected String getPassword() {
         return ((EditText) findViewById(R.id.PasswordRegisterField)).getText().toString();
@@ -85,6 +68,7 @@ public class RegisterActivity extends LoginRegisterActivity {
 
     /**
      * Return the text in the confirm password field
+     *
      * @return The text in the confirm password field
      */
     private String getConfirmPassword() {
