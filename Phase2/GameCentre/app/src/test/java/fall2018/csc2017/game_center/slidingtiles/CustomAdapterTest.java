@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import fall2018.csc2017.game_center.R;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 
 public class CustomAdapterTest {
     private TileCustomAdapter adapter;
@@ -21,21 +22,24 @@ public class CustomAdapterTest {
     private View view;
     private View view2;
     private ViewGroup parent;
+    private App
 
 
     @Before
     public void setup() {
+        Context context = mock(TileGameMenuActivity.class);
         final ArrayList<Button> button = new ArrayList<>();
+        TileCustomAdapter Testadpter = new TileCustomAdapter(button, 2, 3);
         Button e, x, z;
-        e = findViewById(R.id.all);
-        x = findViewById(R.id.NewGameButton);
-        z = findViewById(R.id.GameMenuTitle);
+        e = new Button(context);
+        x = new Button(context);
+        z = new Button(context);
         button.add(e);
         button.add(x);
         button.add(z);
-        TileCustomAdapter Testadpter = new TileCustomAdapter(button, 2, 3);
         View v = null;
-        ViewGroup prt = null;
+        ViewGroup prt = new ViewGroup(context);
+
         this.parent = prt;
         this.view = v;
         this.view2 = e;
