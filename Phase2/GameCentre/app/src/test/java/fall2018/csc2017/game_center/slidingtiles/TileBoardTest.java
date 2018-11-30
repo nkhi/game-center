@@ -8,13 +8,19 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class TileBoardTest {
+    private TileBoard board1;
+    private TileBoard board2;
+    private Tile[][] tilesDef;
+    private Tile[][] tilesMod;
 
-    private TileBoard board;
-
-    //Not working
     @Before
     public void setup() {
-        this.board = new TileBoard(tiles, board.getNumRowCol());
+        int numRowColDef = 4; //Default Row/Col value
+        int numRowColMod = 5; //Customized Row/Col value toggleable by user
+        tilesDef = Tile[numRowColDef][numRowColDef];
+        tilesMod = Tile[numRowColMod][numRowColMod];
+        this.board1 = new TileBoard(tilesDef, numRowColDef);
+        this.board2 = new TileBoard(tilesMod, numRowColMod);
     }
 
     @Test
