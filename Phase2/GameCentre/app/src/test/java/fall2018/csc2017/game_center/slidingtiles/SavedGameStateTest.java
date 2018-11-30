@@ -1,4 +1,4 @@
-package fall2018.csc2017.game_center.slidingtiles.;
+package fall2018.csc2017.game_center.slidingtiles;
 
 import org.junit.After;
 import org.junit.Before;
