@@ -1,4 +1,4 @@
-package fall2018.csc2017.game_center.slidingtiles;
+package fall2018.csc2017.game_center.slidingtiles.;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,6 +9,7 @@ import java.util.List;
 
 import fall2018.csc2017.game_center.SaveManager;
 import fall2018.csc2017.game_center.SavedGameState;
+import fall2018.csc2017.game_center.slidingtiles.TileBoardManager;
 
 import static org.junit.Assert.*;
 
