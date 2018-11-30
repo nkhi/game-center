@@ -149,21 +149,21 @@ public class MovementController3072Test {
             }
         }
         assertEquals(2, cnt);
-        board1.getBoard()[3][0].setNum(12);
-        board1.getBoard()[1][1].setNum(12);
-        board1.getBoard()[0][0].setNum(3);
-        board1.getBoard()[2][1].setNum(3);
-        board1.getBoard()[3][1].setNum(3);
+        board2.getBoard()[0][3].setNum(12);
+        board2.getBoard()[0][2].setNum(12);
+        board2.getBoard()[0][0].setNum(3);
+        board2.getBoard()[0][1].setNum(3);
+        board2.getBoard()[1][3].setNum(3);
         mc3072.swipeLeft();
         cnt = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                if (board1.getBoard()[i][j].getNum() != 0){
+                if (board2.getBoard()[i][j].getNum() != 0){
                     cnt++;
                 }
             }
         }
-        assertEquals(7, cnt);
+        assertEquals(5, cnt);
     }
 
     @Test
@@ -208,21 +208,21 @@ public class MovementController3072Test {
             }
         }
         assertEquals(2, cnt);
-//        board2.getBoard()[3][3].setNum(12);
-//        board2.getBoard()[3][2].setNum(12);
-//        board2.getBoard()[1][0].setNum(3);
-//        board2.getBoard()[1][1].setNum(3);
-//        board2.getBoard()[1][3].setNum(3);
-//        mc3072.swipeUp();
-//        cnt = 0;
-//        for (int i = 0; i < 4; i++) {
-//            for (int j = 0; j < 4; j++) {
-//                if (board2.getBoard()[i][j].getNum() != 0){
-//                    cnt++;
-//                }
-//            }
-//        }
-//        assertEquals(6, cnt);
+        board2.getBoard()[3][0].setNum(12);
+        board2.getBoard()[2][1].setNum(12);
+        board2.getBoard()[1][0].setNum(3);
+        board2.getBoard()[1][1].setNum(3);
+        board2.getBoard()[3][1].setNum(12);
+        mc3072.swipeUp();
+        cnt = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (board2.getBoard()[i][j].getNum() != 0){
+                    cnt++;
+                }
+            }
+        }
+        assertEquals(5, cnt);
 
     }
 

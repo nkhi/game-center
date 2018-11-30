@@ -104,11 +104,12 @@ public class Board3072Test {
     @Test
     public void gestureLeft() {
         board2.gestureLeft();
-        board1.getBoard()[0][0].setNum(3);
+        board1.getBoard()[0][0].setNum(0);
         board1.getBoard()[1][0].setNum(3);
         assertTrue(board1.gestureLeft());
+        board1.getBoard()[1][0].setNum(3);
+        board1.gestureLeft();
         assertNotEquals(board1.getBoard(), board2.getBoard());
-        board2.getBoard()[0][0].setNum(6);
     }
 
     @Test

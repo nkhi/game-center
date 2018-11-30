@@ -4,16 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.DisplayMetrics;
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-
-import java.util.Objects;
 
 import static org.junit.Assert.*;
 
@@ -23,7 +15,7 @@ public class Card3072Test {
     private Context mMockContext;
 
     @Mock
-    DisplayMetrics dm;
+    private Resources rs;
 
     private Card3072 card1;
 
@@ -56,9 +48,20 @@ public class Card3072Test {
     //TODO: change this number
     @Test
     public void getCardWidth() {
-        int i = 1000;
-        card1.setNum(3072);
-        assertEquals(0, card1.getCardWidth());
+
+//        int abc = rs.getDisplayMetrics().widthPixels;
+//        System.out.println(abc);
+//        assertEquals(1000 / 4, card1.getCardWidth());
+    }
+
+    @Test
+    public void hashCodeTest() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(new Card3072(mMockContext).hashCode(), card1.hashCode());
+            }
+        }
+
     }
 
     @Test
@@ -66,13 +69,9 @@ public class Card3072Test {
         card1.setNum(3072);
         assertEquals(card1, card1);
         card2.setNum(1536);
-        assertFalse(card1.equals(card2));
-        assertFalse(card1.equals(null));
+        assertNotEquals(card1, card2);
+        assertNotEquals(card1,null);
 
     }
 
-    //TODO or not?
-    //@Test
-    //public void hashCode() {
-    //}
 }
