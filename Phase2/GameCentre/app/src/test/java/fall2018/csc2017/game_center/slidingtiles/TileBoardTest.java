@@ -5,8 +5,7 @@ import org.junit.Before;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import fall2018.csc2017.game_center.R;
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
@@ -32,17 +31,29 @@ public class TileBoardTest {
 
     @Test
     public void getTile() {
+        Tile[][] tilesList = board.getTiles();
         for (int row = 0; row != numRowCol; row++) {
             for (int col = 0; col != numRowCol; col++) {
-                int xd = 0;
-                assertEquals(+++, this.board.getTile(row, col));
+                assertEquals(tilesList[row][col], this.board.getTile(row, col));
             }
         }
     }
 
     @Test
     public void swapTiles() {
+        Tile[][] original = board.getTiles();
+        Random random = new Random();
+        int randomRow = random.nextInt(numRowCol);
+        int randomCol = random.nextInt(numRowCol);
+        int randomRow2 = random.nextInt(numRowCol);
+        int randomCol2 = random.nextInt(numRowCol);
 
+        Tile first = original[randomRow][randomCol];
+        Tile second = original[randomRow2][randomCol2];
+        board.swapTiles(randomRow, randomCol, randomRow2, randomCol2);
+
+        assertEquals(first, board.getTile(randomRow2, randomCol2));
+        assertEquals(second, board.getTile(randomRow, randomCol));
     }
 
     @Test
@@ -67,61 +78,10 @@ public class TileBoardTest {
 
     @Test
     public void getNumRowCol(){
-        double num = Math.sqrt(board.numTiles());
-        assertEquals(num, board.getNumRowCol());
+        assertEquals(numRowCol, board.getNumRowCol());
+    }
+
+    @Test
+    public void getTiles() {
     }
 }
-
-//    @Test
-//    public void NumTiles() {
-//        int exp_default = 16;
-//        int actual_default = t1.numTiles();
-//        // int exp_mod = 25
-//        // int actual_mod = t2.numTiles();
-//        // Need t2 to have numRowCol set to 5 in setup
-//
-//        assertEquals(exp_default, actual_default);
-//        assertEquals(exp_mod, actual_mod);
-//    }
-//
-//    @Test
-//    public void getTile() {
-//        // set up t1 with non randomized Tiles
-//        // get randomized row and col ints within bounds of numRowCol
-//        // getTile from t1 with arbitrary row col values
-//    }
-//
-//    @Test
-//    public void swapTiles() {
-//        // get two Tiles from t1
-//        // swapTiles on those two tiles
-//        // check that new tiles are in swapped positions
-//
-//    }
-//
-//    @Test
-//    public void iterator() {
-//        // should return a new Tile Iterator when called
-//    }
-//
-//    @Test
-//    public void iteratorHasNext() {
-//        // create new iterator with elements
-//        // next() a few times leaving some iterables remaining
-//        // hasnext should be true
-//    }
-//
-//    @Test
-//    public void iteratorNext() {
-//        // iterator with some elements
-//        // should be true at start
-//        // empty the iterator list, hasnext should be false
-//    }
-//
-//    @Test
-//    public void getNumRowCol() {
-//        // getNumRowCol on default board size should be 4
-//        // getNumRowCol on modified board should be 5
-//        //
-//    }
-//}
