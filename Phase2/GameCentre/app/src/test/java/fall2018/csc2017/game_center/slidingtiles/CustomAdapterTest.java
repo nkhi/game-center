@@ -22,12 +22,11 @@ public class CustomAdapterTest {
     private View view;
     private View view2;
     private ViewGroup parent;
-    private App
 
 
     @Before
     public void setup() {
-        Context context = mock(TileGameMenuActivity.class);
+        Context context = mock(Context.class);
         final ArrayList<Button> button = new ArrayList<>();
         TileCustomAdapter Testadpter = new TileCustomAdapter(button, 2, 3);
         Button e, x, z;
@@ -38,7 +37,7 @@ public class CustomAdapterTest {
         button.add(x);
         button.add(z);
         View v = null;
-        ViewGroup prt = new ViewGroup(context);
+        ViewGroup prt = null;
 
         this.parent = prt;
         this.view = v;
