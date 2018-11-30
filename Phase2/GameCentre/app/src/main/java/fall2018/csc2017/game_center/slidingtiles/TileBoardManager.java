@@ -71,7 +71,7 @@ public class TileBoardManager implements Serializable, Scoreable {
      * @param numRowCol number of rows and columns for board
      * @param numUndo   number of undo moves allowed
      */
-    public TileBoardManager(int numRowCol, int numUndo) {
+    TileBoardManager(int numRowCol, int numUndo) {
         List<Tile> tiles = new ArrayList<>();
         final int numTiles = numRowCol * numRowCol;
         for (int tileNum = 0; tileNum != numTiles - 1; tileNum++) {
@@ -102,23 +102,23 @@ public class TileBoardManager implements Serializable, Scoreable {
     }
 
     /**
-     * Manage a new shuffled board with default rows and columns
-     */
-    public TileBoardManager() {
-        this(TileBoard.DEFAULT_ROW_COL);
-    }
-
-    /**
-     * Manage a preset board with manually rows and columns
+     * Manage a preset board with manual rows and columns
      */
     public TileBoardManager(TileBoard board, int numRowCol, int numUndo){
         final int numTiles = numRowCol * numRowCol;
+
         this.board = board;
         undoQueue = new ArrayDeque<>();
         this.numUndo = numUndo;
         this.numRowCol = numRowCol;
         blankId = numTiles;
         numMoves = 0;
+    }
+    /**
+     * Manage a new shuffled board with default rows and columns
+     */
+    public TileBoardManager() {
+        this(TileBoard.DEFAULT_ROW_COL);
     }
 
     /**

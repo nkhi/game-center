@@ -93,7 +93,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param game Game to be saved
      */
-     public void saveGame(T game) {
+    public void saveGame(T game) {
         savedGames.add(new SavedState(game));
     }
 
