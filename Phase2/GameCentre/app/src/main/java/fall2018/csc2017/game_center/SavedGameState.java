@@ -41,7 +41,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
     /**
      * Creates a new SavedGameState with empty fields
      */
-    SavedGameState() {
+    public SavedGameState() {
         savedGames = new LinkedList<>();
     }
 
