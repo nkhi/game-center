@@ -77,7 +77,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @return the List of associated times with each save provided by the getSaves() method.
      */
-    List<String> getTimes() {
+    public List<String> getTimes() {
         List<String> list = new ArrayList<>();
         for (SavedState savedState : savedGames) {
             list.add(df.format(savedState.time));
@@ -121,7 +121,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param autoSave Game to be auto saved
      */
-    void setAutoSave(T autoSave) {
+    public void setAutoSave(T autoSave) {
         this.autoSave = new SavedState(autoSave);
     }
 
@@ -130,7 +130,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @return The game stored in the temporary slot
      */
-    T getTempSave() {
+    public T getTempSave() {
         return tempSave.save;
     }
 
@@ -139,7 +139,7 @@ public class SavedGameState<T extends Serializable> implements Serializable {
      *
      * @param tempSave Game to be stored in the temporary save slot
      */
-    void setTempSave(T tempSave) {
+    public void setTempSave(T tempSave) {
         this.tempSave = new SavedState(tempSave);
     }
 
