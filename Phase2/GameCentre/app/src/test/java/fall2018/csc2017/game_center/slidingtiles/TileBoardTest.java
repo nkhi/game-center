@@ -4,128 +4,107 @@ import org.junit.Test;
 import org.junit.Before;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-
-import fall2018.csc2017.game_center.R;
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
 public class TileBoardTest {
     private TileBoard board;
-    private List<Tile> tiles;
+    private List<Tile> tileList = new ArrayList<>();
+    int numRowCol = 4;
+    int numTiles = numRowCol * numRowCol;
 
+    /**
+     * Sets up a board with a list of numTiles Tiles and a board size of numRowCol by numRowCol.
+     */
     @Before
     public void setup() {
-        int numRowCol = this.board.getNumRowCol();
-        this.tiles = new ArrayList<Tile>();
-        final int numTiles = numRowCol * numRowCol;
-        for (int tileNum = 0; tileNum != numTiles - 1; tileNum++) {
-            tiles.add(new Tile(tileNum));
+        for (int x = 0; x != numTiles; x++) {
+            this.tileList.add(new Tile(x));
         }
-        tiles.add(new Tile(numTiles, R.drawable.tile_25));
-        this.board = new TileBoard(tiles, numRowCol);
+        this.board = new TileBoard(tileList, numRowCol);
     }
 
+    /**
+     * Checks if the getter return value for a board initialized with a known number of Tiles is correct.
+     */
     @Test
-    public void numTiles() {
-        for (int i = 0; i < board.getNumRowCol(); i++) {
-            for (int j = 0; j < board.getNumRowCol(); j++) {
-                assertEquals(i*j, board.numTiles());
-            }
-        }
-    }
+    public void numTiles() { assertEquals(this.board.numTiles(), numTiles); }
 
+    /**
+     * Compares every Tile in a board to the output accessed through (row,col) form.
+     */
     @Test
     public void getTile() {
-        for (int i = 0; i < board.getNumRowCol(); i++) {
-            for (int j = 0; j < board.getNumRowCol(); j++) {
-                assertNotNull(board.getTile(i, j));
+        Tile[][] tilesList = board.getTiles();
+        for (int row = 0; row != numRowCol; row++) {
+            for (int col = 0; col != numRowCol; col++) {
+                assertEquals(tilesList[row][col], this.board.getTile(row, col));
             }
         }
     }
 
+    /**
+     * Generates four random ints no larger than numRowCol and uses those numbers
+     * as row and column values to swap tiles at valid board locations. Compares tiles at
+     * positions before and after function execution.
+     */
     @Test
     public void swapTiles() {
+        Tile[][] original = board.getTiles();
+        Random random = new Random();
+        int randomRow = random.nextInt(numRowCol);
+        int randomCol = random.nextInt(numRowCol);
+        int randomRow2 = random.nextInt(numRowCol);
+        int randomCol2 = random.nextInt(numRowCol);
 
+        Tile first = original[randomRow][randomCol];
+        Tile second = original[randomRow2][randomCol2];
+        board.swapTiles(randomRow, randomCol, randomRow2, randomCol2);
+
+        assertEquals(first, board.getTile(randomRow2, randomCol2));
+        assertEquals(second, board.getTile(randomRow, randomCol));
     }
 
+    /**
+     * Checks if a non-empty collection returns True to hasNext().
+     * Checks if an empty collection returns False.
+     */
     @Test
-    public void iterator() {
-        // should return a new Tile Iterator when called
+    public void hasNext() {
+        Iterator<Tile> iter = tileList.iterator();
+        assertTrue(iter.hasNext());
+
+        List<Tile> emptyTileList = new ArrayList<>();
+        Iterator<Tile> iter2 = emptyTileList.iterator();
+        assertFalse(iter2.hasNext());
     }
 
+    /**
+     * Checks if method returns correct Tile object from a non-empty collection of Tiles.
+     */
     @Test
-    public void iteratorHasNext() {
-        // create new iterator with elements
-        // next() a few times leaving some iterables remaining
-        // hasnext should be true
+    public void next() {
+        Iterator<Tile> iter = tileList.iterator();
+        for (int i = 0; i != numTiles; i++) {
+            assertEquals(tileList.get(i), iter.next());
+        }
     }
 
-    @Test
-    public void iteratorNext() {
-        // iterator with some elements
-        // should be true at start
-        // empty the iterator list, hasnext should be false
-    }
-
-
+    /**
+     * Checks if the getter return value for a board initialized with a known numRowCol is correct.
+     */
     @Test
     public void getNumRowCol(){
-        double num = Math.sqrt(board.numTiles());
-        assertEquals(num, board.getNumRowCol());
+        assertEquals(numRowCol, board.getNumRowCol());
+    }
+
+    /**
+     * Checks if tile list returned matches expected list.
+     */
+    @Test
+    public void getTiles() {
     }
 }
-
-//    @Test
-//    public void NumTiles() {
-//        int exp_default = 16;
-//        int actual_default = t1.numTiles();
-//        // int exp_mod = 25
-//        // int actual_mod = t2.numTiles();
-//        // Need t2 to have numRowCol set to 5 in setup
-//
-//        assertEquals(exp_default, actual_default);
-//        assertEquals(exp_mod, actual_mod);
-//    }
-//
-//    @Test
-//    public void getTile() {
-//        // set up t1 with non randomized Tiles
-//        // get randomized row and col ints within bounds of numRowCol
-//        // getTile from t1 with arbitrary row col values
-//    }
-//
-//    @Test
-//    public void swapTiles() {
-//        // get two Tiles from t1
-//        // swapTiles on those two tiles
-//        // check that new tiles are in swapped positions
-//
-//    }
-//
-//    @Test
-//    public void iterator() {
-//        // should return a new Tile Iterator when called
-//    }
-//
-//    @Test
-//    public void iteratorHasNext() {
-//        // create new iterator with elements
-//        // next() a few times leaving some iterables remaining
-//        // hasnext should be true
-//    }
-//
-//    @Test
-//    public void iteratorNext() {
-//        // iterator with some elements
-//        // should be true at start
-//        // empty the iterator list, hasnext should be false
-//    }
-//
-//    @Test
-//    public void getNumRowCol() {
-//        // getNumRowCol on default board size should be 4
-//        // getNumRowCol on modified board should be 5
-//        //
-//    }
-//}

@@ -14,17 +14,17 @@ import java.util.Observable;
  */
 public class TileBoard extends Observable implements Serializable, Iterable<Tile> {
     /**
-     * Default number of rows and columns
+     * Default number of rows and columns.
      */
     static final int DEFAULT_ROW_COL = 4;
 
     /**
-     * The number of rows and columns
+     * The number of rows and columns.
      */
     private int numRowCol;
 
     /**
-     * The tiles on the board in row-major order
+     * The tiles on the board in row-major order.
      */
     private Tile[][] tiles;
 
@@ -57,7 +57,7 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
     }
 
     /**
-     * Return the tile at (row, col)
+     * Return the tile at (row, col).
      *
      * @param row the tile row
      * @param col the tile column
@@ -68,7 +68,7 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
     }
 
     /**
-     * Swap the tiles at (row1, col1) and (row2, col2)
+     * Swap the tiles at (row1, col1) and (row2, col2).
      *
      * @param row1 the first tile row
      * @param col1 the first tile col
@@ -85,7 +85,7 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
     }
 
     /**
-     * Return an iterator for all the tiles on the board
+     * Return an iterator for all the tiles on the board.
      *
      * @return an iterator for all the tiles on the board
      */
@@ -95,12 +95,12 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
         return new Iterator<Tile>() {
 
             /**
-             * Index of current iteration
+             * Index of current iteration.
              */
             private int currIndex = 0;
 
             /**
-             * Return whether the iterator has a next element
+             * Return True if the iterator has a next element, false otherwise.
              *
              * @return whether the iterator has a next element
              */
@@ -110,7 +110,7 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
             }
 
             /**
-             * Return the next tile in the board in row-major order
+             * Return the next tile in the board in row-major order.
              *
              * @return the next tile in the board in row-major order
              */
@@ -128,11 +128,20 @@ public class TileBoard extends Observable implements Serializable, Iterable<Tile
     }
 
     /**
-     * Return the number of rows/columns
+     * Return the number of rows/columns.
      *
      * @return number of rows/columns
      */
     int getNumRowCol() {
         return numRowCol;
+    }
+
+    /**
+     * Return the 2D list of tiles currently in play on this board.
+     *
+     * @return 2D List of Tiles
+     */
+    Tile[][] getTiles() {
+        return tiles;
     }
 }
