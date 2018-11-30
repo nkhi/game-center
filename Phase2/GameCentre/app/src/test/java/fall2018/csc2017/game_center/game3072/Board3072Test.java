@@ -1,5 +1,8 @@
 package fall2018.csc2017.game_center.game3072;
 
+import android.content.Context;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
@@ -13,10 +16,26 @@ public class Board3072Test {
     @Mock
     private Board3072 board2;
 
+    @Mock
+    private Context mMockContext;
+
+    @Before
+    public void setUp() throws Exception {
+        board1 = new Board3072();
+        board2 = new Board3072();
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                board1.getBoard()[i][j] = new Card3072(mMockContext);
+                board2.getBoard()[i][j] = new Card3072(mMockContext);
+            }
+        }
+    }
+
     @Test
     public void getBoard() {
-        assertEquals(0, board1.getBoard().length);
-        assertNull(board1.getBoard());
+        assertEquals(4, board1.getBoard().length);
+        assertNotNull(board1.getBoard());
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j ++) {
                 assertEquals(0, board1.getBoard()[i][j].getNum());
@@ -48,7 +67,9 @@ public class Board3072Test {
 
     @Test
     public void startGame() {
+        Board3072 board = board1;
         board1.startGame();
+
         int cnt = 0;
         for (int i = 0; i < 4; i ++){
             for (int j = 0; j < 4; j++){
@@ -57,59 +78,47 @@ public class Board3072Test {
                 }
             }
         }
-        assertEquals(3, cnt);
+        assertEquals(1, cnt);
     }
 
     @Test
     public void gestureUp() {
-        assertEquals(board1, board2);
         board2.gestureUp();
-        assertEquals(board1, board2);
         board1.getBoard()[0][3].setNum(3);
         board1.getBoard()[1][3].setNum(3);
         assertTrue(board1.gestureUp());
-        assertNotEquals(board1, board2);
+        assertNotEquals(board1.getBoard(), board2.getBoard());
         board2.getBoard()[0][3].setNum(6);
-        assertEquals(board1, board2);
     }
 
     @Test
     public void gestureDown() {
-        assertEquals(board1, board2);
-        board2.gestureDown();
-        assertEquals(board1, board2);
-        board1.getBoard()[0][3].setNum(3);
-        board1.getBoard()[1][3].setNum(3);
+        board1.getBoard()[3][0].setNum(3);
+        board1.getBoard()[3][1].setNum(3);
         assertTrue(board1.gestureDown());
-        assertNotEquals(board1, board2);
+        board1.gestureDown();
+        assertNotEquals(board1.getBoard(), board2.getBoard());
         board2.getBoard()[3][3].setNum(6);
-        assertEquals(board1, board2);
     }
 
     @Test
     public void gestureLeft() {
-        assertEquals(board1, board2);
         board2.gestureLeft();
-        assertEquals(board1, board2);
         board1.getBoard()[0][0].setNum(3);
-        board1.getBoard()[0][1].setNum(3);
+        board1.getBoard()[1][0].setNum(3);
         assertTrue(board1.gestureLeft());
-        assertNotEquals(board1, board2);
+        assertNotEquals(board1.getBoard(), board2.getBoard());
         board2.getBoard()[0][0].setNum(6);
-        assertEquals(board1, board2);
     }
 
     @Test
     public void gestureRight() {
-        assertEquals(board1, board2);
         board2.gestureRight();
-        assertEquals(board1, board2);
         board1.getBoard()[0][0].setNum(3);
         board1.getBoard()[0][1].setNum(3);
         assertTrue(board1.gestureRight());
-        assertNotEquals(board1, board2);
+        assertNotEquals(board1.getBoard(), board2.getBoard());
         board2.getBoard()[0][3].setNum(6);
-        assertEquals(board1, board2);
     }
 
     @Test
@@ -128,8 +137,8 @@ public class Board3072Test {
 
     @Test
     public void getScore() {
-        board2.startGame();
         assertEquals(0, board2.getScore());
+        board2.startGame();
         board2.getBoard()[0][0].setNum(24);
         board2.getBoard()[3][3].setNum(48);
         assertEquals(24+48, board2.getScore());
