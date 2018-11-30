@@ -222,11 +222,10 @@ class TileBoardManager implements Serializable, Scoreable {
      * @return the row of the blank tile
      */
     private int getBlankRow(List<Tile> tiles, int numRowCol) {
-        System.out.println(numRowCol);
         int numTiles = numRowCol * numRowCol;
         for (int i = 0; i < tiles.size(); i++) {
             if (tiles.get(i).getId() == numTiles)
-                return i / numRowCol;
+                return (i+1) / numRowCol;
         }
         return numTiles / numRowCol;
     }
