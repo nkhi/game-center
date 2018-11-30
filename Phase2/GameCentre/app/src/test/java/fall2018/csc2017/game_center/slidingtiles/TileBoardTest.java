@@ -11,8 +11,8 @@ import java.util.Random;
 import static org.junit.Assert.*;
 
 public class TileBoardTest {
-    private TileBoard board;
-    private List<Tile> tileList = new ArrayList<>();
+    public TileBoard board;
+    public List<Tile> tileList = new ArrayList<>();
     int numRowCol = 4;
     int numTiles = numRowCol * numRowCol;
 
@@ -71,7 +71,7 @@ public class TileBoardTest {
     /**
      * Checks if a non-empty collection returns True to hasNext().
      * Checks if an empty collection returns False.
-     */
+    */
     @Test
     public void hasNext() {
         Iterator<Tile> iter = tileList.iterator();
