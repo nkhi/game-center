@@ -12,34 +12,30 @@ import static org.junit.Assert.*;
 
 public class TileBoardTest {
     private TileBoard board;
-    private List<Tile> tiles;
+    private List<Tile> tileList = new ArrayList<>();
+    private Tile[][] tiles;
+    int numRowCol = 4;
+    int numTiles = numRowCol * numRowCol;
 
     @Before
     public void setup() {
-        int numRowCol = this.board.getNumRowCol();
-        this.tiles = new ArrayList<Tile>();
-        final int numTiles = numRowCol * numRowCol;
-        for (int tileNum = 0; tileNum != numTiles - 1; tileNum++) {
-            tiles.add(new Tile(tileNum));
+        for (int x = 0; x != numTiles; x++) {
+            this.tileList.add(new Tile(x));
         }
-        tiles.add(new Tile(numTiles, R.drawable.tile_25));
-        this.board = new TileBoard(tiles, numRowCol);
+        this.board = new TileBoard(tileList, numRowCol);
     }
 
     @Test
     public void numTiles() {
-        for (int i = 0; i < board.getNumRowCol(); i++) {
-            for (int j = 0; j < board.getNumRowCol(); j++) {
-                assertEquals(i*j, board.numTiles());
-            }
-        }
+        assertEquals(this.board.getNumRowCol(), numRowCol);
     }
 
     @Test
     public void getTile() {
-        for (int i = 0; i < board.getNumRowCol(); i++) {
-            for (int j = 0; j < board.getNumRowCol(); j++) {
-                assertNotNull(board.getTile(i, j));
+        for (int row = 0; row != numRowCol; row++) {
+            for (int col = 0; col != numRowCol; col++) {
+                int xd = 0;
+                assertEquals(+++, this.board.getTile(row, col));
             }
         }
     }
