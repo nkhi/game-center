@@ -63,11 +63,86 @@ public class PRBoardTest {
     }
 
     @Test
-    public void applyMove() {
+    public void applyMoveForward() {
+        assertEquals(board.getSquare(1, 1).occupiedBy(), PRColor.WHITE);
+        assertEquals(board.getSquare(1, 3).occupiedBy(), PRColor.NONE);
+        board.applyMove(new PRMove(board.getSquare(1, 1),
+                board.getSquare(1, 3), false, false));
+        assertEquals(board.getSquare(1, 3).occupiedBy(), PRColor.WHITE);
+        assertEquals(board.getSquare(1, 1).occupiedBy(), PRColor.NONE);
+    }
+
+    @Test
+    public void applyMoveCapture() {
+        board.applyMove(new PRMove(board.getSquare(1, 1),
+                board.getSquare(1, 3), false, false));
+        board.applyMove(new PRMove(board.getSquare(2, 6),
+                board.getSquare(2, 4), false, false));
+        board.applyMove(new PRMove(board.getSquare(1, 3),
+                board.getSquare(2, 4), true, false));
+        assertEquals(board.getSquare(2, 4).occupiedBy(), PRColor.WHITE);
+        assertEquals(board.getSquare(1, 3).occupiedBy(), PRColor.NONE);
+        assertEquals(board.getSquare(2, 6).occupiedBy(), PRColor.NONE);
+    }
+
+    @Test
+    public void applyMoveEnPassantCaptureWhite() {
+        board.applyMove(new PRMove(board.getSquare(1, 1),
+                board.getSquare(1, 4), false, false));
+        board.applyMove(new PRMove(board.getSquare(2, 6),
+                board.getSquare(2, 4), false, false));
+        assertEquals(board.getSquare(2, 4).occupiedBy(), PRColor.BLACK);
+        board.applyMove(new PRMove(board.getSquare(1, 4),
+                board.getSquare(2, 5), true, true));
+        assertEquals(board.getSquare(2, 5).occupiedBy(), PRColor.WHITE);
+        assertEquals(board.getSquare(2, 4).occupiedBy(), PRColor.NONE);
+        assertEquals(board.getSquare(1, 4).occupiedBy(), PRColor.NONE);
+    }
+
+    @Test
+    public void applyMoveEnPassantCaptureBlack() {
+        board.applyMove(new PRMove(board.getSquare(1, 6),
+                board.getSquare(1, 3), false, false));
+        board.applyMove(new PRMove(board.getSquare(2, 1),
+                board.getSquare(2, 3), false, false));
+        board.applyMove(new PRMove(board.getSquare(1, 3),
+                board.getSquare(2, 2), true, true));
+        assertEquals(board.getSquare(2, 2).occupiedBy(), PRColor.BLACK);
+        assertEquals(board.getSquare(1, 3).occupiedBy(), PRColor.NONE);
+        assertEquals(board.getSquare(2, 3).occupiedBy(), PRColor.NONE);
     }
 
     @Test
     public void unapplyMove() {
+        PRMove move = new PRMove(board.getSquare(1, 1),
+                board.getSquare(1, 3), false, false);
+        board.applyMove(move);
+        board.unapplyMove(move);
+        assertEquals(board.getSquare(1, 1).occupiedBy(), PRColor.WHITE);
+        assertEquals(board.getSquare(1, 3).occupiedBy(), PRColor.NONE);
+        board.applyMove(move);
+        PRMove move1 = new PRMove(board.getSquare(2, 6),
+                board.getSquare(2, 4), false, false);
+        PRMove move2 = new PRMove(board.getSquare(2, 4),
+                board.getSquare(1, 3), true, false);
+        board.applyMove(move1);
+        board.applyMove(move2);
+        assertEquals(PRColor.BLACK, board.getSquare(1,3).occupiedBy());
+        board.unapplyMove(move2);
+        assertEquals(PRColor.WHITE, board.getSquare(1,3).occupiedBy());
+    }
+
+    @Test
+    public void unapplyMoveEnPassantCapture() {
+        applyMoveEnPassantCaptureWhite();
+        board.unapplyMove(new PRMove(board.getSquare(1, 4),
+                board.getSquare(2, 5), true, true));
+        assertEquals(PRColor.BLACK, board.getSquare(2, 4).occupiedBy());
+        applyMoveEnPassantCaptureBlack();
+        board.unapplyMove(new PRMove(board.getSquare(1, 3),
+                board.getSquare(2, 2), true, true));
+        assertEquals(PRColor.BLACK, board.getSquare(1, 3).occupiedBy());
+        assertEquals(PRColor.WHITE, board.getSquare(2, 3).occupiedBy());
     }
 
 
