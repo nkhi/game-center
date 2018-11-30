@@ -13,7 +13,7 @@ import fall2018.csc2017.game_center.Scoreable;
 /**
  * Manage a board, including swapping tiles, checking for a win, and managing taps.
  */
-class TileBoardManager implements Serializable, Scoreable {
+public class TileBoardManager implements Serializable, Scoreable {
 
     /**
      * Constant for infinity undo moves allowed
@@ -102,9 +102,22 @@ class TileBoardManager implements Serializable, Scoreable {
     }
 
     /**
+     * Manage a preset board with manual rows and columns
+     */
+    public TileBoardManager(TileBoard board, int numRowCol, int numUndo){
+        final int numTiles = numRowCol * numRowCol;
+
+        this.board = board;
+        undoQueue = new ArrayDeque<>();
+        this.numUndo = numUndo;
+        this.numRowCol = numRowCol;
+        blankId = numTiles;
+        numMoves = 0;
+    }
+    /**
      * Manage a new shuffled board with default rows and columns
      */
-    TileBoardManager() {
+    public TileBoardManager() {
         this(TileBoard.DEFAULT_ROW_COL);
     }
 
@@ -161,7 +174,7 @@ class TileBoardManager implements Serializable, Scoreable {
      * @see <a href="https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html">
      *     Solvability of the Tiles Game</a>
      */
-    private boolean isSolvable(List<Tile> tiles, int numRowCol) {
+    boolean isSolvable(List<Tile> tiles, int numRowCol) {
         boolean solvable = false;
 
         if (numRowCol % 2 == 1) {
@@ -209,11 +222,10 @@ class TileBoardManager implements Serializable, Scoreable {
      * @return the row of the blank tile
      */
     private int getBlankRow(List<Tile> tiles, int numRowCol) {
-        System.out.println(numRowCol);
         int numTiles = numRowCol * numRowCol;
         for (int i = 0; i < tiles.size(); i++) {
             if (tiles.get(i).getId() == numTiles)
-                return i / numRowCol;
+                return (i+1) / numRowCol;
         }
         return numTiles / numRowCol;
     }
