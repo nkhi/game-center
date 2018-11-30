@@ -58,5 +58,9 @@ public class ScoreTest {
 
     @Test
     public void equals() {
+        Score equalScore = new Score("test", tileBoardManager);
+        assertEquals(true, score.equals(score));
+        assertFalse(score.equals(null));
+        assertFalse(score.equals(equalScore));
     }
 }
