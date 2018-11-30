@@ -19,9 +19,6 @@ import static org.mockito.Mockito.mock;
 public class TileCustomAdapterTest {
     private TileCustomAdapter adapter;
     private ArrayList<Button> buttons;
-    private View view;
-    private View view2;
-    private ViewGroup parent;
 
 
     @Before
@@ -36,28 +33,21 @@ public class TileCustomAdapterTest {
         button.add(e);
         button.add(x);
         button.add(z);
-        View v = null;
-        ViewGroup prt = null;
 
-        this.parent = prt;
-        this.view = v;
-        this.view2 = e;
         this.adapter = Testadpter;
         this.buttons = button;
-
 
     }
 
     @Test
     public void getCount() {
-
         assertEquals(3, adapter.getCount());
     }
 
     @Test
     public void getItem() {
-                for (int i = 0; i < adapter.getCount();i++) {
-                    assertEquals(buttons.get(i), adapter.getItem(i));
+        for (int i = 0; i < adapter.getCount();i++) {
+            assertEquals(buttons.get(i), adapter.getItem(i));
         }
     }
 
@@ -67,16 +57,5 @@ public class TileCustomAdapterTest {
             assertEquals(i, adapter.getItemId(i));
         }
     }
-/*
-    @Test
-    public void getView() {
-        assertNull(view);
-        for(int i = 0; i < adapter.getCount();i++) {assertEquals(buttons.get(i), adapter.getView(i, view, parent));}
-        assertNotNull(view2);
-        for(int i = 0; i < adapter.getCount();i++) {assertEquals(view2, adapter.getView(i, view2, parent));}
 
-
-
-    }
-    */
 }

@@ -71,7 +71,6 @@ class PRMinimaxAI implements Serializable {
      */
     PRMove minimaxBestMove() {
         depth = calculateDepth();
-        System.out.println(depth);
         return minimaxBestMove(depth);
     }
 

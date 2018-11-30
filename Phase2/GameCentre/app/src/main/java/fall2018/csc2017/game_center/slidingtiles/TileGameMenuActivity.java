@@ -18,7 +18,7 @@ public class TileGameMenuActivity extends SaveManager<TileBoardManager> {
     /**
      * Constant suffix for the sliding tile save file (unique per user)
      */
-    public static final String TILE_SAVE_FILE = "_tile_saves.ser";
+    static final String TILE_SAVE_FILE = "_tile_saves.ser";
 
     /**
      * Complexity of the tile game

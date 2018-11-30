@@ -36,8 +36,10 @@ public class PRPlayerAndMinimaxAITest {
         getSquare(7, 6).setOccupier(PRColor.WHITE);
         getSquare(1, 4).setOccupier(PRColor.WHITE);
         getSquare(1, 1).setOccupier(PRColor.WHITE);
-        player = new PRPlayer(game, game.getBoard(), PRColor.WHITE, false, 3, -1);
-        opponent = new PRPlayer(game, game.getBoard(), PRColor.BLACK, true, 3, -1);
+        player = new PRPlayer(game, game.getBoard(), PRColor.WHITE, false,
+                3, -1);
+        opponent = new PRPlayer(game, game.getBoard(), PRColor.BLACK, true,
+                PRPlayer.DYNAMIC_DEPTH, -1);
         player.setOpponent(opponent);
         opponent.setOpponent(player);
     }
@@ -153,7 +155,7 @@ public class PRPlayerAndMinimaxAITest {
     public void testGetScore() {
         assertEquals(0, player.getScore());
         moveToWin();
-        assertEquals(60, player.getScore());
+        assertEquals(100, player.getScore());
     }
 
     /**
@@ -175,6 +177,13 @@ public class PRPlayerAndMinimaxAITest {
                 checker = true;
         }
         assertTrue(checker);
+    }
+
+    @Test
+    public void testMakeMove() {
+        player.processTap(1, 1);
+        player.processTap(1, 3);
+        assertEquals(PRColor.WHITE, player.getBoard().getSquare(1, 3).occupiedBy());
     }
 
 }

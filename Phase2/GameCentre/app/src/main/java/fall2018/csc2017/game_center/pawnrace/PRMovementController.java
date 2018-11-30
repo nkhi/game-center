@@ -64,7 +64,7 @@ class PRMovementController {
      * Enum of a tap result that allows three outcomes
      */
     enum TapResult {
-        MOVED, INIT, INVALID;
+        MOVED, INIT, INVALID
     }
 
 }

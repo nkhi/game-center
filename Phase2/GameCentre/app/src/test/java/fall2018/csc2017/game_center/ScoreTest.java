@@ -59,8 +59,14 @@ public class ScoreTest {
     @Test
     public void equals() {
         Score equalScore = new Score("test", tileBoardManager);
-        assertEquals(true, score.equals(score));
-        assertFalse(score.equals(null));
-        assertFalse(score.equals(equalScore));
+        assertEquals(score, score);
+        assertNotEquals(score, null);
+        assertNotEquals(score, equalScore);
+    }
+
+    @Test
+    public void hashCodeTest() {
+        Score hashCodeTest = new Score("testuser", tileBoardManager);
+        assertEquals(score.hashCode(), hashCodeTest.hashCode());
     }
 }

@@ -11,10 +11,11 @@ import java.util.Random;
 import static org.junit.Assert.*;
 
 public class TileBoardTest {
-    public TileBoard board;
-    public List<Tile> tileList = new ArrayList<>();
-    int numRowCol = 4;
-    int numTiles = numRowCol * numRowCol;
+
+    private TileBoard board;
+    private List<Tile> tileList = new ArrayList<>();
+    private int numRowCol = 4;
+    private int numTiles = numRowCol * numRowCol;
 
     /**
      * Sets up a board with a list of numTiles Tiles and a board size of numRowCol by numRowCol.
@@ -74,10 +75,10 @@ public class TileBoardTest {
     */
     @Test
     public void hasNext() {
-        Iterator<Tile> iter = tileList.iterator();
+        Iterator<Tile> iter = board.iterator();
         assertTrue(iter.hasNext());
 
-        List<Tile> emptyTileList = new ArrayList<>();
+        TileBoard emptyTileList = new TileBoard(new ArrayList<Tile>(), 0);
         Iterator<Tile> iter2 = emptyTileList.iterator();
         assertFalse(iter2.hasNext());
     }
@@ -87,9 +88,9 @@ public class TileBoardTest {
      */
     @Test
     public void next() {
-        Iterator<Tile> iter = tileList.iterator();
+        Iterator<Tile> iter = board.iterator();
         for (int i = 0; i != numTiles; i++) {
-            assertEquals(tileList.get(i), iter.next());
+            assertEquals(0, iter.next().compareTo(new Tile(i)));
         }
     }
 
@@ -101,10 +102,4 @@ public class TileBoardTest {
         assertEquals(numRowCol, board.getNumRowCol());
     }
 
-    /**
-     * Checks if tile list returned matches expected list.
-     */
-    @Test
-    public void getTiles() {
-    }
 }

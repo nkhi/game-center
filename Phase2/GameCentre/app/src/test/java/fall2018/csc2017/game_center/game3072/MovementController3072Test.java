@@ -40,10 +40,6 @@ public class MovementController3072Test {
         }
     }
 
-    @After
-    public void tearDown() throws Exception {
-    }
-
     //TODO
     @Test
     public void setBoard() {
@@ -137,6 +133,7 @@ public class MovementController3072Test {
             }
         }
         assertEquals(2, cnt);
+        mc3072.setBoard(board1);
         board1.getBoard()[0][3].setNum(6);
         board1.getBoard()[0][2].setNum(3);
         mc3072.swipeLeft();
@@ -149,8 +146,9 @@ public class MovementController3072Test {
             }
         }
         assertEquals(2, cnt);
-        board2.getBoard()[0][3].setNum(12);
-        board2.getBoard()[0][2].setNum(12);
+        mc3072.setBoard(board2);
+        board2.getBoard()[0][3].setNum(3);
+        board2.getBoard()[0][2].setNum(3);
         board2.getBoard()[0][0].setNum(3);
         board2.getBoard()[0][1].setNum(3);
         board2.getBoard()[1][3].setNum(3);
@@ -163,7 +161,7 @@ public class MovementController3072Test {
                 }
             }
         }
-        assertEquals(5, cnt);
+        assertEquals(4, cnt);
     }
 
     @Test
